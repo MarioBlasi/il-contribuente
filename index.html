@@ -979,7 +979,7 @@
     if (window.scrollY > 400) { btn.classList.add('show'); }
     else { btn.classList.remove('show'); }
   });
-
+ 
   // Contatore visite, si azzera ogni giorno alle 7:00 (ora Italia)
   (function(){
     var el = document.getElementById('viewCounter');
@@ -991,11 +991,10 @@
     var m = String(shifted.getMonth()+1).padStart(2,'0');
     var d = String(shifted.getDate()).padStart(2,'0');
     var dayKey = y + m + d;
-    fetch('https://api.counterapi.dev/v1/ilcontribuente/' + dayKey + '/up')
+    fetch('https://abacus.jasoncameron.dev/hit/ilcontribuente/' + dayKey)
       .then(function(r){ return r.json(); })
       .then(function(data){
-        var count = data.count !== undefined ? data.count : data.value;
-        el.textContent = 'Letture di oggi: ' + count;
+        el.textContent = 'Letture di oggi: ' + data.value;
       })
       .catch(function(){
         el.style.display = 'none';
