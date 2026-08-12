@@ -146,6 +146,72 @@
     100%{transform:translateX(-50%);}
   }
 
+  /* ===== MARKET BAR (fissa sotto il ticker, riquadri) ===== */
+  .market-bar{
+    position:sticky;
+    top:0;
+    z-index:30;
+    background:linear-gradient(160deg, #1c1f24, #0f1114);
+    border-bottom:2px solid var(--gold);
+    box-shadow: 0 4px 14px rgba(0,0,0,.3);
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+  }
+  .market-bar-inner{
+    display:flex;
+    align-items:stretch;
+    justify-content:center;
+    gap:12px;
+    padding:14px 6vw;
+    white-space:nowrap;
+    flex-wrap:wrap;
+  }
+  .market-card{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+    gap:4px;
+    background:linear-gradient(160deg, #2a2e34, #1a1d21);
+    border:1px solid #34383e;
+    border-radius:8px;
+    padding:12px 20px;
+    flex-shrink:0;
+    min-width:120px;
+  }
+  .market-label{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    color:#8a8f97;
+  }
+  .market-value{
+    font-family:'JetBrains Mono',monospace;
+    font-size:20px;
+    font-weight:700;
+    color:#e9e4d6;
+    line-height:1.2;
+  }
+  .market-delta{ font-size:11.5px; }
+  .market-delta.up{ color:#e07a5f; }
+  .market-delta.down{ color:#7fb787; }
+  .market-source{
+    font-family:'Inter',sans-serif;
+    font-size:9.5px;
+    color:#6b7178;
+    line-height:1.3;
+    max-width:130px;
+  }
+  @media (max-width:640px){
+    .market-bar-inner{ padding:10px 5vw; gap:8px; }
+    .market-card{ padding:9px 14px; min-width:96px; }
+    .market-label{ font-size:9.5px; }
+    .market-value{ font-size:16px; }
+    .market-delta{ font-size:10px; }
+    .market-source{ font-size:8.5px; max-width:110px; }
+  }
+
   /* ===== LAYOUT ===== */
   .wrap{
     max-width:1260px;
@@ -608,6 +674,45 @@
   </div>
 </div>
 
+<div class="market-bar">
+  <div class="market-bar-inner">
+    <div class="market-card">
+      <span class="market-label">Benzina</span>
+      <span class="market-value">1,986€/L</span>
+      <span class="market-source">media nazionale, dati MIMIT</span>
+    </div>
+    <div class="market-card">
+      <span class="market-label">Gasolio</span>
+      <span class="market-value">2,078€/L</span>
+      <span class="market-source">media nazionale, dati MIMIT</span>
+    </div>
+    <div class="market-card">
+      <span class="market-label">Petrolio (Brent)</span>
+      <span class="market-value">77,6€</span>
+      <span class="market-delta up">+0,6%</span>
+      <span class="market-source">al barile, quotazione ICE</span>
+    </div>
+    <div class="market-card">
+      <span class="market-label">Gas</span>
+      <span class="market-value">&lt;59€</span>
+      <span class="market-delta down">↓</span>
+      <span class="market-source">al MWh, mercato TTF</span>
+    </div>
+    <div class="market-card">
+      <span class="market-label">Oro</span>
+      <span class="market-value">3.797€</span>
+      <span class="market-delta down">-0,2%</span>
+      <span class="market-source">l'oncia, quotazione spot</span>
+    </div>
+    <div class="market-card">
+      <span class="market-label">Bitcoin</span>
+      <span class="market-value">55.179€</span>
+      <span class="market-delta down">-46,5% 1A</span>
+      <span class="market-source">dal massimo storico</span>
+    </div>
+  </div>
+</div>
+
 <div class="wrap">
 
   <!-- STAT STRIP -->
@@ -626,11 +731,6 @@
       <div class="stat-label">Migranti arrivati a Ceuta</div>
       <div class="stat-value">72.000</div>
       <div class="stat-delta">70.000 già rientrati in Marocco</div>
-    </div>
-    <div class="stat green">
-      <div class="stat-label">Prezzo gas</div>
-      <div class="stat-value">&lt;59€</div>
-      <div class="stat-delta down">su speranze distensione Hormuz</div>
     </div>
     <div class="stat">
       <div class="stat-label">Manovra 2026</div>
@@ -655,17 +755,25 @@
       </div>
       <div class="duel-grid">
         <div class="duel-side left">
-          <span class="duel-tag">Il Fatto Quotidiano</span>
+          <span class="duel-tag">Il Fatto Quotidiano · Repubblica</span>
           <div class="duel-headline">"Voleva favorire l'ascesa politica di Ranucci"</div>
-          <p class="body">Il taglio è giudiziario e garantista verso la vittima: si insiste sul fatto che Ranucci non sapesse nulla del piano, che il gip lo scagiona da ogni accordo con l'attentatore, e si dà ampio spazio alla ricostruzione della gip Moricca sul movente politico di Lavitola.</p>
-          <p class="body">Il quotidiano riporta anche la reazione di Ranucci contro Il Giornale, presentandola come sfogo comprensibile dopo mesi di attacchi mediatici.</p>
-          <span class="source">Fonte: Il Fatto Quotidiano</span>
+          <p class="body">Il taglio è giudiziario e garantista verso la vittima: si insiste sul fatto che Ranucci non sapesse nulla del piano, che il gip lo scagiona da ogni accordo con l'attentatore, e si dà ampio spazio alla ricostruzione della gip Moricca sul movente politico di Lavitola. Repubblica sottolinea inoltre la gravità dell'aggravante mafiosa contestata a tutti gli indagati.</p>
+          <p class="body">Il Fatto Quotidiano riporta anche la reazione di Ranucci contro Il Giornale, presentandola come sfogo comprensibile dopo mesi di attacchi mediatici.</p>
+          <span class="source">Fonti: Il Fatto Quotidiano · Repubblica</span>
         </div>
         <div class="duel-side right">
-          <span class="duel-tag">Il Giornale &middot; La Verità</span>
+          <span class="duel-tag">Il Giornale · La Verità</span>
           <div class="duel-headline">"Ranucci minaccia: il male che avete fatto tornerà"</div>
           <p class="body">Il taglio sposta il focus su Ranucci stesso: Il Giornale titola sulla sua risposta a una loro domanda ("il male che avete fatto tornerà"), leggendola come una vendetta annunciata. La Verità pubblica le chat tra Ranucci e Lavitola, insistendo sul rapporto di amicizia stretta tra i due, sul sondaggio di popolarità commissionato e sul progetto di candidatura politica — elementi che, pur scagionando Ranucci da un accordo formale, ne raccontano un coinvolgimento più ambiguo di quanto emerga altrove.</p>
           <span class="source">Fonti: Il Giornale · La Verità</span>
+        </div>
+      </div>
+      <div class="duel-grid" style="grid-template-columns:1fr; border-top:1px solid var(--rule);">
+        <div class="duel-side left" style="border-right:none; background:linear-gradient(160deg, #f0ece0, #e7e1d2);">
+          <span class="duel-tag">L'Indipendente</span>
+          <div class="duel-headline">"Un caso che interroga i rapporti tra informazione e potere"</div>
+          <p class="body">L'Indipendente si concentra meno sulla cronaca giudiziaria e più sul contesto: da tempo Ranucci è bersaglio di pressioni e intimidazioni per le inchieste di Report, e questo episodio si inserisce in una serie più ampia di attacchi al giornalismo d'inchiesta in Italia, indipendentemente da chi ne sia il mandante specifico.</p>
+          <span class="source">Fonte: L'Indipendente</span>
         </div>
       </div>
     </div>
@@ -678,18 +786,25 @@
       </div>
       <div class="duel-grid">
         <div class="duel-side left">
-          <span class="duel-tag">Repubblica</span>
+          <span class="duel-tag">Repubblica · Il Fatto Quotidiano</span>
           <div class="duel-headline">"Emergenza migranti, l'UE respinge l'Italia"</div>
-          <p class="body">Il titolo di Repubblica racconta un'Unione Europea che boccia la linea italiana. L'accento cade sull'isolamento di Roma sul piano diplomatico e sulla durezza — giudicata sproporzionata — della sospensione di Schengen verso un paese alleato.</p>
-          <p class="body">Da segnalare: nello stesso giorno, anche Domani e Il Manifesto hanno dato una lettura diversa da Repubblica, parlando invece di "Sanchez isolato" — le testate non raccontano tutte la stessa cosa allo stesso modo.</p>
-          <span class="source">Fonte: Repubblica</span>
+          <p class="body">Il titolo di Repubblica racconta un'Unione Europea che boccia la linea italiana. L'accento cade sull'isolamento di Roma sul piano diplomatico e sulla durezza — giudicata sproporzionata — della sospensione di Schengen verso un paese alleato. Il Fatto Quotidiano rincara sottolineando i costi economici della misura per il traffico commerciale di confine.</p>
+          <span class="source">Fonti: Repubblica · Il Fatto Quotidiano</span>
         </div>
         <div class="duel-side right">
-          <span class="duel-tag">Il Giornale &middot; La Verità</span>
+          <span class="duel-tag">Il Giornale · La Verità</span>
           <div class="duel-headline">"Meloni guida l'Europa, Sánchez isolato"</div>
           <p class="body">Il taglio ribalta la narrazione: la maggioranza dei paesi UE (21 su 22 più l'Italia) avrebbe di fatto avallato il modello Meloni su rimpatri e hub esterni, lasciando Spagna e Francia in minoranza. Il Giornale accusa esplicitamente Repubblica di "vedere una realtà che non esiste".</p>
           <p class="body">La Verità inquadra lo scontro come un test di tenuta politica: Meloni stabile, Sánchez indebolito da scandali giudiziari interni al suo partito.</p>
           <span class="source">Fonti: Il Giornale · La Verità</span>
+        </div>
+      </div>
+      <div class="duel-grid" style="grid-template-columns:1fr; border-top:1px solid var(--rule);">
+        <div class="duel-side left" style="border-right:none; background:linear-gradient(160deg, #f0ece0, #e7e1d2);">
+          <span class="duel-tag">Domani</span>
+          <div class="duel-headline">"Un fronte europeo diviso, non un duello a due"</div>
+          <p class="body">Domani si distanzia dal taglio "Meloni contro Sánchez": nello stesso giorno pubblica una lettura diversa da Repubblica, parlando di "Sánchez isolato" su alcuni dossier ma non su tutti, e mette in guardia dal ridurre una crisi europea complessa a un duello personale tra due premier.</p>
+          <span class="source">Fonte: Domani</span>
         </div>
       </div>
     </div>
@@ -714,6 +829,14 @@
           <p class="body">Qui il contrasto passa dentro la stessa maggioranza: la Lega rivendica il contributo come una vera tassa sugli extraprofitti bancari, mentre Forza Italia nega che si tratti di una tassa e si dice soddisfatta di aver evitato un prelievo punitivo per il settore del credito, temendo l'impatto sui mercati finanziari e sul rating.</p>
           <p class="body">Meloni si posiziona al centro: ha chiuso l'intesa con una telefonata diretta ai vertici dell'ABI, presentando il compromesso come equilibrio tra le due anime della coalizione.</p>
           <span class="source">Fonti: Il Fatto Quotidiano · Italia Informa</span>
+        </div>
+      </div>
+      <div class="duel-grid" style="grid-template-columns:1fr; border-top:1px solid var(--rule);">
+        <div class="duel-side left" style="border-right:none; background:linear-gradient(160deg, #f0ece0, #e7e1d2);">
+          <span class="duel-tag">Il Sole 24 Ore</span>
+          <div class="duel-headline">"Compromesso tecnico, non punitivo per il settore"</div>
+          <p class="body">Il quotidiano economico si concentra sui numeri più che sulla polemica politica: descrive la misura come un compromesso che permette al settore bancario di pianificare con certezza il costo fiscale nel triennio, evitando la volatilità di un prelievo straordinario deciso anno per anno.</p>
+          <span class="source">Fonte: Il Sole 24 Ore</span>
         </div>
       </div>
     </div>
@@ -979,7 +1102,7 @@
     if (window.scrollY > 400) { btn.classList.add('show'); }
     else { btn.classList.remove('show'); }
   });
- 
+
   // Contatore visite, si azzera ogni giorno alle 7:00 (ora Italia)
   (function(){
     var el = document.getElementById('viewCounter');
