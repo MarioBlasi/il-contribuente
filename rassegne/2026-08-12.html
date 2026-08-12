@@ -203,6 +203,91 @@
     line-height:1.3;
     max-width:130px;
   }
+
+  /* ===== CITAZIONE DEL GIORNO ===== */
+  .quote-day{
+    max-width:1260px;
+    margin:0 auto 40px auto;
+    padding:0 6vw;
+  }
+  .quote-day-inner{
+    background:linear-gradient(160deg, #f3e6c4, #ecdcb2);
+    border-left:5px solid var(--gold);
+    border-radius:8px;
+    padding:22px 28px;
+    box-shadow: var(--shadow-md), inset 0 1px 0 rgba(255,255,255,.4);
+  }
+  .quote-day-label{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--gold-deep);
+    margin-bottom:8px;
+  }
+  .quote-day-text{
+    font-family:'Fraunces',serif;
+    font-style:italic;
+    font-size:20px;
+    line-height:1.4;
+    color:var(--ink);
+    margin-bottom:8px;
+  }
+  .quote-day-author{
+    font-family:'Inter',sans-serif;
+    font-size:13px;
+    color:var(--ink-soft);
+  }
+  @media (max-width:640px){
+    .quote-day-inner{ padding:16px 18px; }
+    .quote-day-text{ font-size:16px; }
+  }
+
+  /* ===== INDICE ===== */
+  .toc{
+    max-width:1260px;
+    margin:0 auto 44px auto;
+    padding:0 6vw;
+  }
+  .toc-inner{
+    background:linear-gradient(165deg, #ffffff 0%, var(--card) 60%);
+    border-radius:10px;
+    padding:18px 24px;
+    box-shadow: var(--shadow-md);
+    display:flex;
+    align-items:center;
+    gap:14px;
+    flex-wrap:wrap;
+  }
+  .toc-label{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    flex-shrink:0;
+  }
+  .toc-links{
+    display:flex;
+    gap:6px;
+    flex-wrap:wrap;
+  }
+  .toc-link{
+    font-family:'Inter',sans-serif;
+    font-size:13px;
+    font-weight:600;
+    color:var(--ink);
+    background:var(--paper2);
+    border-radius:20px;
+    padding:6px 14px;
+    text-decoration:none;
+    transition:background .15s ease;
+  }
+  .toc-link:hover{ background:var(--gold); color:#fff; }
+  @media (max-width:640px){
+    .toc-inner{ padding:14px 16px; gap:10px; }
+    .toc-link{ font-size:12px; padding:5px 12px; }
+  }
   @media (max-width:640px){
     .market-bar-inner{
       display:grid;
@@ -283,6 +368,7 @@
   /* ===== SECTION HEADER ===== */
   .section{
     margin-bottom:52px;
+    scroll-margin-top:90px;
   }
   .section-head{
     display:flex;
@@ -683,7 +769,7 @@
 <div class="masthead">
   <div class="masthead-top">
     <span>Edizione digitale &middot; Mercoledì</span>
-    <span>12 Agosto 2026</span>
+    <span>12 Agosto 2026 &middot; ore 07:00</span>
     <span>Rassegna stampa quotidiana</span>
     <span id="viewCounter">Letture di oggi: —</span>
   </div>
@@ -763,6 +849,32 @@
 
 <div class="wrap">
 
+  <!-- INDICE -->
+  <div class="toc">
+    <div class="toc-inner">
+      <span class="toc-label">Indice</span>
+      <div class="toc-links">
+        <a href="#confronto" class="toc-link">Confronto</a>
+        <a href="#tresguardi" class="toc-link">Tre sguardi</a>
+        <a href="#estero" class="toc-link">Dall'estero</a>
+        <a href="#italia" class="toc-link">Italia</a>
+        <a href="#europa" class="toc-link">Europa</a>
+        <a href="#mondo" class="toc-link">Mondo</a>
+        <a href="#immigrazione" class="toc-link">Immigrazione</a>
+        <a href="#finanza" class="toc-link">Finanza</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- CITAZIONE DEL GIORNO -->
+  <div class="quote-day">
+    <div class="quote-day-inner">
+      <div class="quote-day-label">Citazione del giorno</div>
+      <div class="quote-day-text">"La difesa delle frontiere esterne dell'Unione non è l'interesse di una singola Nazione, è una responsabilità comune dell'Europa."</div>
+      <div class="quote-day-author">— Giorgia Meloni, sulla crisi di Ceuta</div>
+    </div>
+  </div>
+
   <!-- STAT STRIP -->
   <div class="stats">
     <div class="stat red">
@@ -788,7 +900,7 @@
   </div>
 
   <!-- ===== CONFRONTO DESTRA/SINISTRA ===== -->
-  <div class="section">
+  <div class="section" id="confronto">
     <div class="section-head">
       <span class="section-tag tag-confronto">Confronto</span>
       <h2 class="section-title">Stesso fatto, due racconti</h2>
@@ -891,7 +1003,7 @@
   </div>
 
   <!-- ===== GEOPOLITICA: USA / RUSSIA / CINA ===== -->
-  <div class="section">
+  <div class="section" id="tresguardi">
     <div class="section-head">
       <span class="section-tag tag-mondo">Tre sguardi</span>
       <h2 class="section-title">Ucraina e Medio Oriente: Washington, Mosca, Pechino</h2>
@@ -960,7 +1072,7 @@
   </div>
 
   <!-- ===== GUARDIAN SU CEUTA ===== -->
-  <div class="section">
+  <div class="section" id="estero">
     <div class="section-head">
       <span class="section-tag tag-europa">Dall'estero</span>
       <h2 class="section-title">Come la vede la stampa britannica</h2>
@@ -982,7 +1094,7 @@
   </div>
 
   <!-- ITALIA -->
-  <div class="section">
+  <div class="section" id="italia">
     <div class="section-head">
       <span class="section-tag tag-italia">Italia</span>
       <h2 class="section-title">Politica, cronaca, economia interna</h2>
@@ -1012,7 +1124,7 @@
   </div>
 
   <!-- EUROPA -->
-  <div class="section">
+  <div class="section" id="europa">
     <div class="section-head">
       <span class="section-tag tag-europa">Europa</span>
       <h2 class="section-title">Crisi di Ceuta e rapporti tra Stati membri</h2>
@@ -1039,7 +1151,7 @@
   </div>
 
   <!-- MONDO / GEOPOLITICA -->
-  <div class="section">
+  <div class="section" id="mondo">
     <div class="section-head">
       <span class="section-tag tag-mondo">Mondo</span>
       <h2 class="section-title">Geopolitica e conflitti in corso</h2>
@@ -1075,7 +1187,7 @@
   </div>
 
   <!-- IMMIGRAZIONE -->
-  <div class="section">
+  <div class="section" id="immigrazione">
     <div class="section-head">
       <span class="section-tag tag-migra">Immigrazione</span>
       <h2 class="section-title">Sbarchi e rimpatri — Italia ed Europa</h2>
@@ -1103,7 +1215,7 @@
   </div>
 
   <!-- FINANZA -->
-  <div class="section">
+  <div class="section" id="finanza">
     <div class="section-head">
       <span class="section-tag tag-fin">Finanza</span>
       <h2 class="section-title">Mercati e materie prime</h2>
