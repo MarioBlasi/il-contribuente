@@ -34,7 +34,7 @@
     --shadow-inset: inset 0 1px 0 rgba(255,255,255,.5);
   }
   *{box-sizing:border-box;}
-  html,body{margin:0;padding:0;}
+  html,body{margin:0;padding:0;overflow-x:hidden;max-width:100%;}
   body{
     background:
       radial-gradient(1200px 600px at 10% -10%, #f8f4e8 0%, transparent 60%),
@@ -70,6 +70,7 @@
     align-items:baseline;
     flex-wrap:wrap;
     gap:10px;
+    min-width:0;
     font-family:'JetBrains Mono',monospace;
     font-size:13px;
     letter-spacing:.12em;
@@ -466,10 +467,78 @@
     justify-content:space-between;
     flex-wrap:wrap;
     gap:8px;
+  }  /* ===== BACK TO TOP ===== */
+  .back-to-top{
+    position:fixed;
+    bottom:24px;
+    right:24px;
+    width:48px;
+    height:48px;
+    border-radius:50%;
+    background:linear-gradient(160deg,#2c333a,#14171b);
+    color:#e9e4d6;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:22px;
+    box-shadow: var(--shadow-lg);
+    text-decoration:none;
+    z-index:50;
+    opacity:0;
+    pointer-events:none;
+    transition:opacity .25s ease, transform .25s ease;
+  }
+  .back-to-top.show{
+    opacity:1;
+    pointer-events:auto;
+  }
+  .back-to-top:active{ transform:scale(0.92); }
+
+  /* ===== RESPONSIVE MOBILE ===== */
+  @media (max-width:640px){
+    .masthead{ padding:20px 5vw 16px 5vw; }
+    .masthead-top{
+      flex-direction:column;
+      align-items:flex-start;
+      gap:4px;
+      font-size:10px;
+    }
+    .masthead-title{ font-size:42px; line-height:0.92; }
+    .masthead-sub{ font-size:13.5px; line-height:1.45; }
+    .badge{ font-size:10px; padding:3px 7px; }
+    .ticker{ font-size:11px; }
+    .wrap{ padding:22px 5vw 0 5vw; }
+    .stats{ grid-template-columns:repeat(2,1fr); gap:10px; margin-bottom:32px; }
+    .stat{ padding:12px 14px; }
+    .stat-label{ font-size:10px; }
+    .stat-value{ font-size:22px; }
+    .stat-delta{ font-size:10.5px; }
+    .section{ margin-bottom:36px; }
+    .section-head{ margin-bottom:16px; }
+    .section-tag{ font-size:10px; padding:4px 9px; }
+    .section-title{ font-size:20px; }
+    .section-note{ font-size:13px; line-height:1.5; }
+    .article{ padding:16px 16px; }
+    .article h3{ font-size:16.5px; line-height:1.3; margin-bottom:10px; }
+    .article p{ font-size:14.5px; line-height:1.55; }
+    .callout{ font-size:14px; padding:12px 14px; }
+    .source{ font-size:10px; }
+    .datatable{ font-size:14px; }
+    .duel-fact{ padding:14px 16px; }
+    .duel-fact-label{ font-size:10px; }
+    .duel-fact-text{ font-size:16px; line-height:1.3; }
+    .duel-side{ padding:14px 16px; }
+    .duel-tag{ font-size:10px; padding:4px 9px; }
+    .duel-outlet{ font-size:15px; }
+    .duel-headline{ font-size:14.5px; }
+    .duel-side p.body{ font-size:14.5px; line-height:1.5; }
+    .persp p{ font-size:14.5px; }
+    .persp-label{ font-size:10px; }
+    .back-to-top{ width:44px; height:44px; bottom:16px; right:16px; font-size:18px; }
   }
 </style>
 </head>
-<body>
+<body id="top">
 
 <div class="masthead">
   <div class="masthead-top">
@@ -867,5 +936,13 @@
   <span>Aggiornata: 12 Agosto 2026</span>
 </div>
 
+<a href="#top" id="backToTop" class="back-to-top" aria-label="Torna su">&#8593;</a>
+<script>
+  var btn = document.getElementById('backToTop');
+  window.addEventListener('scroll', function(){
+    if (window.scrollY > 400) { btn.classList.add('show'); }
+    else { btn.classList.remove('show'); }
+  });
+</script>
 </body>
 </html>
