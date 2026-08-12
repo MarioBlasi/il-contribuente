@@ -53,7 +53,7 @@
       radial-gradient(900px 300px at 20% -60%, rgba(255,255,255,.08), transparent 60%),
       linear-gradient(160deg, #23282e 0%, #14171b 100%);
     color:var(--paper);
-    padding:34px 6vw 24px 6vw;
+    padding:52px 6vw 40px 6vw;
     box-shadow: var(--shadow-lg);
     overflow:hidden;
   }
@@ -76,9 +76,9 @@
     letter-spacing:.12em;
     text-transform:uppercase;
     color:#a8a196;
-    margin-bottom:16px;
+    margin-bottom:26px;
     border-bottom:1px solid #34383e;
-    padding-bottom:12px;
+    padding-bottom:18px;
   }
   .masthead-title{
     font-family:'Fraunces',serif;
@@ -101,12 +101,12 @@
     font-family:'Inter',sans-serif;
     font-size:17px;
     color:#9aa0aa;
-    margin-top:10px;
+    margin-top:18px;
     max-width:700px;
-    line-height:1.5;
+    line-height:1.6;
   }
   .masthead-badges{
-    display:flex; gap:8px; margin-top:16px; flex-wrap:wrap;
+    display:flex; gap:8px; margin-top:26px; flex-wrap:wrap;
   }
   .badge{
     font-family:'JetBrains Mono',monospace;
@@ -161,8 +161,8 @@
     display:flex;
     align-items:stretch;
     justify-content:center;
-    gap:12px;
-    padding:14px 6vw;
+    gap:16px;
+    padding:22px 6vw;
     white-space:nowrap;
     flex-wrap:wrap;
   }
@@ -236,7 +236,7 @@
   .wrap{
     max-width:1260px;
     margin:0 auto;
-    padding:36px 6vw 0 6vw;
+    padding:48px 6vw 0 6vw;
   }
 
   /* ===== STAT STRIP ===== */
@@ -634,6 +634,34 @@
   }
   .footer-legal p{ margin:0 0 8px 0; }
   .footer-legal p:last-child{ margin-bottom:0; }
+  .footer-cc{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    margin-top:14px;
+    padding-top:12px;
+    border-top:1px solid var(--rule);
+    font-family:'JetBrains Mono',monospace;
+    font-size:10px;
+    letter-spacing:.04em;
+    color:var(--ink-soft);
+    text-align:center;
+    flex-wrap:wrap;
+  }
+  .footer-cc a{
+    color:var(--ink-soft);
+    text-decoration:underline;
+  }
+  .footer-cc-icon{
+    display:inline-flex;
+    align-items:center;
+    gap:3px;
+    border:1px solid var(--rule);
+    border-radius:3px;
+    padding:2px 6px;
+    font-weight:700;
+  }
   #viewCounter{
     font-variant-numeric: tabular-nums;
   }
@@ -1105,14 +1133,19 @@
   <span>Rassegna stampa — fonti multiple, tradotte e sintetizzate in italiano</span>
   <span>Aggiornata: 12 Agosto 2026</span>
 </div>
-<div class="footer-note">"Il Contribuente" perché sei tu che paghi, in un modo o nell'altro, quasi tutta l'informazione. Questo giornale prova a restituirti qualcosa mettendo a confronto i fatti, raccontati da più voci — l'idea te la fai tu.</div>
+<div class="footer-note">"Il Contribuente" perché sei tu che paghi, in un modo o nell'altro, quasi tutta l'informazione. Questa pubblicazione prova a restituirti qualcosa mettendo a confronto i fatti, raccontati da più voci — l'idea te la fai tu.</div>
 <div class="footer-legal">
   <p>Pubblicazione indipendente e personale, priva di finalità commerciali. Non sono presenti pubblicità, abbonamenti, sponsorizzazioni o finanziamenti di alcun tipo, pubblici o privati.</p>
   <p>I contenuti pubblicati costituiscono sintesi originali e rielaborazioni redazionali di notizie di pubblico dominio, diffuse da testate giornalistiche terze regolarmente citate accanto a ciascun contenuto. Non viene riprodotto integralmente alcun testo, titolo, fotografia o materiale protetto da diritto d'autore appartenente alle testate citate. Si invita alla consultazione delle fonti originali, di cui vengono sempre indicati nome e riferimento.</p>
   <p>Tutti i marchi, i loghi, i nomi e i segni distintivi delle testate menzionate restano di proprietà esclusiva dei rispettivi editori; la loro citazione ha esclusivo scopo informativo e di attribuzione della fonte, senza alcuna affiliazione, patrocinio o approvazione da parte delle testate stesse.</p>
   <p>Questa pubblicazione non costituisce prodotto editoriale ai sensi dell'art. 1 della legge 7 marzo 2001, n. 62, non avendo carattere di periodicità regolarmente garantita né organizzazione redazionale strutturata, e non è pertanto soggetta a registrazione presso il Tribunale.</p>
   <p>Le sintesi comparative tra testate riportano posizioni e opinioni riconducibili esclusivamente alle fonti citate, non a chi cura questa pubblicazione, il cui intento è offrire un quadro informativo comparato e non esprimere posizioni editoriali proprie.</p>
-  <p>Eventuali richieste di rettifica o rimozione di contenuti possono essere inoltrate e saranno evase con la massima tempestività.</p>
+  <p>Eventuali richieste di rettifica o rimozione di contenuti possono essere inoltrate a <a href="mailto:ilcontribuente@gmail.com" style="color:var(--ink-soft);">ilcontribuente@gmail.com</a> e saranno evase con la massima tempestività.</p>
+  <p style="margin-top:14px; padding-top:12px; border-top:1px solid var(--rule);">&copy; 2026 Il Contribuente. Tutti i diritti riservati. Le sintesi, le rielaborazioni redazionali, i confronti tra fonti e l'impaginazione originale di questa pubblicazione sono opera dell'autore e tutelati dalla legge sul diritto d'autore (l. 633/1941 e succ. mod.), anche in forma anonima o pseudonima ai sensi dell'art. 8. È vietata la riproduzione, copia integrale o parziale, ridistribuzione o pubblicazione altrove dei contenuti originali di questa testata senza autorizzazione, fatto salvo l'uso di brevi citazioni con obbligo di attribuzione alla fonte.</p>
+  <div class="footer-cc">
+    <span class="footer-cc-icon">CC BY-NC-ND</span>
+    <span>Informazione senza padroni · Licenza <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.it" target="_blank" rel="noopener">Creative Commons Attribuzione – Non commerciale – Non opere derivate 4.0</a></span>
+  </div>
 </div>
 
 <a href="#top" id="backToTop" class="back-to-top" aria-label="Torna su">&#8593;</a>
