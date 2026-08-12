@@ -548,6 +548,9 @@
   }
   .footer-legal p{ margin:0 0 8px 0; }
   .footer-legal p:last-child{ margin-bottom:0; }
+  #viewCounter{
+    font-variant-numeric: tabular-nums;
+  }
   .footer-note{
     max-width:1260px;
     margin:14px auto 0 auto;
@@ -568,6 +571,7 @@
     <span>Edizione digitale &middot; Mercoledì</span>
     <span>12 Agosto 2026</span>
     <span>Rassegna stampa quotidiana</span>
+    <span id="viewCounter">Letture di oggi: —</span>
   </div>
   <h1 class="masthead-title">Il <em>Contribuente</em></h1>
   <div class="masthead-sub">Italia, Europa, geopolitica, immigrazione e mercati — sintesi multi-fonte, con confronto diretto tra testate diverse sugli stessi fatti, senza etichette politiche.</div>
@@ -975,6 +979,28 @@
     if (window.scrollY > 400) { btn.classList.add('show'); }
     else { btn.classList.remove('show'); }
   });
+
+  // Contatore visite, si azzera ogni giorno alle 7:00 (ora Italia)
+  (function(){
+    var el = document.getElementById('viewCounter');
+    if (!el) return;
+    var now = new Date();
+    // sposta l'orologio indietro di 7 ore: cosi' la "data" cambia esattamente alle 7:00
+    var shifted = new Date(now.getTime() - 7*60*60*1000);
+    var y = shifted.getFullYear();
+    var m = String(shifted.getMonth()+1).padStart(2,'0');
+    var d = String(shifted.getDate()).padStart(2,'0');
+    var dayKey = y + m + d;
+    fetch('https://api.counterapi.dev/v1/ilcontribuente/' + dayKey + '/up')
+      .then(function(r){ return r.json(); })
+      .then(function(data){
+        var count = data.count !== undefined ? data.count : data.value;
+        el.textContent = 'Letture di oggi: ' + count;
+      })
+      .catch(function(){
+        el.style.display = 'none';
+      });
+  })();
 </script>
 </body>
 </html>
