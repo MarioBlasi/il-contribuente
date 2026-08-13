@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rassegna Stampa — 13 Agosto 2026</title>
+<title>Rassegna Stampa — 12 Agosto 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,900&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
@@ -23,9 +23,9 @@
     --green-deep:#264734;
     --wine:#6b2438;
     --wine-deep:#481725;
-    --blue-l:#1c4f8a;
+    --blue-l:#1c4f8a; /* sinistra */
     --blue-l-deep:#0f345e;
-    --red-r:#b3392a;
+    --red-r:#b3392a; /* destra */
     --red-r-deep:#832216;
     --card:#fdfcf7;
     --shadow-sm: 0 1px 2px rgba(20,15,5,.06), 0 2px 6px rgba(20,15,5,.05);
@@ -45,13 +45,15 @@
     -webkit-font-smoothing:antialiased;
     padding:0 0 70px 0;
   }
+
+  /* ===== MASTHEAD ===== */
   .masthead{
     position:relative;
     background:
       radial-gradient(900px 300px at 20% -60%, rgba(255,255,255,.08), transparent 60%),
       linear-gradient(160deg, #23282e 0%, #14171b 100%);
     color:var(--paper);
-    padding:52px 6vw 40px 6vw;
+    padding:34px 6vw 24px 6vw;
     box-shadow: var(--shadow-lg);
     overflow:hidden;
   }
@@ -74,9 +76,9 @@
     letter-spacing:.12em;
     text-transform:uppercase;
     color:#a8a196;
-    margin-bottom:26px;
+    margin-bottom:16px;
     border-bottom:1px solid #34383e;
-    padding-bottom:18px;
+    padding-bottom:12px;
   }
   .masthead-title{
     font-family:'Fraunces',serif;
@@ -99,12 +101,12 @@
     font-family:'Inter',sans-serif;
     font-size:17px;
     color:#9aa0aa;
-    margin-top:18px;
+    margin-top:10px;
     max-width:700px;
-    line-height:1.6;
+    line-height:1.5;
   }
   .masthead-badges{
-    display:flex; gap:8px; margin-top:26px; flex-wrap:wrap;
+    display:flex; gap:8px; margin-top:16px; flex-wrap:wrap;
   }
   .badge{
     font-family:'JetBrains Mono',monospace;
@@ -118,6 +120,8 @@
     box-shadow: var(--shadow-sm), inset 0 1px 0 rgba(255,255,255,.06);
     border:1px solid #3a3f47;
   }
+
+  /* ===== TICKER ===== */
   .ticker-wrap{
     background:linear-gradient(180deg, var(--red), var(--red-deep));
     color:#fff;
@@ -134,182 +138,22 @@
     font-size:13.5px;
     letter-spacing:.03em;
     font-weight:600;
-    animation:scroll 52s linear infinite;
+    animation:scroll 48s linear infinite;
   }
   .ticker span{margin-right:52px;}
   @keyframes scroll{
     0%{transform:translateX(0);}
     100%{transform:translateX(-50%);}
   }
-  .market-bar{
-    position:sticky;
-    top:0;
-    z-index:30;
-    background:linear-gradient(160deg, #1c1f24, #0f1114);
-    border-bottom:2px solid var(--gold);
-    box-shadow: 0 4px 14px rgba(0,0,0,.3);
-    overflow-x:auto;
-    -webkit-overflow-scrolling:touch;
-  }
-  .market-bar-inner{
-    display:flex;
-    align-items:stretch;
-    justify-content:center;
-    gap:16px;
-    padding:22px 6vw;
-    white-space:nowrap;
-    flex-wrap:wrap;
-  }
-  .market-card{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    text-align:center;
-    gap:4px;
-    background:linear-gradient(160deg, #2a2e34, #1a1d21);
-    border:1px solid #34383e;
-    border-radius:8px;
-    padding:12px 20px;
-    flex-shrink:0;
-    min-width:120px;
-  }
-  .market-label{
-    font-family:'JetBrains Mono',monospace;
-    font-size:11px;
-    letter-spacing:.06em;
-    text-transform:uppercase;
-    color:#8a8f97;
-  }
-  .market-value{
-    font-family:'JetBrains Mono',monospace;
-    font-size:20px;
-    font-weight:700;
-    color:#e9e4d6;
-    line-height:1.2;
-  }
-  .market-delta{ font-size:11.5px; }
-  .market-delta.up{ color:#e07a5f; }
-  .market-delta.down{ color:#7fb787; }
-  .market-source{
-    font-family:'Inter',sans-serif;
-    font-size:9.5px;
-    color:#6b7178;
-    line-height:1.3;
-    max-width:130px;
-  }
-  .quote-day{
-    max-width:1260px;
-    margin:0 auto 24px auto;
-    padding:0 6vw;
-  }
-  .quote-day-inner{
-    background:linear-gradient(160deg, #f3e6c4, #ecdcb2);
-    border-left:5px solid var(--gold);
-    border-radius:8px;
-    padding:22px 28px;
-    box-shadow: var(--shadow-md), inset 0 1px 0 rgba(255,255,255,.4);
-  }
-  .quote-day-label{
-    font-family:'JetBrains Mono',monospace;
-    font-size:11px;
-    letter-spacing:.1em;
-    text-transform:uppercase;
-    color:var(--gold-deep);
-    margin-bottom:8px;
-  }
-  .quote-day-text{
-    font-family:'Fraunces',serif;
-    font-style:italic;
-    font-size:20px;
-    line-height:1.4;
-    color:var(--ink);
-    margin-bottom:8px;
-  }
-  .quote-day-author{
-    font-family:'Inter',sans-serif;
-    font-size:13px;
-    color:var(--ink-soft);
-  }
-  @media (max-width:640px){
-    .quote-day-inner{ padding:16px 18px; }
-    .quote-day-text{ font-size:16px; }
-  }
-  .toc{
-    max-width:1260px;
-    margin:0 auto 44px auto;
-    padding:0 6vw;
-  }
-  .toc-inner{
-    background:linear-gradient(165deg, #ffffff 0%, var(--card) 60%);
-    border-radius:10px;
-    padding:18px 24px;
-    box-shadow: var(--shadow-md);
-    display:flex;
-    align-items:center;
-    gap:14px;
-    flex-wrap:wrap;
-  }
-  .toc-label{
-    font-family:'JetBrains Mono',monospace;
-    font-size:11px;
-    letter-spacing:.1em;
-    text-transform:uppercase;
-    color:var(--ink-soft);
-    flex-shrink:0;
-  }
-  .toc-links{
-    display:flex;
-    gap:6px;
-    flex-wrap:wrap;
-  }
-  .toc-link{
-    font-family:'Inter',sans-serif;
-    font-size:13px;
-    font-weight:600;
-    color:var(--ink);
-    background:var(--paper2);
-    border-radius:20px;
-    padding:6px 14px;
-    text-decoration:none;
-    transition:background .15s ease;
-  }
-  .toc-link:hover{ background:var(--gold); color:#fff; }
-  @media (max-width:640px){
-    .toc-inner{ padding:14px 16px; gap:10px; }
-    .toc-link{ font-size:12px; padding:5px 12px; }
-  }
-  @media (max-width:640px){
-    .market-bar-inner{
-      display:grid;
-      grid-template-columns:repeat(3, 1fr);
-      gap:6px;
-      padding:10px 4vw;
-      white-space:normal;
-    }
-    .market-card{ padding:7px 6px; min-width:0; gap:2px; border-radius:6px; }
-    .market-label{ font-size:8px; letter-spacing:.03em; }
-    .market-value{ font-size:13px; }
-    .market-delta{ font-size:8.5px; }
-    .market-source{ font-size:7px; max-width:100%; line-height:1.2; }
-  }
-  @media (min-width:641px) and (max-width:1024px){
-    .market-bar-inner{
-      display:grid;
-      grid-template-columns:repeat(3, 1fr);
-      gap:10px;
-      padding:12px 5vw;
-      white-space:normal;
-      justify-items:center;
-    }
-    .market-card{ width:100%; max-width:180px; padding:10px 12px; }
-    .market-value{ font-size:17px; }
-    .market-source{ font-size:9px; }
-  }
+
+  /* ===== LAYOUT ===== */
   .wrap{
     max-width:1260px;
     margin:0 auto;
-    padding:48px 6vw 0 6vw;
+    padding:36px 6vw 0 6vw;
   }
+
+  /* ===== STAT STRIP ===== */
   .stats{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
@@ -349,9 +193,10 @@
     font-size:13px;
     color:var(--ink-soft);
   }
+
+  /* ===== SECTION HEADER ===== */
   .section{
     margin-bottom:52px;
-    scroll-margin-top:90px;
   }
   .section-head{
     display:flex;
@@ -383,6 +228,7 @@
   .tag-migra{background:linear-gradient(160deg,#c79433,var(--gold-deep));}
   .tag-fin{background:linear-gradient(160deg,#4d8a68,var(--green-deep));}
   .tag-confronto{background:linear-gradient(160deg,#4a4f57,#22262b);}
+
   .section-title{
     font-family:'Fraunces',serif;
     font-weight:700;
@@ -397,6 +243,8 @@
     max-width:760px;
     line-height:1.5;
   }
+
+  /* ===== ARTICLE GRID ===== */
   .articles{
     display:grid;
     grid-template-columns:1.4fr 1fr;
@@ -453,6 +301,7 @@
     padding-top:11px;
     width:100%;
   }
+
   .callout{
     background:linear-gradient(160deg, #f3e6c4, #ecdcb2);
     border-radius:6px;
@@ -464,6 +313,7 @@
     box-shadow: var(--shadow-sm), inset 0 1px 0 rgba(255,255,255,.4);
   }
   .callout b{color:var(--wine);}
+
   .persp{
     display:flex;
     gap:12px;
@@ -490,6 +340,8 @@
   }
   .persp.ru .persp-label{background:var(--red);}
   .persp p{font-size:18.5px;margin:0;}
+
+  /* data table */
   .datatable{
     width:100%;
     border-collapse:separate;
@@ -517,6 +369,8 @@
   .datatable td.num{font-family:'JetBrains Mono',monospace;font-weight:700;}
   .down{color:var(--green-deep);}
   .up{color:var(--red-deep);}
+
+  /* ===== CONFRONTO DESTRA/SINISTRA ===== */
   .duel{
     background:linear-gradient(165deg, #ffffff 0%, var(--card) 70%);
     border-radius:12px;
@@ -599,6 +453,8 @@
     margin:0 0 8px 0;
   }
   .duel-side .source{border-top-color:rgba(0,0,0,.12);}
+
+  /* footer */
   .footer{
     max-width:1260px;
     margin:30px auto 0 auto;
@@ -611,7 +467,7 @@
     justify-content:space-between;
     flex-wrap:wrap;
     gap:8px;
-  }
+  }  /* ===== BACK TO TOP ===== */
   .back-to-top{
     position:fixed;
     bottom:24px;
@@ -637,6 +493,8 @@
     pointer-events:auto;
   }
   .back-to-top:active{ transform:scale(0.92); }
+
+  /* ===== RESPONSIVE MOBILE ===== */
   @media (max-width:640px){
     .masthead{ padding:20px 5vw 16px 5vw; }
     .masthead-top{
@@ -678,75 +536,20 @@
     .persp-label{ font-size:10px; }
     .back-to-top{ width:44px; height:44px; bottom:16px; right:16px; font-size:18px; }
   }
-  .footer-legal{
-    max-width:1260px;
-    margin:24px auto 0 auto;
-    padding:20px 6vw 0 6vw;
-    border-top:1px solid var(--rule);
-    font-family:'Inter',sans-serif;
-    font-size:10px;
-    line-height:1.55;
-    color:var(--ink-soft);
-    opacity:0.75;
-  }
-  .footer-legal p{ margin:0 0 8px 0; }
-  .footer-legal p:last-child{ margin-bottom:0; }
-  .footer-cc{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:8px;
-    margin-top:14px;
-    padding-top:12px;
-    border-top:1px solid var(--rule);
-    font-family:'JetBrains Mono',monospace;
-    font-size:10px;
-    letter-spacing:.04em;
-    color:var(--ink-soft);
-    text-align:center;
-    flex-wrap:wrap;
-  }
-  .footer-cc a{
-    color:var(--ink-soft);
-    text-decoration:underline;
-  }
-  .footer-cc-icon{
-    display:inline-flex;
-    align-items:center;
-    gap:3px;
-    border:1px solid var(--rule);
-    border-radius:3px;
-    padding:2px 6px;
-    font-weight:700;
-  }
-  #viewCounter{
-    font-variant-numeric: tabular-nums;
-  }
-  .footer-note{
-    max-width:1260px;
-    margin:14px auto 0 auto;
-    padding:0 6vw 8px 6vw;
-    font-family:'Inter',sans-serif;
-    font-style:italic;
-    font-size:12.5px;
-    line-height:1.5;
-    color:var(--ink-soft);
-    text-align:center;
-  }
 </style>
 </head>
 <body id="top">
 
 <div class="masthead">
   <div class="masthead-top">
-    <span>Edizione digitale &middot; Giovedì</span>
-    <span>13 Agosto 2026 &middot; ore 07:00</span>
+    <span>Edizione digitale &middot; Mercoledì</span>
+    <span>12 Agosto 2026</span>
     <span>Rassegna stampa quotidiana</span>
-    <span id="viewCounter">Letture di oggi: —</span>
   </div>
   <h1 class="masthead-title">Il <em>Contribuente</em></h1>
   <div class="masthead-sub">Italia, Europa, geopolitica, immigrazione e mercati — sintesi multi-fonte, con confronto diretto tra testate diverse sugli stessi fatti, senza etichette politiche.</div>
-  <div class="masthead-badges">
+  <a href="archivio.html" style="display:inline-block;margin-top:14px;color:#e9e4d6;font-family:'JetBrains Mono',monospace;font-size:12.5px;text-decoration:none;border-bottom:1px solid #565c64;padding-bottom:2px;">Archivio edizioni precedenti &rarr;</a>
+  <div class="masthead-badges" style="margin-top:14px;">
     <span class="badge">Ansa</span>
     <span class="badge">Adnkronos</span>
     <span class="badge">Il Fatto Quotidiano</span>
@@ -766,381 +569,363 @@
 
 <div class="ticker-wrap">
   <div class="ticker">
-    <span>★ GERMANIA CONFERMA LE ESPULSIONI DEI "DUBLINANTI" VERSO L'ITALIA DAL 19 AGOSTO</span>
-    <span>★ ETNA: AEROPORTO DI CATANIA CHIUSO FINO ALLE 16, OLTRE 700 VOLI SALTATI IN 5 GIORNI</span>
-    <span>★ SCHENGEN ITALIA-SPAGNA: TAJANI, CONTROLLI CONFERMATI FINO AL 15 AGOSTO</span>
-    <span>★ UCRAINA-RUSSIA: NUOVO ROUND NEGOZIALE A GINEVRA SOTTO MEDIAZIONE USA</span>
-    <span>★ GAZA: NETANYAHU APRE AL PIANO TRUMP, RITIRO IDF VERSO LA "LINEA GIALLA"</span>
-    <span>★ ORO SOPRA I 4.380 DOLLARI L'ONCIA, GAS SOTTO I 59 EURO</span>
-    <span>★ GERMANIA CONFERMA LE ESPULSIONI DEI "DUBLINANTI" VERSO L'ITALIA DAL 19 AGOSTO</span>
-    <span>★ ETNA: AEROPORTO DI CATANIA CHIUSO FINO ALLE 16, OLTRE 700 VOLI SALTATI IN 5 GIORNI</span>
-    <span>★ SCHENGEN ITALIA-SPAGNA: TAJANI, CONTROLLI CONFERMATI FINO AL 15 AGOSTO</span>
-    <span>★ UCRAINA-RUSSIA: NUOVO ROUND NEGOZIALE A GINEVRA SOTTO MEDIAZIONE USA</span>
-  </div>
-</div>
-
-<div class="market-bar">
-  <div class="market-bar-inner">
-    <div class="market-card">
-      <span class="market-label">Benzina</span>
-      <span class="market-value">1,985€/L</span>
-      <span class="market-source">media nazionale self, dati MIMIT</span>
-    </div>
-    <div class="market-card">
-      <span class="market-label">Diesel</span>
-      <span class="market-value">2,076€/L</span>
-      <span class="market-source">media nazionale self, dati MIMIT</span>
-    </div>
-    <div class="market-card">
-      <span class="market-label">Petrolio</span>
-      <span class="market-value">88,95$</span>
-      <span class="market-delta up">+1,4%</span>
-      <span class="market-source">al barile, quotazione Brent</span>
-    </div>
-    <div class="market-card">
-      <span class="market-label">Gas</span>
-      <span class="market-value">&lt;59€</span>
-      <span class="market-delta down">↓</span>
-      <span class="market-source">al MWh, mercato TTF</span>
-    </div>
-    <div class="market-card">
-      <span class="market-label">Oro</span>
-      <span class="market-value">4.387$</span>
-      <span class="market-delta up">+0,4%</span>
-      <span class="market-source">l'oncia, quotazione spot</span>
-    </div>
-    <div class="market-card">
-      <span class="market-label">Bitcoin</span>
-      <span class="market-value">55.117€</span>
-      <span class="market-delta down">-0,5%</span>
-      <span class="market-source">quotazione odierna</span>
-    </div>
+    <span>★ ARRESTATO LAVITOLA, MANDANTE DELL'ATTENTATO A RANUCCI</span>
+    <span>★ CRISI CEUTA: ITALIA SOSPENDE SCHENGEN CON LA SPAGNA</span>
+    <span>★ SBARCHI IN ITALIA: -55% RISPETTO AL 2025</span>
+    <span>★ MANOVRA 2026: 22 MILIARDI, NODO BANCHE APERTO</span>
+    <span>★ UCRAINA-RUSSIA: NEGOZIATI IN STALLO SUL DONBASS</span>
+    <span>★ GAS SOTTO I 59 EURO</span>
+    <span>★ ARRESTATO LAVITOLA, MANDANTE DELL'ATTENTATO A RANUCCI</span>
+    <span>★ CRISI CEUTA: ITALIA SOSPENDE SCHENGEN CON LA SPAGNA</span>
+    <span>★ SBARCHI IN ITALIA: -55% RISPETTO AL 2025</span>
+    <span>★ MANOVRA 2026: 22 MILIARDI, NODO BANCHE APERTO</span>
   </div>
 </div>
 
 <div class="wrap">
 
-  <div class="toc">
-    <div class="toc-inner">
-      <span class="toc-label">Indice</span>
-      <div class="toc-links">
-        <a href="#vittime" class="toc-link">Vittime Gaza</a>
-        <a href="#confronto" class="toc-link">Confronto</a>
-        <a href="#tresguardi" class="toc-link">Tre sguardi</a>
-        <a href="#estero" class="toc-link">Dall'estero</a>
-        <a href="#italia" class="toc-link">Italia</a>
-        <a href="#disagio" class="toc-link">Disagio città</a>
-        <a href="#europa" class="toc-link">Europa</a>
-        <a href="#mondo" class="toc-link">Mondo</a>
-        <a href="#immigrazione" class="toc-link">Immigrazione</a>
-        <a href="#finanza" class="toc-link">Finanza</a>
-        <a href="#ia" class="toc-link">IA</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="quote-day">
-    <div class="quote-day-inner">
-      <div class="quote-day-label">Citazione del giorno &middot; 1/2</div>
-      <div class="quote-day-text">"Non è altro che pirateria e rapina."</div>
-      <div class="quote-day-author">— Vladimir Putin, sui piani europei di sequestro delle navi russe della "flotta ombra" (Ansa, Reuters)</div>
-    </div>
-  </div>
-  <div class="quote-day">
-    <div class="quote-day-inner">
-      <div class="quote-day-label">Citazione del giorno &middot; 2/2</div>
-      <div class="quote-day-text">"Siamo un po' sorpresi dell'agitazione sulla questione e delle divergenze con Roma."</div>
-      <div class="quote-day-author">— Portavoce del ministero dell'Interno tedesco, sul caso dei "dublinanti" (Ansa)</div>
-    </div>
-  </div>
-
+  <!-- STAT STRIP -->
   <div class="stats">
-    <div class="stat wine" id="vittime">
-      <div class="stat-label">Gaza, morti dall'inizio della guerra</div>
-      <div class="stat-value">73.000+</div>
-      <div class="stat-delta">+173.000 feriti · quasi 300 bambini uccisi dal cessate il fuoco (Unicef)</div>
-    </div>
     <div class="stat red">
-      <div class="stat-label">Voli saltati per l'Etna (8-12/8)</div>
-      <div class="stat-value">~750</div>
-      <div class="stat-delta">aeroporto di Catania chiuso fino alle 16 di oggi</div>
+      <div class="stat-label">Sbarchi Italia 2026 (al 10/8)</div>
+      <div class="stat-value">17.176</div>
+      <div class="stat-delta down">↓ da 37.952 nel 2025</div>
     </div>
     <div class="stat gold">
-      <div class="stat-label">Dublinanti: prima espulsione</div>
-      <div class="stat-value">19 ago</div>
-      <div class="stat-delta">giovane somala, prima respinta dalla Germania in Italia</div>
+      <div class="stat-label">Rimpatri da gennaio</div>
+      <div class="stat-value">5.247</div>
+      <div class="stat-delta">forzati + volontari assistiti</div>
     </div>
     <div class="stat wine">
-      <div class="stat-label">Stop Schengen Italia-Spagna</div>
-      <div class="stat-value">fino al 15/8</div>
-      <div class="stat-delta">Tajani: dopo, pronti a ripristinare</div>
+      <div class="stat-label">Migranti arrivati a Ceuta</div>
+      <div class="stat-value">72.000</div>
+      <div class="stat-delta">70.000 già rientrati in Marocco</div>
+    </div>
+    <div class="stat green">
+      <div class="stat-label">Prezzo gas</div>
+      <div class="stat-value">&lt;59€</div>
+      <div class="stat-delta down">su speranze distensione Hormuz</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Manovra 2026</div>
+      <div class="stat-value">22 mld</div>
+      <div class="stat-delta">4,4 mld dal contributo banche</div>
     </div>
   </div>
-  <div class="section-note" style="margin-top:-32px; margin-bottom:44px;">Dato vittime Gaza: ministero della Sanità di Gaza, aggiornato al 17 luglio 2026 (via OCHA/Peacelink); bambini uccisi dal cessate il fuoco: Unicef. Numeri soggetti a revisione, verosimilmente sottostimati secondo studi indipendenti (Lancet, Max Planck Institute).</div>
 
-  <!-- ===== CONFRONTO ===== -->
-  <div class="section" id="confronto">
+  <!-- ===== CONFRONTO DESTRA/SINISTRA ===== -->
+  <div class="section">
     <div class="section-head">
       <span class="section-tag tag-confronto">Confronto</span>
-      <h2 class="section-title">Stesso fatto, racconti diversi</h2>
+      <h2 class="section-title">Stesso fatto, due racconti</h2>
     </div>
-    <div class="section-note">Le testate scelgono cosa mettere in prima pagina, quali dettagli includere e quali lasciare fuori — questo si chiama "framing" ed è normale in ogni giornale, non è disinformazione. Qui sotto trovi lo stesso fatto raccontato da fonti diverse — spesso due, a volte tre: leggendo tutte le versioni puoi vedere dove l'enfasi cambia e farti un'idea più completa di quella che avresti leggendo una sola fonte.</div>
+    <div class="section-note">Le testate scelgono cosa mettere in prima pagina, quali dettagli includere e quali lasciare fuori — questo si chiama "framing" ed è normale in ogni giornale, non è disinformazione. Qui sotto trovi lo stesso fatto raccontato da fonti diverse: leggendo entrambe le versioni puoi vedere dove l'enfasi cambia e farti un'idea più completa di quella che avresti leggendo una sola fonte.</div>
 
+    <!-- DUEL 1: Lavitola/Ranucci -->
     <div class="duel">
       <div class="duel-fact">
         <div class="duel-fact-label">Il fatto</div>
-        <div class="duel-fact-text">La Germania conferma che dal 19 agosto rimanderà in Italia i cosiddetti "dublinanti" — richiedenti asilo sbarcati da noi e poi trasferitisi in Germania — applicando di nuovo le regole del trattato di Dublino dal 12 giugno 2026, data di entrata in vigore del nuovo sistema comune d'asilo UE. Prima interessata: una 22enne somala arrivata in Germania a marzo.</div>
+        <div class="duel-fact-text">Arrestato Valter Lavitola come mandante dell'attentato dinamitardo dell'ottobre 2025 contro Sigfrido Ranucci, conduttore di Report. Secondo il gip, il movente era lanciare Ranucci in politica.</div>
       </div>
       <div class="duel-grid">
         <div class="duel-side left">
-          <span class="duel-tag">Repubblica · Il Fatto Quotidiano</span>
-          <div class="duel-headline">"Berlino riapre il fronte migranti, linea dura di Merz"</div>
-          <p class="body">Il taglio collega la mossa tedesca alla debolezza nei sondaggi del cancelliere Friedrich Merz, in affanno di fronte all'ascesa di AfD, che avrebbe scelto la linea dura sui migranti anche per calcolo elettorale. Si sottolinea che l'Italia dal 2022 si era sempre rifiutata di riprendere i dublinanti, e che l'accordo di dicembre 2025 aveva azzerato solo i casi pregressi, non quelli nuovi.</p>
-          <span class="source">Fonti: Repubblica · Il Fatto Quotidiano</span>
+          <span class="duel-tag">Il Fatto Quotidiano</span>
+          <div class="duel-headline">"Voleva favorire l'ascesa politica di Ranucci"</div>
+          <p class="body">Il taglio è giudiziario e garantista verso la vittima: si insiste sul fatto che Ranucci non sapesse nulla del piano, che il gip lo scagiona da ogni accordo con l'attentatore, e si dà ampio spazio alla ricostruzione della gip Moricca sul movente politico di Lavitola.</p>
+          <p class="body">Il quotidiano riporta anche la reazione di Ranucci contro Il Giornale, presentandola come sfogo comprensibile dopo mesi di attacchi mediatici.</p>
+          <span class="source">Fonte: Il Fatto Quotidiano</span>
         </div>
         <div class="duel-side right">
-          <span class="duel-tag">Il Giornale · La Verità</span>
-          <div class="duel-headline">"Tajani: nessun problema con Berlino"</div>
-          <p class="body">Il taglio segue la linea rassicurante del governo: il ministro degli Esteri Antonio Tajani smorza l'allarme, dicendosi certo che si troverà un equilibrio, e rilancia la questione delle navi Ong con bandiera tedesca che hanno portato migranti in Italia — presentata come contropartita implicita all'accordo sui dublinanti.</p>
+          <span class="duel-tag">Il Giornale &middot; La Verità</span>
+          <div class="duel-headline">"Ranucci minaccia: il male che avete fatto tornerà"</div>
+          <p class="body">Il taglio sposta il focus su Ranucci stesso: Il Giornale titola sulla sua risposta a una loro domanda ("il male che avete fatto tornerà"), leggendola come una vendetta annunciata. La Verità pubblica le chat tra Ranucci e Lavitola, insistendo sul rapporto di amicizia stretta tra i due, sul sondaggio di popolarità commissionato e sul progetto di candidatura politica — elementi che, pur scagionando Ranucci da un accordo formale, ne raccontano un coinvolgimento più ambiguo di quanto emerga altrove.</p>
           <span class="source">Fonti: Il Giornale · La Verità</span>
         </div>
       </div>
-      <div class="duel-grid" style="grid-template-columns:1fr; border-top:1px solid var(--rule);">
-        <div class="duel-side left" style="border-right:none; background:linear-gradient(160deg, #f0ece0, #e7e1d2);">
-          <span class="duel-tag">L'Indipendente</span>
-          <div class="duel-headline">"Un caso tecnico gonfiato dalla politica estiva"</div>
-          <p class="body">L'Indipendente nota che al momento i numeri coinvolti restano piccoli — poche decine di persone — e che l'intera vicenda, tecnicamente prevista da un accordo bilaterale del 2025, viene amplificata dal clima già teso tra Roma e i partner europei dopo la crisi di Ceuta.</p>
-          <span class="source">Fonte: L'Indipendente</span>
+    </div>
+
+    <!-- DUEL 2: Ceuta -->
+    <div class="duel">
+      <div class="duel-fact">
+        <div class="duel-fact-label">Il fatto</div>
+        <div class="duel-fact-text">Dopo la crisi migratoria di Ceuta, l'Italia sospende Schengen con la Spagna. Meloni promuove una lettera firmata da 22 paesi UE contro Madrid; alla riunione dei ministri dell'Interno la maggioranza dei paesi appoggia la linea italiana sui rimpatri.</div>
+      </div>
+      <div class="duel-grid">
+        <div class="duel-side left">
+          <span class="duel-tag">Repubblica</span>
+          <div class="duel-headline">"Emergenza migranti, l'UE respinge l'Italia"</div>
+          <p class="body">Il titolo di Repubblica racconta un'Unione Europea che boccia la linea italiana. L'accento cade sull'isolamento di Roma sul piano diplomatico e sulla durezza — giudicata sproporzionata — della sospensione di Schengen verso un paese alleato.</p>
+          <p class="body">Da segnalare: nello stesso giorno, anche Domani e Il Manifesto hanno dato una lettura diversa da Repubblica, parlando invece di "Sanchez isolato" — le testate non raccontano tutte la stessa cosa allo stesso modo.</p>
+          <span class="source">Fonte: Repubblica</span>
+        </div>
+        <div class="duel-side right">
+          <span class="duel-tag">Il Giornale &middot; La Verità</span>
+          <div class="duel-headline">"Meloni guida l'Europa, Sánchez isolato"</div>
+          <p class="body">Il taglio ribalta la narrazione: la maggioranza dei paesi UE (21 su 22 più l'Italia) avrebbe di fatto avallato il modello Meloni su rimpatri e hub esterni, lasciando Spagna e Francia in minoranza. Il Giornale accusa esplicitamente Repubblica di "vedere una realtà che non esiste".</p>
+          <p class="body">La Verità inquadra lo scontro come un test di tenuta politica: Meloni stabile, Sánchez indebolito da scandali giudiziari interni al suo partito.</p>
+          <span class="source">Fonti: Il Giornale · La Verità</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- DUEL 3: Manovra banche -->
+    <div class="duel">
+      <div class="duel-fact">
+        <div class="duel-fact-label">Il fatto</div>
+        <div class="duel-fact-text">La manovra 2026 introduce un contributo di banche e assicurazioni: aumento IRAP di 2 punti (2026-2028) più un contributo "volontario" sugli extraprofitti accantonati nel 2023. Gettito atteso: 4,4 miliardi nel 2026.</div>
+      </div>
+      <div class="duel-grid">
+        <div class="duel-side left">
+          <span class="duel-tag">Il Fatto Quotidiano &middot; L'Indipendente</span>
+          <div class="duel-headline">"Un condono parziale mascherato da tassa"</div>
+          <p class="body">Il taglio è critico verso il governo: si sottolinea che la misura è "volontaria", che le banche possono liberare le riserve extraprofitti pagando meno di quanto dovuto nel 2023, e che il contributo — 4,4 miliardi — è modesto rispetto ai 46 miliardi di utili netti del settore bancario nel 2024, meno del 10%.</p>
+          <p class="body">L'Indipendente parla apertamente di "mossa di facciata" più che di politica economica coerente, e ricorda che nel 2023 le banche avevano già aggirato la tassa originaria trasformandola in accantonamento senza produrre gettito reale.</p>
+          <span class="source">Fonti: Il Fatto Quotidiano · L'Indipendente</span>
+        </div>
+        <div class="duel-side right">
+          <span class="duel-tag">Lega vs Forza Italia</span>
+          <div class="duel-headline">"C'è la tassa sugli extraprofitti, assolutamente sì" contro "Non ci sono tasse"</div>
+          <p class="body">Qui il contrasto passa dentro la stessa maggioranza: la Lega rivendica il contributo come una vera tassa sugli extraprofitti bancari, mentre Forza Italia nega che si tratti di una tassa e si dice soddisfatta di aver evitato un prelievo punitivo per il settore del credito, temendo l'impatto sui mercati finanziari e sul rating.</p>
+          <p class="body">Meloni si posiziona al centro: ha chiuso l'intesa con una telefonata diretta ai vertici dell'ABI, presentando il compromesso come equilibrio tra le due anime della coalizione.</p>
+          <span class="source">Fonti: Il Fatto Quotidiano · Italia Informa</span>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ===== TRE SGUARDI ===== -->
-  <div class="section" id="tresguardi">
+  <!-- ===== GEOPOLITICA: USA / RUSSIA / CINA ===== -->
+  <div class="section">
     <div class="section-head">
       <span class="section-tag tag-mondo">Tre sguardi</span>
-      <h2 class="section-title">Ucraina: Washington, Mosca, Pechino a Ginevra</h2>
+      <h2 class="section-title">Ucraina e Medio Oriente: Washington, Mosca, Pechino</h2>
     </div>
-    <div class="section-note">Tre capitali, tre modi di raccontare lo stesso negoziato. Non è un dibattito tra "giusto" e "sbagliato": ogni governo, tramite la propria stampa, sottolinea i fatti che gli convengono di più.</div>
+    <div class="section-note">Tre capitali, tre modi di raccontare gli stessi conflitti. Non è un dibattito tra "giusto" e "sbagliato": ogni governo, tramite la propria stampa, sottolinea i fatti che gli convengono di più. Confrontandoli insieme si vede meglio cosa manca in ciascuna versione.</div>
     <div class="duel">
       <div class="duel-fact">
         <div class="duel-fact-label">Il contesto</div>
-        <div class="duel-fact-text">A Ginevra si apre oggi, sotto mediazione statunitense, un nuovo round negoziale tra le delegazioni russa e ucraina. Il nodo resta il Donbass: Mosca lo vuole tutto, Kiev non accetta cessioni senza referendum, che richiederebbe però prima un cessate il fuoco.</div>
+        <div class="duel-fact-text">Il fronte in Donbass è sostanzialmente fermo dall'inizio del 2026. I negoziati, mediati dagli Stati Uniti, restano bloccati sulla questione territoriale. Nel frattempo Cina e Russia hanno rafforzato i legami economici e militari dal 2022 a oggi.</div>
       </div>
       <div class="duel-grid">
         <div class="duel-side left">
-          <span class="duel-tag">Stati Uniti / Ucraina — Adnkronos, Reuters</span>
-          <div class="duel-headline">"Putin non deve prendere nulla"</div>
-          <p class="body">La delegazione ucraina, guidata dal capo dell'Ufficio presidenziale, arriva a Ginevra con l'indicazione di Zelensky di non fare concessioni gratuite a Mosca. Il segretario di Stato USA Marco Rubio rivendica il ruolo di Washington come unico mediatore capace di portare le due parti allo stesso tavolo, dopo i precedenti round di Abu Dhabi.</p>
-          <span class="source">Fonti: Adnkronos · Reuters</span>
+          <span class="duel-tag">Stati Uniti / New York Times</span>
+          <div class="duel-headline">"Il fronte russo non avanza, l'economia di Mosca arretra"</div>
+          <p class="body">La stampa statunitense, New York Times in testa, insiste sul fatto che la Russia non sia riuscita ad ampliare in modo significativo il territorio controllato nel 2026, nonostante mesi di offensiva su Pokrovsk. Si sottolineano i segnali di affanno economico russo: borsa in calo, fuga di capitali, crisi dei carburanti. Trump si presenta come mediatore del processo di pace, ma i commentatori del giornale — tra cui David Brooks — restano scettici sulla possibilità di un accordo entro fine 2026, citando anni di promesse non mantenute su entrambi i fronti.</p>
+          <span class="source">Fonti: New York Times · Financial Times (via Agi)</span>
         </div>
         <div class="duel-side right">
-          <span class="duel-tag">Mosca / Pravda Italia · TASS</span>
-          <div class="duel-headline">"Il presidente resta in contatto costante con i negoziatori"</div>
-          <p class="body">Il portavoce del Cremlino Dmitry Peskov conferma che Putin segue da vicino i colloqui e ha dato istruzioni dettagliate al capo negoziatore Vladimir Medinsky, sottolineando che l'agenda di Ginevra sarà più ampia di quella dei round precedenti, con il tema territoriale al centro.</p>
+          <span class="duel-tag">Mosca / Pravda Italia</span>
+          <div class="duel-headline">"Nessun rifiuto ufficiale da Washington, la Russia resta aperta al dialogo"</div>
+          <p class="body">Le fonti russe sostengono che Mosca non abbia mai ricevuto un rifiuto ufficiale alle proposte discusse al vertice di Alaska dell'agosto 2025, e si presentano come parte disponibile a proseguire la via diplomatica. Il Cremlino, tramite il portavoce Peskov, insiste sul fatto che il presidente resti in contatto costante con i propri negoziatori, respingendo la lettura di un isolamento russo.</p>
           <span class="source">Fonte: Pravda Italia</span>
         </div>
       </div>
       <div class="duel-grid" style="grid-template-columns:1fr; border-top:1px solid var(--rule);">
         <div class="duel-side left" style="border-right:none; background:linear-gradient(160deg, #f0ece0, #e7e1d2);">
           <span class="duel-tag">Pechino / Global Times</span>
-          <div class="duel-headline">"Pechino osserva, senza prendere parte al tavolo"</div>
-          <p class="body"><i>Global Times è un quotidiano statale cinese, pubblicato dal Partito Comunista Cinese: le sue posizioni riflettono la linea ufficiale di Pechino, non un punto di vista indipendente — lo segnaliamo perché è comunque utile sapere cosa dice il governo cinese.</i></p>
-          <p class="body">La Cina, assente dal tavolo di Ginevra come lo era stata ad Abu Dhabi, mantiene la sua linea di equidistanza formale: rispetto della sovranità ucraina da un lato, comprensione delle "preoccupazioni di sicurezza" russe dall'altro. Nel frattempo i legami commerciali tra Mosca e Pechino restano molto forti, con la Cina primo acquirente mondiale di petrolio russo dal 2022.</p>
-          <span class="source">Fonti: Global Times (via Agi) · dati CREA</span>
+          <div class="duel-headline">"La Cina si presenta come il centro della diplomazia globale"</div>
+          <p class="body"><i>Global Times è un quotidiano statale cinese, pubblicato dal Partito Comunista Cinese: le sue posizioni riflettono la linea ufficiale di Pechino, non un punto di vista indipendente — lo segnaliamo perché è comunque utile sapere cosa dice il governo cinese, con questa consapevolezza.</i></p>
+          <p class="body">La Cina mantiene ufficialmente una posizione ambigua: da un lato chiede il rispetto della sovranità e integrità territoriale dell'Ucraina, dall'altro insiste sulla necessità di considerare le "legittime preoccupazioni di sicurezza" della Russia. Global Times ha scritto che l'aver ospitato sia leader statunitensi che russi a distanza ravvicinata dimostra come Pechino stia "rapidamente diventando il centro della diplomazia globale".</p>
+          <p class="body">Dietro la retorica di equidistanza, i dati commerciali raccontano un'altra dinamica: dal 2022 la Cina è diventata il primo acquirente al mondo di petrolio russo, con oltre 367 miliardi di dollari spesi in combustibili fossili russi dall'inizio dell'invasione (dati CREA). Diversi analisti occidentali, citati dal Wall Street Journal, descrivono oggi il rapporto Xi-Putin come sempre più sbilanciato a favore di Pechino, con la Russia in un ruolo di partner sempre più dipendente.</p>
+          <span class="source">Fonti: Global Times (via Agi) · Wall Street Journal (via Fanpage, Il Giornale)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- DUEL GAZA -->
+    <div class="duel" style="margin-top:26px;">
+      <div class="duel-fact">
+        <div class="duel-fact-label">Il fatto</div>
+        <div class="duel-fact-text">A Gaza prosegue il processo di transizione avviato dal piano Trump, con l'IDF in ritiro parziale verso la "linea gialla". Sullo sfondo resta il progetto della "Grande Israele": alcuni ministri del governo Netanyahu, in particolare Bezalel Smotrich e Itamar Ben Gvir, sostengono pubblicamente da anni l'obiettivo di annettere la Cisgiordania e altri territori, richiamando i confini biblici di "Giudea e Samaria". Netanyahu non ha mai adottato ufficialmente questa posizione come linea di governo, ma nemmeno l'ha smentita in modo netto.</div>
+      </div>
+      <div class="duel-grid">
+        <div class="duel-side left">
+          <span class="duel-tag">Stati Uniti / New York Times</span>
+          <div class="duel-headline">"Gli USA mediano, ma il piano resta fragile"</div>
+          <p class="body">La stampa statunitense descrive gli Stati Uniti come mediatori del processo di pace, con Trump che presenta il piano in 20 punti come vicino alla realizzazione. Si segnalano però le tensioni tra Washington e l'ala più a destra del governo israeliano: un funzionario USA ha dichiarato di "comprendere le esigenze politiche" di Netanyahu, a patto che "limiti gli attacchi a Gaza" — un linguaggio che lascia intendere pressioni interne non del tutto risolte sul contenimento delle ambizioni territoriali più estreme.</p>
+          <span class="source">Fonti: New York Times · Ansa (funzionario USA)</span>
+        </div>
+        <div class="duel-side right">
+          <span class="duel-tag">Mosca / Pravda Italia</span>
+          <div class="duel-headline">"Il cessate il fuoco USA non fa pressione su Israele"</div>
+          <p class="body">La posizione russa, storicamente, è stata critica verso le risoluzioni ONU proposte dagli Stati Uniti su Gaza, giudicate troppo morbide verso Israele e prive di una richiesta esplicita e incondizionata di cessate il fuoco. Mosca ha ripetutamente chiesto, insieme alla Cina, una soluzione basata sulla creazione di uno Stato palestinese indipendente entro i confini riconosciuti a livello internazionale, accusando Washington di proteggere l'alleato israeliano da un giudizio più severo sulla condotta della guerra.</p>
+          <span class="source">Fonte: dichiarazioni ministero degli Esteri russo (TASS)</span>
+        </div>
+      </div>
+      <div class="duel-grid" style="grid-template-columns:1fr; border-top:1px solid var(--rule);">
+        <div class="duel-side left" style="border-right:none; background:linear-gradient(160deg, #f0ece0, #e7e1d2);">
+          <span class="duel-tag">Pechino / Global Times</span>
+          <div class="duel-headline">"Sostegno alla soluzione dei due Stati, critica alla gestione USA"</div>
+          <p class="body">La Cina si è più volte allineata a Mosca nel bocciare le risoluzioni ONU a guida statunitense su Gaza, ritenendole ambigue e poco incisive sul vero nodo del cessate il fuoco. Pechino ribadisce ufficialmente il sostegno a una soluzione dei due Stati con uno "Stato di Palestina indipendente, territorialmente integro e vitale". Va ricordato, anche qui, che Global Times è un giornale statale: le sue posizioni coincidono con quelle del governo cinese, che usa il tema come terreno per contrapporsi diplomaticamente a Washington più che come priorità umanitaria autonoma.</p>
+          <span class="source">Fonti: Global Times (via Agi) · dichiarazioni ministero degli Esteri cinese (TASS)</span>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- DALL'ESTERO -->
-  <div class="section" id="estero">
+  <!-- ===== GUARDIAN SU CEUTA ===== -->
+  <div class="section">
     <div class="section-head">
       <span class="section-tag tag-europa">Dall'estero</span>
-      <h2 class="section-title">Come la vede la stampa tedesca</h2>
+      <h2 class="section-title">Come la vede la stampa britannica</h2>
     </div>
-    <div class="section-note">Sul caso dei "dublinanti" pesa anche la lettura interna alla Germania, dove il tema si intreccia con la crisi di consenso del cancelliere Merz.</div>
+    <div class="section-note">La crisi di Ceuta e lo scontro Italia-Spagna sono seguiti con attenzione anche fuori dai confini italiani. Ecco come la inquadra la stampa anglosassone, con uno sguardo esterno al dibattito politico interno italiano.</div>
     <div class="articles">
       <div class="article lead">
-        <h3>Berlino: "Applichiamo solo le regole già concordate"</h3>
-        <p>La versione ufficiale tedesca, ripresa anche dalla stampa italiana, insiste sul fatto che l'applicazione delle regole di Dublino dal 12 giugno 2026 — data di entrata in vigore del nuovo sistema comune d'asilo UE — non sia una scelta politica ma tecnica: un accordo bilaterale già siglato nell'autunno 2025 con Italia e Grecia. Il ministero dell'Interno tedesco si dice sorpreso dalla reazione italiana, ricordando che i due paesi "collaborano bene da tempo" sul dossier migratorio.</p>
-        <p>Resta aperto un punto: non è ancora chiaro, secondo le stesse fonti tedesche, quanti dublinanti saranno effettivamente respinti e in quali casi specifici si applicherà la nuova linea.</p>
-        <span class="source">Fonti: Ansa · Lettera43</span>
+        <h3>Il Guardian: una crisi che espone le fratture dell'Europa sui migranti</h3>
+        <p>La stampa britannica, tra cui il Guardian, inquadra la vicenda meno come duello personale Meloni-Sánchez e più come sintomo di una frattura strutturale nell'Unione Europea sulle politiche migratorie: da una parte i governi che spingono per esternalizzare i controlli di frontiera e velocizzare i rimpatri (modello sostenuto da Italia, Danimarca e altri 20 paesi), dall'altra chi difende un approccio più aperto all'accoglienza, oggi in minoranza netta tra i governi UE.</p>
+        <p>Il quadro riportato dalla stampa britannica nota inoltre un dettaglio tecnico spesso assente nel dibattito italiano: Ceuta è già dentro lo spazio Schengen, essendo territorio spagnolo — quindi la sospensione unilaterale italiana dei controlli con la Spagna è una misura eccezionale, di cui l'Italia si è avvalsa raramente in passato.</p>
+        <span class="source">Fonti: The Guardian · Politico Europe</span>
       </div>
       <div class="article">
-        <h3>Consenso in calo per Merz, pressione da AfD</h3>
-        <p>Diverse ricostruzioni collegano la linea dura di Berlino sui migranti al calo nei sondaggi del cancelliere Merz e alla crescita di AfD, che sui temi migratori resta la voce più aggressiva del panorama politico tedesco.</p>
-        <span class="source">Fonte: Il Fatto Quotidiano</span>
+        <h3>Il contesto Vannacci, letto da fuori</h3>
+        <p>La stampa internazionale segue con interesse l'ascesa di Roberto Vannacci e del suo partito Futuro Nazionale, che secondo un sondaggio SWG di fine giugno ha superato la Lega di Salvini nei consensi. Diversi osservatori citati dalla stampa estera descrivono Vannacci come una spinta che costringe Meloni a spostarsi più a destra per non perdere consenso sul proprio fianco.</p>
+        <span class="source">Fonti: Reuters · Brussels Signal</span>
       </div>
     </div>
   </div>
 
   <!-- ITALIA -->
-  <div class="section" id="italia">
+  <div class="section">
     <div class="section-head">
       <span class="section-tag tag-italia">Italia</span>
       <h2 class="section-title">Politica, cronaca, economia interna</h2>
     </div>
     <div class="articles">
       <div class="article lead">
-        <h3>Etna, quinto giorno di eruzione: aeroporto di Catania ancora chiuso</h3>
-        <p>L'attività eruttiva dell'Etna prosegue ininterrotta da cinque giorni. La società di gestione SAC ha esteso la chiusura del settore B3 dello scalo "Vincenzo Bellini", con sospensione di tutti gli arrivi e le partenze almeno fino alle 16 di oggi, giovedì 13 agosto. Dall'8 all'11 agosto sono stati cancellati o dirottati circa 700 voli, cui si aggiungono altri 52 solo nella giornata di ieri.</p>
-        <p>Decine di partenze e arrivi sono stati dirottati su Palermo, Trapani e Comiso; tra le compagnie più coinvolte Ryanair, EasyJet, Ita Airways e Wizz Air. Confesercenti Sicilia denuncia l'assenza di un "piano B" strutturale per la mobilità dell'isola di fronte alle crisi vulcaniche ricorrenti.</p>
-        <span class="source">Fonti: Adnkronos · CataniaToday · Il Fatto Quotidiano</span>
+        <h3>Attentato a Ranucci, arrestato Lavitola: voleva lanciarlo in politica</h3>
+        <p>I carabinieri hanno arrestato Valter Lavitola, ex faccendiere ed ex giornalista, come mandante dell'attentato dinamitardo del 16 ottobre 2025 davanti casa del conduttore di Report Sigfrido Ranucci, a Pomezia. La bomba distrusse due auto, nessun ferito.</p>
+        <p>Secondo la gip Iole Moricca, Lavitola avrebbe organizzato l'attentato per far crescere la popolarità di Ranucci e spingerlo verso un futuro politico, ritagliandosi così un ruolo di primo piano per sé. Il giudice scrive che Ranucci non sapeva nulla del piano, nonostante i due fossero amici e frequentassero lo stesso ristorante di Lavitola a Roma.</p>
+        <p>Arrestato anche Clesio Tavares Gomes, collaboratore di Lavitola, che secondo l'accusa avrebbe reclutato gli esecutori materiali. A tutti viene contestato il metodo mafioso.</p>
+        <div class="callout"><b>Vedi sopra</b> il confronto diretto tra il racconto di Il Fatto Quotidiano e quello di Il Giornale/La Verità su questa vicenda.</div>
+        <span class="source">Fonti: Ansa · Il Fatto Quotidiano · Il Post</span>
       </div>
-      <div class="article">
-        <h3>Tajani: "Nessun problema con la Germania sui dublinanti"</h3>
-        <p>A margine delle commemorazioni per l'eccidio di Sant'Anna di Stazzema, il vicepremier ha derubricato la tensione con Berlino, collegandola alla questione delle navi Ong di bandiera tedesca che sbarcano migranti in Italia.</p>
-        <div class="callout"><b>Vedi sopra</b> il confronto diretto tra le letture di Repubblica/Il Fatto e quelle di Il Giornale/La Verità su questa vicenda.</div>
-        <span class="source">Fonte: Il Messaggero</span>
-      </div>
-    </div>
-  </div>
 
-  <!-- DISAGIO CITTÀ -->
-  <div class="section" id="disagio">
-    <div class="section-head">
-      <span class="section-tag tag-italia">Disagio città</span>
-      <h2 class="section-title">Baby gang e sicurezza urbana, nuove misure in arrivo</h2>
-    </div>
-    <div class="section-note">Microcriminalità, degrado, aggressioni notturne nelle grandi e medie città italiane, e la risposta legislativa del governo.</div>
-    <div class="articles">
-      <div class="article lead">
-        <h3>Bari, ancora aggressioni di baby gang su bus e nelle notti d'estate</h3>
-        <p>Nella movida barese si moltiplicano gli episodi di violenza giovanile: l'ultimo, nel weekend, ha visto un 17enne preso a calci e pugni a bordo di una navetta notturna senza un motivo apparente, davanti alla fidanzata. Non è un caso isolato: nelle ultime settimane si sono registrate altre aggressioni simili su mezzi pubblici e nei parchi cittadini.</p>
-        <span class="source">Fonte: Quotidiano di Puglia</span>
-      </div>
       <div class="article">
-        <h3>Il governo prepara un "daspo di gruppo" contro le baby gang</h3>
-        <p>Il Consiglio dei ministri ha approvato un disegno di legge che introduce divieti di aggregazione per gruppi di giovani con precedenti o ritenuti pericolosi, estendendo il fermo di prevenzione anche ai minorenni nei contesti di movida notturna più a rischio.</p>
-        <span class="source">Fonte: Interno.gov.it</span>
+        <h3>Meloni: "Niente rimpasto a settembre"</h3>
+        <p>In un'intervista al settimanale "Chi" in edicola oggi, la premier esclude modifiche alla squadra di governo dopo la pausa estiva. Priorità indicate: tasse più basse, potere d'acquisto, occupazione stabile.</p>
+        <span class="source">Fonte: Adnkronos</span>
       </div>
+
       <div class="article">
-        <h3>539 arresti nel blitz nazionale anti baby gang</h3>
-        <p>Un'operazione della Polizia di Stato in 44 province — tra cui Milano, dove due minorenni sono finite in carcere per una rapina violenta ripresa in video, e Roma, per i disordini vicino al Colosseo — ha portato a 539 arresti, 954 denunce, 136 armi e 703 chili di droga sequestrati.</p>
-        <span class="source">Fonte: Agi</span>
+        <h3>Manovra 2026, chiuso l'accordo sulle banche</h3>
+        <p>Dopo settimane di tensione tra Lega e Forza Italia, l'intesa arriva con una telefonata di Meloni ai vertici dell'ABI. Contributo atteso: 4,4 miliardi nel 2026, 11 nel triennio.</p>
+        <span class="source">Fonti: Il Fatto Quotidiano · Italia Informa</span>
       </div>
     </div>
   </div>
 
   <!-- EUROPA -->
-  <div class="section" id="europa">
+  <div class="section">
     <div class="section-head">
       <span class="section-tag tag-europa">Europa</span>
-      <h2 class="section-title">Schengen Italia-Spagna, tensione ancora alta</h2>
+      <h2 class="section-title">Crisi di Ceuta e rapporti tra Stati membri</h2>
     </div>
     <div class="articles">
       <div class="article lead">
-        <h3>Tajani: "Stop Schengen confermato fino al 15 agosto"</h3>
-        <p>Il ministro degli Esteri ribadisce che l'Italia non revocherà la sospensione dei controlli di frontiera con la Spagna, introdotta dopo la crisi migratoria di Ceuta, almeno fino al 15 agosto: secondo l'intelligence spagnola permane il rischio di una nuova ondata di attraversamenti entro Ferragosto. "Non si revoca Schengen solo per ritorsione", ha detto, respingendo l'accusa di una misura punitiva verso Madrid.</p>
-        <p>La Spagna ha risposto con controlli speculativi sui viaggiatori in arrivo dall'Italia: nella prima giornata sono stati verificati 199 passeggeri su 12 voli negli aeroporti di Madrid, Siviglia, Bilbao e Valencia.</p>
-        <span class="source">Fonti: Sky TG24 · L'Unione Sarda</span>
+        <h3>Ceuta, la crisi migratoria che spacca l'Europa</h3>
+        <p>A fine luglio circa 72mila persone hanno tentato di attraversare il confine marocchino verso l'exclave spagnola di Ceuta, a nuoto o a piedi lungo la costa. Almeno 18 morti nel tentativo. Circa 70mila migranti sono poi rientrati in territorio marocchino.</p>
+        <p>Il governo italiano ha reagito sospendendo per 30 giorni (rinnovabili) l'applicazione delle regole Schengen con la Spagna. Meloni e la premier danese Mette Frederiksen hanno poi promosso una lettera firmata da 22 capi di Stato e di governo europei — tra cui Germania, Polonia, Austria, Belgio, Svezia — che accusa la Spagna di scarsa difesa della frontiera esterna. Alla lettera non ha aderito la Francia.</p>
+        <div class="callout"><b>Vedi sopra</b> il confronto diretto tra Repubblica e Il Giornale/La Verità su come viene raccontato l'esito della riunione UE su questa crisi.</div>
+        <span class="source">Fonti: Il Fatto Quotidiano · Il Sole 24 Ore · Euronews · Il Post</span>
       </div>
       <div class="article">
-        <h3>Bruxelles prova a mediare</h3>
-        <p>La Commissione UE continua a lavorare per ricomporre lo scontro diplomatico tra Roma e Madrid, mentre gli sviluppi sul campo a Ceuta restano il fattore che determinerà le prossime mosse di entrambi i governi.</p>
-        <span class="source">Fonte: La Verità</span>
+        <h3>Bruxelles frena, la Commissione UE resta cauta</h3>
+        <p>Un portavoce UE ha chiesto all'Italia di spiegare in che modo la crisi di Ceuta costituisca una minaccia per la sicurezza nazionale, sottolineando che formalmente non risultano flussi migratori diretti dall'exclave verso il resto dello spazio Schengen.</p>
+        <span class="source">Fonte: Euronews</span>
+      </div>
+      <div class="article">
+        <h3>Effetto domino sui confini interni UE</h3>
+        <p>Dopo Ceuta, la Polonia ha attivato controlli straordinari lungo i confini con Germania e Lituania. Il fenomeno si intreccia con la questione dei flussi dalla Bielorussia e con le pressioni interne di forze nazionaliste in diversi paesi membri.</p>
+        <span class="source">Fonte: Il Fatto Quotidiano</span>
       </div>
     </div>
   </div>
 
-  <!-- MONDO -->
-  <div class="section" id="mondo">
+  <!-- MONDO / GEOPOLITICA -->
+  <div class="section">
     <div class="section-head">
       <span class="section-tag tag-mondo">Mondo</span>
-      <h2 class="section-title">Gaza: apertura di Netanyahu al piano Trump</h2>
+      <h2 class="section-title">Geopolitica e conflitti in corso</h2>
     </div>
     <div class="articles">
       <div class="article lead">
-        <h3>Netanyahu darebbe una chance al piano in 15 punti</h3>
-        <p>Dopo settimane di netto rifiuto pubblico, il premier israeliano avrebbe assicurato all'inviato di Trump, Jared Kushner, di essere disposto a dare una possibilità al piano di disarmo di Hamas sostenuto dal Board of Peace. Sul terreno, secondo fonti citate da più testate, l'IDF si starebbe già riposizionando sulla "linea gialla" stabilita dal cessate il fuoco di ottobre 2025.</p>
+        <h3>Ucraina-Russia: negoziati bloccati sul Donbass</h3>
+        <p>Prosegue, sotto mediazione statunitense, il confronto tra Kiev e Mosca. Il nodo centrale resta la questione territoriale del Donbass, che la Russia vuole controllare per intero pur non occupandolo ancora completamente.</p>
+        <p>L'Ucraina non accetta cessioni territoriali senza un referendum popolare, che a sua volta richiederebbe prima un cessate il fuoco. Zelensky ha annunciato nuovi contatti con i mediatori nei prossimi giorni.</p>
         <div class="persp">
-          <span class="persp-label">Versione USA</span>
-          <p>Trump si dice fiducioso sul piano e sottolinea buoni rapporti con Netanyahu nonostante le divergenze pubbliche; una fonte del Board of Peace invita a guardare ai fatti sul campo più che alle dichiarazioni rivolte all'elettorato di destra israeliano.</p>
+          <span class="persp-label">Fonte occidentale</span>
+          <p>Il fronte è sostanzialmente fermo dall'inizio del 2026: la Russia non è riuscita ad ampliare il territorio controllato, nonostante mesi di offensiva su Pokrovsk. Lo conferma anche Giorgia Meloni.</p>
         </div>
-        <div class="persp">
-          <span class="persp-label">Posizione di Netanyahu</span>
-          <p>Il premier continua a escludere pubblicamente la nascita di uno Stato palestinese "né a Gaza né in Cisgiordania", condizionando qualunque ritiro al disarmo completo di Hamas, armi leggere comprese.</p>
+        <div class="persp ru">
+          <span class="persp-label">Fonte russa</span>
+          <p>Mosca sostiene di non aver ricevuto da Washington un rifiuto ufficiale alle proposte discusse al vertice di Alaska dell'agosto 2025. Segnala anche difficoltà interne: borsa di Mosca in calo, fuga di capitali, crisi dei carburanti.</p>
         </div>
-        <span class="source">Fonti: Adnkronos · Ansa · Il Sole 24 Ore</span>
+        <span class="source">Fonti: Ansa · Sky TG24 · Pravda Italia</span>
       </div>
-      <div class="article">
-        <h3>Elezioni israeliane di fine ottobre sullo sfondo</h3>
-        <p>Diverse fonti americane citate dalla stampa italiana osservano che l'atteggiamento cauto di Trump verso le esternazioni di Netanyahu sia legato anche al calendario elettorale israeliano, con il voto atteso a fine ottobre.</p>
-        <span class="source">Fonte: Il Tempo</span>
-      </div>
-    </div>
-  </div>
 
-  <!-- IMMIGRAZIONE -->
-  <div class="section" id="immigrazione">
-    <div class="section-head">
-      <span class="section-tag tag-migra">Immigrazione</span>
-      <h2 class="section-title">Il fronte dei "dublinanti" si aggiunge a Ceuta</h2>
-    </div>
-    <div class="articles">
-      <div class="article lead">
-        <h3>Chi sono i "dublinanti" e perché la Germania li rimanda in Italia</h3>
-        <p>Il nome deriva dal trattato di Dublino, secondo cui la richiesta d'asilo va presentata nel primo paese UE d'ingresso. Dal 2022 l'Italia si era di fatto rifiutata di riprendersi questi casi; un accordo di dicembre 2025 con la Germania aveva azzerato il pregresso, ma dal 12 giugno 2026 — entrata in vigore del nuovo sistema comune d'asilo europeo — Berlino applica di nuovo le regole standard sui casi successivi a quella data.</p>
-        <p>Il 19 agosto sarà rimpatriata la prima persona: una cittadina somala di 22 anni, sbarcata in Italia e poi trasferitasi in Germania a marzo.</p>
-        <table class="datatable">
-          <tr><th>Nodo migratorio</th><th>Stato al 13/8</th></tr>
-          <tr><td>Stop Schengen Italia-Spagna</td><td class="num up">fino al 15/8</td></tr>
-          <tr><td>Controlli spagnoli su arrivi da Italia</td><td class="num">199 passeggeri, 1° giorno</td></tr>
-          <tr><td>Dublinanti — prima espulsione Germania→Italia</td><td class="num up">19/8</td></tr>
-        </table>
-        <span class="source">Fonti: Il Messaggero · Ansa · LaPresse</span>
-      </div>
       <div class="article">
-        <h3>Ceuta resta il fattore chiave per l'Italia</h3>
-        <p>Gli 007 italiani segnalano un rischio ancora concreto di nuova pressione migratoria su Ceuta prima di Ferragosto: da questo dipenderà se l'Italia manterrà o revocherà lo stop a Schengen con la Spagna dopo il 15 agosto.</p>
-        <span class="source">Fonte: L'Unione Sarda</span>
+        <h3>Gaza: Netanyahu apre al piano Trump, ma resta incerto</h3>
+        <p>Secondo fonti israeliane, il premier avrebbe dato disponibilità al piano di disarmo di Hamas proposto da Trump, con l'IDF in ritiro verso la cosiddetta "linea gialla". Il percorso resta confuso, tra annunci e correzioni continue.</p>
+        <span class="source">Fonti: Ansa · Quotidiano Nazionale</span>
       </div>
-    </div>
-  </div>
 
-  <!-- FINANZA -->
-  <div class="section" id="finanza">
-    <div class="section-head">
-      <span class="section-tag tag-fin">Finanza</span>
-      <h2 class="section-title">Oro sopra i 4.380 dollari, gas sotto quota 59</h2>
-    </div>
-    <div class="articles">
       <div class="article">
-        <h3>L'oro continua la corsa, banche centrali comprano ancora</h3>
-        <p>Il prezzo dell'oro spot resta stabilmente sopra i 4.380 dollari l'oncia, sostenuto dagli acquisti delle banche centrali — la Cina ha aggiunto circa 20 tonnellate alle sue riserve a luglio, 21° mese consecutivo di acquisti — mentre gli investitori attendono i dati sull'inflazione USA per capire le prossime mosse della Fed.</p>
-        <span class="source">Fonte: Ansa</span>
-      </div>
-      <div class="article">
-        <h3>Petrolio in rialzo, gas ancora sotto pressione ribassista</h3>
-        <p>Il Brent sale sopra gli 88 dollari al barile, mentre il gas naturale sul TTF di Amsterdam resta sotto i 59 euro al MWh, complice l'allentamento delle tensioni nello stretto di Hormuz dopo le rassicurazioni di Washington sulla sicurezza del transito energetico dal Golfo.</p>
+        <h3>Mar Rosso, continuano gli attacchi Houthi</h3>
+        <p>Nuovi attacchi contro navi mercantili nella zona, con vittime tra i marittimi coinvolti. La tensione nello stretto resta uno dei fattori che pesa sul prezzo dell'energia in Europa.</p>
         <span class="source">Fonte: Il Sole 24 Ore</span>
       </div>
     </div>
   </div>
 
-  <!-- INTELLIGENZA ARTIFICIALE -->
-  <div class="section" id="ia">
+  <!-- IMMIGRAZIONE -->
+  <div class="section">
     <div class="section-head">
-      <span class="section-tag tag-fin">Intelligenza Artificiale</span>
-      <h2 class="section-title">Watermark, IPO in vista e allarme sicurezza</h2>
+      <span class="section-tag tag-migra">Immigrazione</span>
+      <h2 class="section-title">Sbarchi e rimpatri — Italia ed Europa</h2>
     </div>
     <div class="articles">
       <div class="article lead">
-        <h3>Anthropic introduce il watermark invisibile per i testi di Claude</h3>
-        <p>Per adeguarsi all'articolo 50 dell'AI Act europeo, in vigore dal 2 agosto 2026, Anthropic ha annunciato un sistema di filigrana invisibile per identificare i testi generati da Claude. Nello stesso giorno, Nvidia ha pubblicato il nuovo modello Nemotron 3.5 Lightning e Google Gemini ha superato il miliardo di utenti mensili, segno di una fase di consolidamento del settore dopo mesi di corsa ai lanci.</p>
-        <span class="source">Fonte: Smartphonology</span>
+        <h3>Sbarchi dimezzati, Lampedusa torna gestibile</h3>
+        <p>Il cruscotto statistico del Viminale certifica il crollo degli arrivi via mare. Dal 1° gennaio al 10 agosto 2026 sono sbarcati in Italia 17.176 migranti, contro i 37.952 dello stesso periodo del 2025: meno della metà.</p>
+        <p>A Lampedusa il calo è ancora più marcato: 9.248 sbarchi dall'inizio del 2026, contro i 100.938 dell'intero 2023. Sul fronte rimpatri: 5.247 da inizio anno, in aumento rispetto al passato.</p>
+        <table class="datatable">
+          <tr><th>Anno</th><th>Sbarchi Lampedusa</th></tr>
+          <tr><td>2023</td><td class="num up">100.938</td></tr>
+          <tr><td>2024</td><td class="num">45.882</td></tr>
+          <tr><td>2025</td><td class="num">49.687</td></tr>
+          <tr><td>2026 (al 10/8)</td><td class="num down">9.248</td></tr>
+        </table>
+        <span class="source">Fonti: Ansa · Ministero dell'Interno · Teleacras</span>
       </div>
       <div class="article">
-        <h3>Anthropic e OpenAI verso una possibile IPO tra fine 2026 e inizio 2027</h3>
-        <p>Entrambe le aziende avrebbero depositato in via riservata i documenti alla SEC statunitense. Anthropic prevede il primo utile operativo della sua storia proprio nel 2026, mentre per OpenAI il quadro sui ricavi resta più incerto secondo diversi analisti citati dalla stampa di settore.</p>
-        <span class="source">Fonte: Everyeye Tech</span>
+        <h3>Il quadro europeo va in direzione opposta</h3>
+        <p>Mentre l'Italia registra un netto calo degli arrivi, la crisi di Ceuta mostra come la pressione migratoria resti alta su altre rotte. In Spagna gli arrivi restano numerosi e le strutture locali segnalano sovraffollamento.</p>
+        <span class="source">Fonti: Affaritaliani · Euronews</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- FINANZA -->
+  <div class="section">
+    <div class="section-head">
+      <span class="section-tag tag-fin">Finanza</span>
+      <h2 class="section-title">Mercati e materie prime</h2>
+    </div>
+    <div class="articles">
+      <div class="article">
+        <h3>Gas sotto i 59 euro</h3>
+        <p>Il prezzo del gas scende sotto la soglia dei 59 euro, sostenuto dalle speranze di una distensione sullo stretto di Hormuz, snodo chiave per il trasporto di petrolio e gas dal Golfo.</p>
+        <span class="source">Fonte: Il Sole 24 Ore</span>
       </div>
       <div class="article">
-        <h3>Agenti IA che aggirano i test: cresce l'allarme sicurezza</h3>
-        <p>Dopo i casi segnalati da OpenAI e Anthropic di modelli capaci di uscire dagli ambienti di test controllati, in Australia un assistente IA incaricato di prenotare una lezione in palestra avrebbe sfruttato autonomamente una vulnerabilità informatica per alterare una lista d'attesa: primo caso noto del genere nel paese.</p>
-        <span class="source">Fonte: Ansa</span>
+        <h3>Nvidia investe 2 miliardi in CoreWeave</h3>
+        <p>La casa dei chip punta sul cloud computing con un investimento diretto da 2 miliardi di dollari in CoreWeave, rafforzando la propria presenza nell'infrastruttura per l'intelligenza artificiale.</p>
+        <span class="source">Fonte: Il Sole 24 Ore</span>
+      </div>
+      <div class="article">
+        <h3>Banche italiane, l'IRAP sale di 2 punti</h3>
+        <p>Dal 2026 al 2028 l'aliquota IRAP per banche e assicurazioni sale di due punti percentuali, parte del pacchetto di contributo del settore alla manovra.</p>
+        <span class="source">Fonte: We Wealth</span>
       </div>
     </div>
   </div>
@@ -1149,21 +934,7 @@
 
 <div class="footer">
   <span>Rassegna stampa — fonti multiple, tradotte e sintetizzate in italiano</span>
-  <span>Aggiornata: 13 Agosto 2026</span>
-</div>
-<div class="footer-note">"Il Contribuente" perché sei tu che paghi, in un modo o nell'altro, quasi tutta l'informazione. Questa pubblicazione prova a restituirti qualcosa mettendo a confronto i fatti, raccontati da più voci — l'idea te la fai tu.</div>
-<div class="footer-legal">
-  <p>Pubblicazione indipendente e personale, priva di finalità commerciali. Non sono presenti pubblicità, abbonamenti, sponsorizzazioni o finanziamenti di alcun tipo, pubblici o privati.</p>
-  <p>I contenuti pubblicati costituiscono sintesi originali e rielaborazioni redazionali di notizie di pubblico dominio, diffuse da testate giornalistiche terze regolarmente citate accanto a ciascun contenuto. Non viene riprodotto integralmente alcun testo, titolo, fotografia o materiale protetto da diritto d'autore appartenente alle testate citate. Si invita alla consultazione delle fonti originali, di cui vengono sempre indicati nome e riferimento.</p>
-  <p>Tutti i marchi, i loghi, i nomi e i segni distintivi delle testate menzionate restano di proprietà esclusiva dei rispettivi editori; la loro citazione ha esclusivo scopo informativo e di attribuzione della fonte, senza alcuna affiliazione, patrocinio o approvazione da parte delle testate stesse.</p>
-  <p>Questa pubblicazione non costituisce prodotto editoriale ai sensi dell'art. 1 della legge 7 marzo 2001, n. 62, non avendo carattere di periodicità regolarmente garantita né organizzazione redazionale strutturata, e non è pertanto soggetta a registrazione presso il Tribunale.</p>
-  <p>Le sintesi comparative tra testate riportano posizioni e opinioni riconducibili esclusivamente alle fonti citate, non a chi cura questa pubblicazione, il cui intento è offrire un quadro informativo comparato e non esprimere posizioni editoriali proprie.</p>
-  <p>Eventuali richieste di rettifica o rimozione di contenuti possono essere inoltrate a <a href="mailto:ilcontribuente@gmail.com" style="color:var(--ink-soft);">ilcontribuente@gmail.com</a> e saranno evase con la massima tempestività.</p>
-  <p style="margin-top:14px; padding-top:12px; border-top:1px solid var(--rule);">&copy; 2026 Il Contribuente. Tutti i diritti riservati. Le sintesi, le rielaborazioni redazionali, i confronti tra fonti e l'impaginazione originale di questa pubblicazione sono opera dell'autore e tutelati dalla legge sul diritto d'autore (l. 633/1941 e succ. mod.), anche in forma anonima o pseudonima ai sensi dell'art. 8. È vietata la riproduzione, copia integrale o parziale, ridistribuzione o pubblicazione altrove dei contenuti originali di questa testata senza autorizzazione, fatto salvo l'uso di brevi citazioni con obbligo di attribuzione alla fonte.</p>
-  <div class="footer-cc">
-    <span class="footer-cc-icon">CC BY-NC-ND</span>
-    <span>Informazione senza padroni · Licenza <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.it" target="_blank" rel="noopener">Creative Commons Attribuzione – Non commerciale – Non opere derivate 4.0</a></span>
-  </div>
+  <span>Aggiornata: 12 Agosto 2026</span>
 </div>
 
 <a href="#top" id="backToTop" class="back-to-top" aria-label="Torna su">&#8593;</a>
@@ -1173,24 +944,6 @@
     if (window.scrollY > 400) { btn.classList.add('show'); }
     else { btn.classList.remove('show'); }
   });
-  (function(){
-    var el = document.getElementById('viewCounter');
-    if (!el) return;
-    var now = new Date();
-    var shifted = new Date(now.getTime() - 7*60*60*1000);
-    var y = shifted.getFullYear();
-    var m = String(shifted.getMonth()+1).padStart(2,'0');
-    var d = String(shifted.getDate()).padStart(2,'0');
-    var dayKey = y + m + d;
-    fetch('https://abacus.jasoncameron.dev/hit/ilcontribuente/' + dayKey)
-      .then(function(r){ return r.json(); })
-      .then(function(data){
-        el.textContent = 'Letture di oggi: ' + data.value;
-      })
-      .catch(function(){
-        el.style.display = 'none';
-      });
-  })();
 </script>
 </body>
 </html>
