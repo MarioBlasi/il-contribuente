@@ -743,6 +743,57 @@
     color:var(--ink-soft);
     text-align:center;
   }
+
+  /* ===== DASHBOARD (sezione finale) ===== */
+  .kpi-row{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-bottom:24px; }
+  .kpi{ background:#fcfcfb; border-radius:10px; padding:20px 22px; box-shadow:var(--shadow-md); border-top:4px solid #2a78d6; }
+  .kpi.rimpatri{ border-top-color:#eb6834; }
+  .kpi.arrivi{ border-top-color:#1baf7a; }
+  .kpi-label{ font-family:'JetBrains Mono',monospace; font-size:11.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:8px; }
+  .kpi-value{ font-family:'Inter',sans-serif; font-weight:800; font-size:32px; color:var(--ink); line-height:1; margin-bottom:6px; }
+  .kpi-note{ font-size:12.5px; color:#898781; line-height:1.5; }
+  .chart-card{ background:#fcfcfb; border-radius:10px; padding:26px 28px; box-shadow:var(--shadow-md); margin-bottom:22px; }
+  .chart-title{ font-family:'Fraunces',serif; font-weight:700; font-size:21px; margin:0 0 4px 0; color:var(--ink); }
+  .chart-period{ font-size:12.5px; color:var(--ink-soft); margin-bottom:20px; }
+  .bar-row{ display:flex; align-items:center; gap:14px; margin-bottom:13px; }
+  .bar-row:last-child{ margin-bottom:0; }
+  .bar-label{ width:190px; flex-shrink:0; font-size:14px; color:var(--ink); font-weight:600; text-align:right; }
+  .bar-track{ flex:1; position:relative; height:24px; background:#e1e0d9; border-radius:4px; overflow:visible; }
+  .bar-fill{ height:100%; border-radius:4px 0 0 4px; position:relative; display:flex; align-items:center; }
+  .bar-fill.asilo{ background:#2a78d6; }
+  .bar-fill.rimpatri{ background:#eb6834; }
+  .bar-fill.arrivi{ background:#1baf7a; }
+  .bar-value{ position:absolute; left:100%; margin-left:10px; top:50%; transform:translateY(-50%); font-family:'JetBrains Mono',monospace; font-weight:700; font-size:13.5px; color:var(--ink); white-space:nowrap; }
+  .bar-fill[data-tooltip]{ position:relative; }
+  .bar-fill[data-tooltip]:hover::after{ content:attr(data-tooltip); position:absolute; bottom:130%; left:0; background:#14171b; color:#fdfcf7; font-size:11.5px; font-family:'Inter',sans-serif; padding:6px 10px; border-radius:6px; white-space:nowrap; box-shadow:var(--shadow-md); z-index:5; }
+  .dv-delta{ font-family:'JetBrains Mono',monospace; font-size:12px; margin-left:8px; }
+  .dv-delta.down{ color:#006300; }
+  .dv-delta.up{ color:var(--red); }
+  .side-note{ background:rgba(31,58,95,.06); border-radius:8px; padding:13px 15px; margin-top:16px; font-size:13px; color:var(--ink-soft); line-height:1.6; }
+  .side-note strong{ color:var(--ink); }
+  details.table-view{ margin-top:18px; }
+  details.table-view summary{ cursor:pointer; font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:.05em; text-transform:uppercase; color:var(--navy); font-weight:700; padding:8px 0; }
+  table.data-table{ width:100%; border-collapse:separate; border-spacing:0; font-size:14px; margin-top:8px; border-radius:6px; overflow:hidden; box-shadow:0 1px 2px rgba(0,0,0,.06); }
+  table.data-table th, table.data-table td{ text-align:left; padding:8px 12px; border-bottom:1px solid var(--rule); background:#fff; }
+  table.data-table th{ font-family:'JetBrains Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:.05em; color:#fff; background:linear-gradient(160deg,#2c5c8a,var(--navy-deep)); }
+  table.data-table td.num{ font-family:'JetBrains Mono',monospace; font-weight:700; font-variant-numeric:tabular-nums; }
+  table.data-table td.nd{ color:#898781; font-style:italic; }
+  .dv-sources{ font-size:12px; color:#898781; border-top:1px solid var(--rule); margin-top:20px; padding-top:12px; line-height:1.6; }
+  @media (max-width:640px){
+    .kpi-row{ grid-template-columns:1fr; gap:10px; }
+    .kpi{ padding:14px 16px; }
+    .kpi-value{ font-size:24px; }
+    .chart-card{ padding:16px 14px; }
+    .chart-title{ font-size:17px; }
+    .chart-period{ font-size:11px; margin-bottom:14px; }
+    .bar-row{ flex-direction:column; align-items:stretch; gap:4px; margin-bottom:15px; }
+    .bar-label{ width:auto; text-align:left; font-size:12px; }
+    .bar-track{ height:20px; }
+    .bar-value{ position:static; transform:none; margin-left:0; margin-top:2px; display:block; font-size:12px; }
+    table.data-table{ font-size:11.5px; }
+    table.data-table th, table.data-table td{ padding:6px 8px; }
+    .side-note, .dv-sources{ font-size:11.5px; }
+  }
 </style>
 </head>
 <body id="top">
@@ -838,9 +889,10 @@
         <a href="#disagio" class="toc-link">Disagio città</a>
         <a href="#europa" class="toc-link">Europa</a>
         <a href="#mondo" class="toc-link">Mondo</a>
-        <a href="#immigrazione" class="toc-link">Immigrazione</a>
         <a href="#finanza" class="toc-link">Finanza</a>
         <a href="#ia" class="toc-link">IA</a>
+        <a href="#immigrazione" class="toc-link">Immigrazione</a>
+        <a href="#dati-immigrazione" class="toc-link">Dati Immigrazione</a>
       </div>
     </div>
   </div>
@@ -1082,32 +1134,6 @@
     </div>
   </div>
 
-  <!-- IMMIGRAZIONE -->
-  <div class="section" id="immigrazione">
-    <div class="section-head">
-      <span class="section-tag tag-migra">Immigrazione</span>
-      <h2 class="section-title">Ceuta un mese dopo: i numeri di Italia ed Europa</h2>
-    </div>
-    <div class="articles">
-      <div class="article lead">
-        <h3>Sbarchi giù del 55% in Italia, Frontex conferma il calo Ue</h3>
-        <p>Secondo fonti del Viminale gli sbarchi irregolari in Italia sono crollati del 55% rispetto al 2025: circa 17.176 arrivi da inizio 2026, meno della metà rispetto agli ultimi due anni. Il governo rivendica il dato come successo delle proprie politiche; opposizioni e analisti indipendenti ne contestano la lettura, notando che il calo si inserisce in un trend europeo più ampio confermato anche da Frontex, che segnala un -37% degli attraversamenti irregolari alle frontiere Ue nei primi sette mesi del 2026.</p>
-        <table class="datatable">
-          <tr><th>Indicatore</th><th>Valore</th></tr>
-          <tr><td>Sbarchi Italia 2026 (al 10/8)</td><td class="num down">17.176 (-55% sul 2025)</td></tr>
-          <tr><td>Attraversamenti irregolari UE, I sem. 2026</td><td class="num down">-37% su base annua</td></tr>
-          <tr><td>Arresti/respingimenti da stop Schengen (dal 31/7)</td><td class="num up">3 arresti, 21 respingimenti</td></tr>
-        </table>
-        <span class="source">Fonti: LaPresse · Ansa · Giornale di Sicilia · Frontex</span>
-      </div>
-      <div class="article">
-        <h3>Cpr Albania, record di migranti trattenuti</h3>
-        <p>I Centri di permanenza per il rimpatrio in Albania, nati dall'accordo Italia-Albania, registrano un record di persone trattenute e ospitano ormai anche migranti espulsi direttamente dal territorio italiano, un uso diverso da quello originariamente previsto dal protocollo.</p>
-        <span class="source">Fonte: Il Manifesto</span>
-      </div>
-    </div>
-  </div>
-
   <!-- FINANZA -->
   <div class="section" id="finanza">
     <div class="section-head">
@@ -1142,6 +1168,132 @@
         <p>Sul fronte infrastrutture, Nvidia starebbe negoziando garanzie finanziarie fino a 250 miliardi di dollari per sostenere OpenAI nell'affitto di un mega data center da 10 gigawatt in Ohio, un progetto complessivo da oltre 500 miliardi di dollari con i chip inclusi. Il titolo Nvidia ha perso quasi il 5% dopo la notizia: alcuni analisti parlano di rischio "circular financing" simile alle dinamiche della bolla dot-com di fine anni '90.</p>
         <span class="source">Fonti: Bloomberg · Ansa · Al Jazeera · Teleborsa</span>
       </div>
+    </div>
+  </div>
+
+  <!-- IMMIGRAZIONE -->
+  <div class="section" id="immigrazione">
+    <div class="section-head">
+      <span class="section-tag tag-migra">Immigrazione</span>
+      <h2 class="section-title">Ceuta un mese dopo: i numeri di Italia ed Europa</h2>
+    </div>
+    <div class="articles">
+      <div class="article lead">
+        <h3>Sbarchi giù del 55% in Italia, Frontex conferma il calo Ue</h3>
+        <p>Secondo fonti del Viminale gli sbarchi irregolari in Italia sono crollati del 55% rispetto al 2025: circa 17.176 arrivi da inizio 2026, meno della metà rispetto agli ultimi due anni. Il governo rivendica il dato come successo delle proprie politiche; opposizioni e analisti indipendenti ne contestano la lettura, notando che il calo si inserisce in un trend europeo più ampio confermato anche da Frontex, che segnala un -37% degli attraversamenti irregolari alle frontiere Ue nei primi sette mesi del 2026.</p>
+        <span class="source">Fonti: LaPresse · Ansa · Giornale di Sicilia · Frontex</span>
+      </div>
+      <div class="article">
+        <h3>Cpr Albania, record di migranti trattenuti</h3>
+        <p>I Centri di permanenza per il rimpatrio in Albania, nati dall'accordo Italia-Albania, registrano un record di persone trattenute e ospitano ormai anche migranti espulsi direttamente dal territorio italiano, un uso diverso da quello originariamente previsto dal protocollo.</p>
+        <span class="source">Fonte: Il Manifesto</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== DATI IMMIGRAZIONE (dashboard, sezione finale) ===== -->
+  <div class="section" id="dati-immigrazione">
+    <div class="section-head">
+      <span class="section-tag tag-migra">Dati Immigrazione</span>
+      <h2 class="section-title">Immigrazione in Europa, 2026</h2>
+    </div>
+    <div class="section-note">Richiedenti asilo, arrivi irregolari e rimpatri, paese per paese e rotta per rotta — Unione Europea e Regno Unito. Periodi diversi per fonte, sempre indicati: sommare numeri di periodi diversi senza dirlo è il modo più comune di rendere un dato fuorviante, quindi qui il periodo è sempre a vista.</div>
+
+    <div class="kpi-row">
+      <div class="kpi">
+        <div class="kpi-label">Richiedenti asilo — Totale Europa</div>
+        <div class="kpi-value">136.050</div>
+        <div class="kpi-note">UE (maggio 2026) + Regno Unito (anno a marzo 2026) — periodi diversi, sommati</div>
+      </div>
+      <div class="kpi rimpatri">
+        <div class="kpi-label">Rimpatri — Totale Europa</div>
+        <div class="kpi-value">73.550</div>
+        <div class="kpi-note">UE (gen-mar 2026) + Regno Unito (anno a marzo 2026) — periodi diversi, sommati</div>
+      </div>
+      <div class="kpi arrivi">
+        <div class="kpi-label">Arrivi irregolari — Totale Europa</div>
+        <div class="kpi-value">~144.400</div>
+        <div class="kpi-note">UE (gen-lug 2026) + Manica (gen-giu 2026) + Ceuta (stima media, fine lug 2026)</div>
+      </div>
+    </div>
+
+    <div class="chart-card">
+      <div class="chart-title">Richiedenti asilo per paese</div>
+      <div class="chart-period">Domande d'asilo di prima istanza, Unione Europea — maggio 2026 (Eurostat)</div>
+      <div class="bar-row"><div class="bar-label">Italia</div><div class="bar-track"><div class="bar-fill asilo" style="width:84%" data-tooltip="Italia: 10.660 domande"><span class="bar-value">10.660</span></div></div></div>
+      <div class="bar-row"><div class="bar-label">Altri Stati UE (23 insieme)</div><div class="bar-track"><div class="bar-fill asilo" style="width:85%" data-tooltip="Altri Stati UE: 10.775 domande"><span class="bar-value">10.775</span></div></div></div>
+      <div class="bar-row"><div class="bar-label">Spagna</div><div class="bar-track"><div class="bar-fill asilo" style="width:62%" data-tooltip="Spagna: 7.945 domande"><span class="bar-value">7.945</span></div></div></div>
+      <div class="bar-row"><div class="bar-label">Francia</div><div class="bar-track"><div class="bar-fill asilo" style="width:56%" data-tooltip="Francia: 7.180 domande"><span class="bar-value">7.180</span></div></div></div>
+      <div class="bar-row"><div class="bar-label">Germania</div><div class="bar-track"><div class="bar-fill asilo" style="width:47%" data-tooltip="Germania: 5.965 domande"><span class="bar-value">5.965</span></div></div></div>
+      <div class="side-note">Il Regno Unito non compare in questo grafico: nell'anno terminato a marzo 2026 ha registrato 93.525 domande d'asilo, ma è un dato annuale, mentre quello dei paesi Ue qui sopra copre un solo mese. Mettere le due cose sulla stessa barra avrebbe fatto sembrare i paesi Ue molto più piccoli di quanto siano davvero, solo per un problema di periodi diversi. Il numero britannico resta comunque nel totale Europa in cima alla pagina e nella tabella completa qui sotto.</div>
+      <details class="table-view">
+        <summary>Vedi tabella dati completa</summary>
+        <table class="data-table">
+          <tr><th>Paese</th><th>Domande d'asilo</th><th>Periodo</th></tr>
+          <tr><td>Italia</td><td class="num">10.660</td><td>maggio 2026</td></tr>
+          <tr><td>Altri Stati UE (insieme)</td><td class="num">10.775</td><td>maggio 2026</td></tr>
+          <tr><td>Spagna</td><td class="num">7.945</td><td>maggio 2026</td></tr>
+          <tr><td>Francia</td><td class="num">7.180</td><td>maggio 2026</td></tr>
+          <tr><td>Germania</td><td class="num">5.965</td><td>maggio 2026</td></tr>
+          <tr><td>Polonia</td><td class="nd">n.d.</td><td>—</td></tr>
+          <tr><td>Regno Unito</td><td class="num">93.525</td><td>anno a marzo 2026</td></tr>
+          <tr style="font-weight:700; background:#f3e6c4;"><td>Totale Europa</td><td class="num">136.050</td><td>Ue maggio 2026 + Regno Unito anno a marzo 2026</td></tr>
+        </table>
+      </details>
+      <div class="dv-sources">Fonte: Eurostat, domande d'asilo di prima istanza per paese (maggio 2026); UK Home Office / GOV.UK, Immigration System Statistics (anno a marzo 2026).</div>
+    </div>
+
+    <div class="chart-card">
+      <div class="chart-title">Rimpatri per paese</div>
+      <div class="chart-period">Rimpatri effettivi verso paesi terzi, Unione Europea — gennaio-marzo 2026 (Eurostat)</div>
+      <div class="bar-row"><div class="bar-label">Altri Stati UE (23 insieme)</div><div class="bar-track"><div class="bar-fill rimpatri" style="width:100%" data-tooltip="Altri Stati UE: 18.915 rimpatri"><span class="bar-value">18.915</span></div></div></div>
+      <div class="bar-row"><div class="bar-label">Germania</div><div class="bar-track"><div class="bar-fill rimpatri" style="width:39%" data-tooltip="Germania: 7.300 rimpatri"><span class="bar-value">7.300</span></div></div></div>
+      <div class="bar-row"><div class="bar-label">Francia</div><div class="bar-track"><div class="bar-fill rimpatri" style="width:20%" data-tooltip="Francia: 3.775 rimpatri"><span class="bar-value">3.775</span></div></div></div>
+      <div class="bar-row"><div class="bar-label">Polonia</div><div class="bar-track"><div class="bar-fill rimpatri" style="width:14%" data-tooltip="Polonia: 2.660 rimpatri"><span class="bar-value">2.660</span></div></div></div>
+      <div class="bar-row"><div class="bar-label">Italia</div><div class="bar-track"><div class="bar-fill rimpatri" style="width:10%" data-tooltip="Italia: 1.900 rimpatri"><span class="bar-value">1.900</span></div></div></div>
+      <div class="side-note">Anche in questo grafico il Regno Unito resta fuori, per lo stesso motivo di prima: i suoi 39.000 rimpatri coprono un anno intero, mentre il dato dei paesi Ue si ferma ai primi tre mesi del 2026. Sono due periodi troppo diversi per essere messi a confronto sulla stessa barra senza fuorviare chi legge. Anche questo numero, però, è già dentro il totale Europa in cima alla pagina e nella tabella completa qui sotto.</div>
+      <details class="table-view">
+        <summary>Vedi tabella dati completa</summary>
+        <table class="data-table">
+          <tr><th>Paese</th><th>Rimpatri</th><th>Periodo</th></tr>
+          <tr><td>Altri Stati UE (insieme)</td><td class="num">18.915</td><td>gen-mar 2026 (Q1)</td></tr>
+          <tr><td>Germania</td><td class="num">7.300</td><td>gen-mar 2026 (Q1)</td></tr>
+          <tr><td>Francia</td><td class="num">3.775</td><td>gen-mar 2026 (Q1)</td></tr>
+          <tr><td>Polonia</td><td class="num">2.660</td><td>gen-mar 2026 (Q1)</td></tr>
+          <tr><td>Italia</td><td class="num">1.900</td><td>gen-mar 2026 (Q1)</td></tr>
+          <tr><td>Spagna</td><td class="nd">n.d.</td><td>—</td></tr>
+          <tr><td>Regno Unito</td><td class="num">39.000</td><td>anno a marzo 2026</td></tr>
+          <tr style="font-weight:700; background:#f3e6c4;"><td>Totale Europa</td><td class="num">73.550</td><td>Ue gen-mar 2026 + Regno Unito anno a marzo 2026</td></tr>
+        </table>
+      </details>
+      <div class="dv-sources">Fonte: Eurostat, return statistics (gennaio-marzo 2026); UK Home Office / GOV.UK, Immigration System Statistics (anno a marzo 2026).</div>
+    </div>
+
+    <div class="chart-card">
+      <div class="chart-title">Arrivi irregolari per rotta</div>
+      <div class="chart-period">Attraversamenti irregolari alle frontiere UE, per rotta — gennaio-luglio 2026 vs gennaio-luglio 2025 (Frontex). Manica: gennaio-giugno 2026.</div>
+      <div class="bar-row"><div class="bar-label">Mediterraneo orientale (Grecia)</div><div class="bar-track"><div class="bar-fill arrivi" style="width:100%" data-tooltip="20.232 attraversamenti, -28%"><span class="bar-value">20.232 <span class="dv-delta down">-28%</span></span></div></div></div>
+      <div class="bar-row"><div class="bar-label">Canale della Manica (UK)</div><div class="bar-track"><div class="bar-fill arrivi" style="width:91%" data-tooltip="18.367 attraversamenti, -44% (gen-giu 2026)"><span class="bar-value">18.367 <span class="dv-delta down">-44%</span></span></div></div></div>
+      <div class="bar-row"><div class="bar-label">Mediterraneo centrale (Italia)</div><div class="bar-track"><div class="bar-fill arrivi" style="width:81%" data-tooltip="16.454 attraversamenti, -55%"><span class="bar-value">16.454 <span class="dv-delta down">-55%</span></span></div></div></div>
+      <div class="bar-row"><div class="bar-label">Mediterraneo occidentale (Spagna)</div><div class="bar-track"><div class="bar-fill arrivi" style="width:55%" data-tooltip="11.217 attraversamenti, +37%"><span class="bar-value">11.217 <span class="dv-delta up">+37%</span></span></div></div></div>
+      <div class="bar-row"><div class="bar-label">Balcani occidentali</div><div class="bar-track"><div class="bar-fill arrivi" style="width:24%" data-tooltip="4.910 attraversamenti, -26%"><span class="bar-value">4.910 <span class="dv-delta down">-26%</span></span></div></div></div>
+      <div class="bar-row"><div class="bar-label">Confine terrestre orientale</div><div class="bar-track"><div class="bar-fill arrivi" style="width:16%" data-tooltip="3.209 attraversamenti, -44%"><span class="bar-value">3.209 <span class="dv-delta down">-44%</span></span></div></div></div>
+      <div class="callout"><b>Crisi di Ceuta (Spagna), fine luglio 2026:</b> tra 60.000 e 70.000 tentativi di attraversamento dal Marocco in poche ore, con almeno 88 morti. Non è nel grafico sopra: è un evento acuto misurato in modo diverso (tentativi in poche ore, quasi tutti respinti in giornata) rispetto ai rilevamenti cumulativi su mesi che Frontex conta per le altre rotte.</div>
+      <details class="table-view">
+        <summary>Vedi tabella dati completa</summary>
+        <table class="data-table">
+          <tr><th>Rotta</th><th>Arrivi irregolari</th><th>Variazione</th><th>Periodo</th></tr>
+          <tr><td>Mediterraneo orientale (Grecia)</td><td class="num">20.232</td><td>-28%</td><td>gen-lug 2026</td></tr>
+          <tr><td>Canale della Manica (Regno Unito)</td><td class="num">18.367</td><td>-44%</td><td>gen-giu 2026</td></tr>
+          <tr><td>Mediterraneo centrale (Italia)</td><td class="num">16.454</td><td>-55%</td><td>gen-lug 2026</td></tr>
+          <tr><td>Mediterraneo occidentale (Spagna)</td><td class="num">11.217</td><td>+37%</td><td>gen-lug 2026</td></tr>
+          <tr><td>Balcani occidentali</td><td class="num">4.910</td><td>-26%</td><td>gen-lug 2026</td></tr>
+          <tr><td>Confine terrestre orientale</td><td class="num">3.209</td><td>-44%</td><td>gen-lug 2026</td></tr>
+          <tr><td>Crisi di Ceuta (Spagna)</td><td class="num">60.000-70.000 tentativi</td><td>n.d.</td><td>fine luglio 2026</td></tr>
+          <tr style="font-weight:700; background:#f3e6c4;"><td>Totale Europa</td><td class="num">~144.400</td><td>—</td><td>Ue gen-lug + Manica gen-giu + Ceuta stima</td></tr>
+        </table>
+      </details>
+      <div class="dv-sources">Fonte: Frontex, comunicato ufficiale attraversamenti irregolari (gen-lug 2026 vs gen-lug 2025); House of Commons Library / UK Home Office (Manica, gen-giu 2026); Euronews, Il Post, Brussels Signal (crisi di Ceuta, fine luglio 2026).</div>
     </div>
   </div>
 </div>
