@@ -963,7 +963,7 @@
   body.overlay-open{ overflow:hidden; }
 </style>
 </head>
-<body id="top" data-edition="2026-08-18">
+<body id="top" data-edition="2026-08-18" data-published="2026-08-18T06:34:00+02:00">
 
 <!-- ===== OVERLAY INTRO — SEMPRE PRESENTE, IDENTICO OGNI GIORNO ===== -->
 <div class="overlay" id="introOverlay">
@@ -1566,7 +1566,16 @@
     var closeBtn = document.getElementById('closeOverlay');
     if (!overlay || !closeBtn) return;
     var edition = document.body.getAttribute('data-edition') || 'ignota';
+    var publishedRaw = document.body.getAttribute('data-published');
     var storageKey = 'ilcontribuente_overlay_seen_' + edition;
+    var TWENTY_FOUR_HOURS_MS = 24 * 60 * 60 * 1000;
+    var expired = false;
+    if (publishedRaw) {
+      var publishedDate = new Date(publishedRaw);
+      if (!isNaN(publishedDate.getTime())) {
+        expired = (Date.now() - publishedDate.getTime()) > TWENTY_FOUR_HOURS_MS;
+      }
+    }
     var alreadySeen = false;
     try { alreadySeen = localStorage.getItem(storageKey) === '1'; } catch (e) { alreadySeen = false; }
     function closeOverlay(){
@@ -1574,7 +1583,7 @@
       document.body.classList.remove('overlay-open');
       try { localStorage.setItem(storageKey, '1'); } catch (e) {}
     }
-    if (alreadySeen) {
+    if (alreadySeen || expired) {
       overlay.style.display = 'none';
     } else {
       document.body.classList.add('overlay-open');
