@@ -117,6 +117,17 @@
     color:#c9c0a8;
     box-shadow: var(--shadow-sm), inset 0 1px 0 rgba(255,255,255,.06);
     border:1px solid #3a3f47;
+    text-decoration:none;
+    display:inline-block;
+    cursor:pointer;
+    transition:transform .18s ease, box-shadow .18s ease, background .18s ease, color .18s ease, border-color .18s ease;
+  }
+  .badge:hover, .badge:focus-visible, .badge:active{
+    background:linear-gradient(180deg, #c99a3a, var(--gold));
+    color:#fff;
+    border-color:var(--gold-deep);
+    transform:translateY(-2px);
+    box-shadow: 0 6px 14px rgba(169,122,31,.35), inset 0 1px 0 rgba(255,255,255,.3);
   }
   .back-link{
     display:inline-block;
@@ -169,6 +180,7 @@
     padding:22px 6vw;
     white-space:nowrap;
     flex-wrap:wrap;
+    perspective:900px;
   }
   .market-card{
     display:flex;
@@ -176,12 +188,29 @@
     align-items:center;
     text-align:center;
     gap:4px;
-    background:linear-gradient(160deg, #2a2e34, #1a1d21);
-    border:1px solid #34383e;
-    border-radius:8px;
+    background:linear-gradient(160deg, #33373e, #1a1d21);
+    border:1px solid #3a3f47;
+    border-radius:12px;
     padding:12px 20px;
     flex-shrink:0;
     min-width:120px;
+    box-shadow:
+      0 1px 0 rgba(255,255,255,.08) inset,
+      0 -14px 18px -14px rgba(0,0,0,.55) inset,
+      0 4px 8px rgba(0,0,0,.35),
+      0 14px 26px rgba(0,0,0,.35);
+    transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  }
+  .market-card:hover{
+    transform:perspective(700px) rotateX(4deg) translateY(-6px);
+    border-color:var(--gold);
+    box-shadow:
+      0 1px 0 rgba(255,255,255,.14) inset,
+      0 -14px 18px -14px rgba(0,0,0,.55) inset,
+      0 6px 14px rgba(0,0,0,.4),
+      0 26px 44px rgba(0,0,0,.45),
+      0 0 0 1px rgba(169,122,31,.35),
+      0 12px 26px rgba(169,122,31,.28);
   }
   .market-label{
     font-family:'JetBrains Mono',monospace;
@@ -249,16 +278,31 @@
     max-width:1260px;
     margin:0 auto 44px auto;
     padding:0 6vw;
+    perspective:1000px;
   }
   .toc-inner{
     background:linear-gradient(165deg, #ffffff 0%, var(--card) 60%);
-    border-radius:10px;
-    padding:18px 24px;
-    box-shadow: var(--shadow-md);
+    border-radius:18px;
+    padding:20px 26px;
+    box-shadow:
+      0 1px 1px rgba(255,255,255,.8) inset,
+      0 1px 2px rgba(20,15,5,.05),
+      0 12px 26px rgba(20,15,5,.10),
+      0 30px 60px -20px rgba(20,15,5,.22);
+    border:1px solid rgba(255,255,255,.6);
     display:flex;
     align-items:center;
     gap:14px;
     flex-wrap:wrap;
+    transition:transform .3s ease, box-shadow .3s ease;
+  }
+  .toc-inner:hover{
+    transform:translateY(-3px);
+    box-shadow:
+      0 1px 1px rgba(255,255,255,.8) inset,
+      0 1px 2px rgba(20,15,5,.06),
+      0 16px 32px rgba(20,15,5,.12),
+      0 40px 72px -20px rgba(20,15,5,.26);
   }
   .toc-label{
     font-family:'JetBrains Mono',monospace;
@@ -270,24 +314,45 @@
   }
   .toc-links{
     display:flex;
-    gap:6px;
+    gap:9px;
     flex-wrap:wrap;
   }
   .toc-link{
     font-family:'Inter',sans-serif;
     font-size:13px;
-    font-weight:600;
+    font-weight:700;
     color:var(--ink);
-    background:var(--paper2);
+    background:linear-gradient(180deg, #fdfcf8 0%, var(--paper2) 100%);
     border-radius:20px;
-    padding:6px 14px;
+    padding:7px 16px;
     text-decoration:none;
-    transition:background .15s ease;
+    border:1px solid rgba(199,188,159,.55);
+    box-shadow:
+      0 1px 0 rgba(255,255,255,.8) inset,
+      0 -3px 5px rgba(20,15,5,.06) inset,
+      0 2px 4px rgba(20,15,5,.08),
+      0 6px 14px rgba(20,15,5,.08);
+    transition:transform .2s ease, box-shadow .2s ease, background .2s ease, color .2s ease;
   }
-  .toc-link:hover{ background:var(--gold); color:#fff; }
+  .toc-link:hover{
+    background:linear-gradient(180deg, #c99a3a 0%, var(--gold) 100%);
+    color:#fff;
+    border-color:var(--gold-deep);
+    transform:translateY(-3px) scale(1.03);
+    box-shadow:
+      0 1px 0 rgba(255,255,255,.35) inset,
+      0 -3px 6px rgba(0,0,0,.15) inset,
+      0 8px 16px rgba(169,122,31,.32),
+      0 16px 30px rgba(169,122,31,.24);
+  }
+  .toc-link:active{
+    transform:translateY(-1px) scale(1.01);
+    box-shadow:
+      0 2px 5px rgba(20,15,5,.18) inset;
+  }
   @media (max-width:640px){
     .toc-inner{ padding:14px 16px; gap:10px; }
-    .toc-link{ font-size:12px; padding:5px 12px; }
+    .toc-link{ font-size:12px; padding:6px 13px; }
   }
   @media (max-width:640px){
     .market-bar-inner{
@@ -324,22 +389,39 @@
   .stats{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
-    gap:16px;
+    gap:18px;
     margin-bottom:44px;
+    perspective:1000px;
   }
   .stat{
+    --accent-shadow: rgba(31,58,95,.24);
     background:linear-gradient(160deg, #ffffff, #f7f3e8);
-    border-radius:10px;
+    border-radius:16px;
     padding:18px 20px;
-    box-shadow: var(--shadow-md), var(--shadow-inset);
+    box-shadow:
+      0 1px 1px rgba(255,255,255,.7) inset,
+      0 1px 2px rgba(20,15,5,.06),
+      0 10px 20px rgba(20,15,5,.10),
+      0 26px 48px -18px var(--accent-shadow);
     border-top:3px solid var(--navy);
-    transition:transform .18s ease, box-shadow .18s ease;
+    transition:transform .25s ease, box-shadow .25s ease;
+    min-width:0;
+    max-width:100%;
+    overflow:hidden;
+    box-sizing:border-box;
   }
-  .stat:hover{ transform:translateY(-3px); box-shadow: var(--shadow-lg), var(--shadow-inset); }
-  .stat.red{border-top-color:var(--red);}
-  .stat.gold{border-top-color:var(--gold);}
-  .stat.green{border-top-color:var(--green);}
-  .stat.wine{border-top-color:var(--wine);}
+  .stat:hover{
+    transform:perspective(800px) rotateX(4deg) translateY(-7px);
+    box-shadow:
+      0 1px 1px rgba(255,255,255,.8) inset,
+      0 2px 4px rgba(20,15,5,.08),
+      0 16px 30px rgba(20,15,5,.14),
+      0 40px 70px -18px var(--accent-shadow);
+  }
+  .stat.red{border-top-color:var(--red); --accent-shadow: rgba(163,41,31,.30);}
+  .stat.gold{border-top-color:var(--gold); --accent-shadow: rgba(169,122,31,.30);}
+  .stat.green{border-top-color:var(--green); --accent-shadow: rgba(61,107,79,.30);}
+  .stat.wine{border-top-color:var(--wine); --accent-shadow: rgba(107,36,56,.30);}
   .stat-label{
     font-family:'JetBrains Mono',monospace;
     font-size:13.5px;
@@ -347,18 +429,26 @@
     letter-spacing:.1em;
     color:var(--ink-soft);
     margin-bottom:8px;
+    overflow-wrap:break-word;
+    word-break:break-word;
+    hyphens:auto;
   }
   .stat-value{
     font-family:'Fraunces',serif;
     font-weight:800;
-    font-size:34px;
-    line-height:1;
+    font-size:clamp(20px, 4.2vw, 34px);
+    line-height:1.05;
     margin-bottom:6px;
     text-shadow: 0 1px 0 rgba(255,255,255,.7);
+    overflow-wrap:break-word;
+    word-break:break-word;
+    hyphens:auto;
   }
   .stat-delta{
     font-size:13px;
     color:var(--ink-soft);
+    overflow-wrap:break-word;
+    word-break:break-word;
   }
   .section{
     margin-bottom:52px;
@@ -662,10 +752,10 @@
     .badge{ font-size:10px; padding:3px 7px; }
     .ticker{ font-size:11px; }
     .wrap{ padding:22px 5vw 0 5vw; }
-    .stats{ grid-template-columns:repeat(2,1fr); gap:10px; margin-bottom:32px; }
-    .stat{ padding:12px 14px; }
-    .stat-label{ font-size:10px; }
-    .stat-value{ font-size:22px; }
+    .stats{ grid-template-columns:repeat(auto-fit,minmax(135px,1fr)); gap:10px; margin-bottom:32px; }
+    .stat{ padding:12px 14px; min-width:0; }
+    .stat-label{ font-size:9.5px; }
+    .stat-value{ font-size:clamp(17px, 5.6vw, 22px); }
     .stat-delta{ font-size:10.5px; }
     .section{ margin-bottom:36px; }
     .section-head{ margin-bottom:16px; }
@@ -689,6 +779,11 @@
     .persp p{ font-size:14.5px; }
     .persp-label{ font-size:10px; }
     .back-to-top{ width:44px; height:44px; bottom:16px; right:16px; font-size:18px; }
+  }
+  /* Tablet / iPad: stat card in griglia 2x2 pulita invece di 3+1 */
+  @media (min-width:641px) and (max-width:1024px){
+    .stats{ grid-template-columns:repeat(2,1fr); gap:14px; }
+    .stat-value{ font-size:clamp(22px, 3.4vw, 30px); }
   }
   .footer-legal{
     max-width:1260px;
@@ -730,9 +825,6 @@
     border-radius:3px;
     padding:2px 6px;
     font-weight:700;
-  }
-  #viewCounter{
-    font-variant-numeric: tabular-nums;
   }
   .footer-note{
     max-width:1260px;
@@ -871,7 +963,7 @@
   body.overlay-open{ overflow:hidden; }
 </style>
 </head>
-<body id="top">
+<body id="top" data-edition="2026-08-17" data-published="2026-08-17T09:30:00+02:00">
 
 <!-- ===== OVERLAY INTRO — SEMPRE PRESENTE, IDENTICO OGNI GIORNO ===== -->
 <div class="overlay" id="introOverlay">
@@ -885,36 +977,35 @@
 <div class="masthead">
   <div class="masthead-top">
     <span>Edizione digitale</span>
-    <span>17 Agosto 2026 &middot; ore 09:30</span>
+    <span>17 Agosto 2026</span>
     <span>Rassegna stampa quotidiana</span>
-    <span id="viewCounter">Letture di oggi: —</span>
   </div>
   <h1 class="masthead-title">Il <em>Contribuente</em></h1>
   <div class="masthead-sub">Italia, Europa, geopolitica, immigrazione e mercati — sintesi multi-fonte, con confronto diretto tra testate diverse sugli stessi fatti, senza etichette politiche.</div>
   <div class="masthead-badges">
-    <span class="badge">Ansa</span>
-    <span class="badge">Adnkronos</span>
-    <span class="badge">Il Fatto Quotidiano</span>
-    <span class="badge">Repubblica</span>
-    <span class="badge">Corriere della Sera</span>
-    <span class="badge">L'Indipendente</span>
-    <span class="badge">Il Giornale</span>
-    <span class="badge">La Verità</span>
-    <span class="badge">Domani</span>
-    <span class="badge">Il Sole 24 Ore</span>
-    <span class="badge">New York Times</span>
-    <span class="badge">The Guardian</span>
-    <span class="badge">Pravda Italia</span>
-    <span class="badge">Global Times</span>
-    <span class="badge">LaPresse</span>
-    <span class="badge">Il Post</span>
-    <span class="badge">Sky TG24</span>
-    <span class="badge">CNBC</span>
-    <span class="badge">CNN</span>
-    <span class="badge">Al Jazeera</span>
-    <span class="badge">RT</span>
-    <span class="badge">Frontex</span>
-    <span class="badge">Bloomberg</span>
+    <a class="badge" href="https://www.ansa.it" target="_blank" rel="noopener noreferrer">Ansa</a>
+    <a class="badge" href="https://www.adnkronos.com" target="_blank" rel="noopener noreferrer">Adnkronos</a>
+    <a class="badge" href="https://www.ilfattoquotidiano.it" target="_blank" rel="noopener noreferrer">Il Fatto Quotidiano</a>
+    <a class="badge" href="https://www.repubblica.it" target="_blank" rel="noopener noreferrer">Repubblica</a>
+    <a class="badge" href="https://www.corriere.it" target="_blank" rel="noopener noreferrer">Corriere della Sera</a>
+    <a class="badge" href="https://www.lindipendente.online" target="_blank" rel="noopener noreferrer">L'Indipendente</a>
+    <a class="badge" href="https://www.ilgiornale.it" target="_blank" rel="noopener noreferrer">Il Giornale</a>
+    <a class="badge" href="https://www.laverita.info" target="_blank" rel="noopener noreferrer">La Verità</a>
+    <a class="badge" href="https://www.editorialedomani.it" target="_blank" rel="noopener noreferrer">Domani</a>
+    <a class="badge" href="https://www.ilsole24ore.com" target="_blank" rel="noopener noreferrer">Il Sole 24 Ore</a>
+    <a class="badge" href="https://www.nytimes.com" target="_blank" rel="noopener noreferrer">New York Times</a>
+    <a class="badge" href="https://www.theguardian.com" target="_blank" rel="noopener noreferrer">The Guardian</a>
+    <a class="badge" href="https://it.news-pravda.com" target="_blank" rel="noopener noreferrer">Pravda Italia</a>
+    <a class="badge" href="https://www.globaltimes.cn" target="_blank" rel="noopener noreferrer">Global Times</a>
+    <a class="badge" href="https://www.lapresse.it" target="_blank" rel="noopener noreferrer">LaPresse</a>
+    <a class="badge" href="https://www.ilpost.it" target="_blank" rel="noopener noreferrer">Il Post</a>
+    <a class="badge" href="https://tg24.sky.it" target="_blank" rel="noopener noreferrer">Sky TG24</a>
+    <a class="badge" href="https://www.cnbc.com" target="_blank" rel="noopener noreferrer">CNBC</a>
+    <a class="badge" href="https://www.cnn.com" target="_blank" rel="noopener noreferrer">CNN</a>
+    <a class="badge" href="https://www.aljazeera.com" target="_blank" rel="noopener noreferrer">Al Jazeera</a>
+    <a class="badge" href="https://www.rt.com" target="_blank" rel="noopener noreferrer">RT</a>
+    <a class="badge" href="https://www.frontex.europa.eu" target="_blank" rel="noopener noreferrer">Frontex</a>
+    <a class="badge" href="https://www.bloomberg.com" target="_blank" rel="noopener noreferrer">Bloomberg</a>
   </div>
   <a href="../archivio.html" class="back-link">Archivio edizioni &rarr;</a>
 </div>
@@ -991,6 +1082,7 @@
         <a href="#finanza" class="toc-link">Finanza</a>
         <a href="#ia" class="toc-link">IA</a>
         <a href="#immigrazione" class="toc-link">Immigrazione</a>
+        <a href="#dati-immigrazione" class="toc-link">Dati Immigrazione</a>
       </div>
     </div>
   </div>
@@ -1480,36 +1572,36 @@
     else { btn.classList.remove('show'); }
   });
   (function(){
-    var el = document.getElementById('viewCounter');
-    if (!el) return;
-    var now = new Date();
-    var shifted = new Date(now.getTime() - 7*60*60*1000);
-    var y = shifted.getFullYear();
-    var m = String(shifted.getMonth()+1).padStart(2,'0');
-    var d = String(shifted.getDate()).padStart(2,'0');
-    var dayKey = y + m + d;
-    fetch('https://abacus.jasoncameron.dev/hit/ilcontribuente/' + dayKey)
-      .then(function(r){ return r.json(); })
-      .then(function(data){
-        el.textContent = 'Letture di oggi: ' + data.value;
-      })
-      .catch(function(){
-        el.style.display = 'none';
-      });
-  })();
-  (function(){
     var overlay = document.getElementById('introOverlay');
     var closeBtn = document.getElementById('closeOverlay');
     if (!overlay || !closeBtn) return;
-    document.body.classList.add('overlay-open');
+    var edition = document.body.getAttribute('data-edition') || 'ignota';
+    var publishedRaw = document.body.getAttribute('data-published');
+    var storageKey = 'ilcontribuente_overlay_seen_' + edition;
+    var TWENTY_FOUR_HOURS_MS = 24 * 60 * 60 * 1000;
+    var expired = false;
+    if (publishedRaw) {
+      var publishedDate = new Date(publishedRaw);
+      if (!isNaN(publishedDate.getTime())) {
+        expired = (Date.now() - publishedDate.getTime()) > TWENTY_FOUR_HOURS_MS;
+      }
+    }
+    var alreadySeen = false;
+    try { alreadySeen = localStorage.getItem(storageKey) === '1'; } catch (e) { alreadySeen = false; }
     function closeOverlay(){
       overlay.style.display = 'none';
       document.body.classList.remove('overlay-open');
+      try { localStorage.setItem(storageKey, '1'); } catch (e) {}
     }
-    closeBtn.addEventListener('click', closeOverlay);
-    overlay.addEventListener('click', function(e){
-      if (e.target === overlay) closeOverlay();
-    });
+    if (alreadySeen || expired) {
+      overlay.style.display = 'none';
+    } else {
+      document.body.classList.add('overlay-open');
+      closeBtn.addEventListener('click', closeOverlay);
+      overlay.addEventListener('click', function(e){
+        if (e.target === overlay) closeOverlay();
+      });
+    }
   })();
 </script>
 </body>
