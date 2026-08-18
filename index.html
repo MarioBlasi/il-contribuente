@@ -555,6 +555,16 @@
     padding-top:11px;
     width:100%;
   }
+  .source a{
+    color:inherit;
+    text-decoration:none;
+    border-bottom:1px dotted currentColor;
+    transition:color .15s ease, border-color .15s ease;
+  }
+  .source a:hover{
+    color:var(--gold-deep);
+    border-bottom-color:var(--gold-deep);
+  }
   .callout{
     background:linear-gradient(160deg, #f3e6c4, #ecdcb2);
     border-radius:6px;
@@ -566,6 +576,101 @@
     box-shadow: var(--shadow-sm), inset 0 1px 0 rgba(255,255,255,.4);
   }
   .callout b{color:var(--wine);}
+
+  /* ===== VERIFICA FONTI (badge sotto l'indice) ===== */
+  .verify-badge{
+    max-width:1260px;
+    margin:0 auto 24px auto;
+    padding:0 6vw;
+  }
+  .verify-badge-inner{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    flex-wrap:wrap;
+    text-align:center;
+    font-family:'JetBrains Mono',monospace;
+    font-size:12px;
+    letter-spacing:.04em;
+    color:var(--ink-soft);
+    background:rgba(169,122,31,.08);
+    border:1px solid rgba(169,122,31,.28);
+    border-radius:30px;
+    padding:9px 20px;
+  }
+  .verify-badge-inner strong{ color:var(--gold-deep); }
+
+  /* ===== AGENDA "COSA SUCCEDE OGGI" ===== */
+  .agenda-box{
+    background:linear-gradient(165deg, #ffffff 0%, var(--card) 60%);
+    border-radius:14px;
+    padding:20px 24px;
+    margin-bottom:44px;
+    box-shadow: var(--shadow-md), inset 0 1px 0 rgba(255,255,255,.5);
+    border-top:3px solid var(--gold);
+  }
+  .agenda-title{
+    font-family:'Fraunces',serif;
+    font-weight:700;
+    font-size:19px;
+    margin:0 0 14px 0;
+    color:var(--ink);
+  }
+  .agenda-list{
+    display:flex;
+    flex-direction:column;
+    gap:9px;
+  }
+  .agenda-item{
+    display:flex;
+    gap:12px;
+    align-items:baseline;
+    font-size:14.5px;
+    line-height:1.5;
+  }
+  .agenda-time{
+    font-family:'JetBrains Mono',monospace;
+    font-weight:700;
+    font-size:13px;
+    color:var(--gold-deep);
+    flex-shrink:0;
+    min-width:52px;
+  }
+  .agenda-event{ color:var(--ink); }
+
+  /* ===== BOX "DA SAPERE PER CAPIRE" — presente in ogni sezione (SKILL.md punto 28) ===== */
+  .context-box{
+    background:linear-gradient(160deg, #eef3f8, #e3ebf3);
+    border-left:4px solid var(--navy);
+    border-radius:8px;
+    padding:16px 20px;
+    margin-bottom:20px;
+    box-shadow: var(--shadow-sm), inset 0 1px 0 rgba(255,255,255,.5);
+  }
+  .context-box-label{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--navy);
+    font-weight:700;
+    margin-bottom:8px;
+  }
+  .context-box p{
+    font-size:15.5px;
+    line-height:1.6;
+    color:var(--ink);
+    margin:0;
+  }
+  @media (max-width:640px){
+    .verify-badge-inner{ font-size:10.5px; padding:8px 14px; }
+    .agenda-box{ padding:15px 16px; }
+    .agenda-title{ font-size:16px; }
+    .agenda-item{ font-size:13px; }
+    .context-box{ padding:13px 15px; }
+    .context-box p{ font-size:14px; }
+  }
   .persp{
     display:flex;
     gap:12px;
@@ -1006,6 +1111,24 @@
     <a class="badge" href="https://www.rt.com" target="_blank" rel="noopener noreferrer">RT</a>
     <a class="badge" href="https://www.frontex.europa.eu" target="_blank" rel="noopener noreferrer">Frontex</a>
     <a class="badge" href="https://www.bloomberg.com" target="_blank" rel="noopener noreferrer">Bloomberg</a>
+    <!-- Testate aggiuntive citate negli articoli di oggi, non tra le 23 fisse (SKILL.md punto 22-bis) -->
+    <a class="badge" href="https://www.forzearmate.org" target="_blank" rel="noopener noreferrer">forzearmate.org</a>
+    <a class="badge" href="https://www.wsj.com" target="_blank" rel="noopener noreferrer">Wall Street Journal</a>
+    <a class="badge" href="https://www.nbcnews.com" target="_blank" rel="noopener noreferrer">NBC News</a>
+    <a class="badge" href="https://www.axios.com" target="_blank" rel="noopener noreferrer">Axios</a>
+    <a class="badge" href="https://www.milanofinanza.it" target="_blank" rel="noopener noreferrer">MilanoFinanza</a>
+    <a class="badge" href="https://eurasiabusinessnews.com" target="_blank" rel="noopener noreferrer">Eurasia Business News</a>
+    <a class="badge" href="https://ec.europa.eu/eurostat" target="_blank" rel="noopener noreferrer">Eurostat</a>
+    <a class="badge" href="https://www.euronews.com" target="_blank" rel="noopener noreferrer">Euronews</a>
+    <a class="badge" href="https://www.ilrestodelcarlino.it" target="_blank" rel="noopener noreferrer">Il Resto del Carlino</a>
+    <a class="badge" href="https://www.quotidiano.net" target="_blank" rel="noopener noreferrer">Quotidiano Nazionale</a>
+    <a class="badge" href="https://www.iltempo.it" target="_blank" rel="noopener noreferrer">Il Tempo</a>
+    <a class="badge" href="https://www.tgcom24.mediaset.it" target="_blank" rel="noopener noreferrer">Tgcom24</a>
+    <a class="badge" href="https://agenparl.eu" target="_blank" rel="noopener noreferrer">Agenparl</a>
+    <a class="badge" href="https://www.oxfordeconomics.com" target="_blank" rel="noopener noreferrer">Oxford Economics</a>
+    <a class="badge" href="https://www.theregister.com" target="_blank" rel="noopener noreferrer">The Register</a>
+    <a class="badge" href="https://www.forbes.com" target="_blank" rel="noopener noreferrer">Forbes</a>
+    <a class="badge" href="https://aiweekly.co" target="_blank" rel="noopener noreferrer">AI Weekly</a>
   </div>
   <a href="archivio.html" class="back-link">Archivio edizioni &rarr;</a>
 </div>
@@ -1087,6 +1210,10 @@
     </div>
   </div>
 
+  <div class="verify-badge">
+    <div class="verify-badge-inner">✓ Oggi abbiamo confrontato <strong>28 fonti</strong> su <strong>23 testate</strong> diverse</div>
+  </div>
+
   <div class="quote-day">
     <div class="quote-day-inner">
       <div class="quote-day-label">Citazione del giorno &middot; 1/2</div>
@@ -1126,6 +1253,17 @@
   </div>
   <div class="section-note" style="margin-top:-32px; margin-bottom:44px;">Dati: forzearmate.org per Oman, Eurasia Business News/Ansa per Wall Street, Ansa Puglia per il naufragio, Ansa per l'Indonesia. Numeri soggetti ad aggiornamento nelle prossime ore.</div>
 
+  <div class="agenda-box">
+    <h3 class="agenda-title">Cosa succede oggi</h3>
+    <div class="agenda-list">
+      <div class="agenda-item"><span class="agenda-time">Mattina</span><span class="agenda-event">A Modena e in provincia di Cosenza si tengono le udienze di convalida del fermo per i due femminicidi di ieri</span></div>
+      <div class="agenda-item"><span class="agenda-time">Giornata</span><span class="agenda-event">Proseguono in Belgio e Spagna gli interventi dei soccorritori europei (Francia, Svezia, Olanda, Norvegia, Germania) contro gli incendi, nell'ambito del meccanismo di protezione civile Ue attivato da von der Leyen</span></div>
+      <div class="agenda-item"><span class="agenda-time">Giornata</span><span class="agenda-event">Prosegue il pressing diplomatico di Jared Kushner su Netanyahu e sui mediatori dopo l'incontro di ieri: attesi sviluppi sul calendario del disarmo di Hamas nel piano per Gaza</span></div>
+      <div class="agenda-item"><span class="agenda-time">Pre-mercato</span><span class="agenda-event">Home Depot pubblica i risultati trimestrali, primo grande test della stagione degli utili della grande distribuzione Usa</span></div>
+      <div class="agenda-item"><span class="agenda-time">15:30</span><span class="agenda-event">Apertura di Wall Street, sotto osservazione dopo la chiusura in calo di ieri e il rialzo del Brent oltre gli 88 dollari</span></div>
+    </div>
+  </div>
+
   <!-- ===== CONFRONTO: PIANO GAZA (3 punti di vista) — ECCEZIONE: resta a 3 (SKILL.md punto 13) ===== -->
   <div class="section" id="confronto">
     <div class="section-head">
@@ -1133,6 +1271,11 @@
       <h2 class="section-title">Piano per Gaza: Kushner da Netanyahu, Hamas chiede ai mediatori di "costringere" Israele</h2>
     </div>
     <div class="section-note">L'inviato Usa Jared Kushner ha incontrato Netanyahu dopo i colloqui con i vertici di Hamas in Egitto. Tre letture dello stesso piano di pace: quella israeliana, quella di Hamas e quella americana da mediatore.</div>
+
+    <div class="context-box">
+      <div class="context-box-label">Da sapere per capire</div>
+      <p>Il piano di pace per Gaza proposto dall'amministrazione Trump prevede il disarmo di Hamas in cambio di un ritiro israeliano graduale e della fine delle ostilità. Hamas ha già dato un'approvazione di massima alle linee generali; il nodo rimasto aperto da settimane è il calendario e le garanzie sul disarmo, che Netanyahu vuole verificabile e concreto prima di qualsiasi ritiro. Jared Kushner, genero del presidente Usa, fa da mediatore diretto tra le parti.</p>
+    </div>
 
     <div class="duel">
       <div class="duel-fact">
@@ -1144,13 +1287,13 @@
           <span class="duel-tag">Israele — Il Tempo, Ansa</span>
           <div class="duel-headline">Netanyahu: "Ritiro imprescindibile ma dev'essere concreto"</div>
           <p class="body">Secondo fonti riprese da Ansa e Il Tempo, Netanyahu ha detto a Kushner che la serietà del piano si misura sulla "consegna delle armi" da parte di Hamas, ribadendo che non è previsto alcuno Stato palestinese. Il ritiro israeliano resta condizionato a un disarmo verificabile del gruppo.</p>
-          <span class="source">Fonti: Ansa · Il Tempo</span>
+          <span class="source">Fonti: <a href="https://www.ansa.it" target="_blank" rel="noopener noreferrer">Ansa</a> · <a href="https://www.iltempo.it" target="_blank" rel="noopener noreferrer">Il Tempo</a></span>
         </div>
         <div class="duel-side right">
           <span class="duel-tag">Hamas — Adnkronos</span>
           <div class="duel-headline">"I mediatori costringano Israele ad accettare il piano"</div>
           <p class="body">Hamas ribadisce l'impegno al piano Trump e al disarmo, ma chiede esplicitamente ai mediatori internazionali di far rispettare a Israele la tabella di marcia concordata e un calendario di attuazione, accusando implicitamente Netanyahu di temporeggiare.</p>
-          <span class="source">Fonte: Adnkronos</span>
+          <span class="source">Fonte: <a href="https://www.adnkronos.com" target="_blank" rel="noopener noreferrer">Adnkronos</a></span>
         </div>
       </div>
       <div class="duel-grid" style="grid-template-columns:1fr; border-top:1px solid var(--rule);">
@@ -1158,7 +1301,7 @@
           <span class="duel-tag">Stati Uniti — NBC News, Axios</span>
           <div class="duel-headline">Kushner spinge per un generale Usa a supervisionare il disarmo</div>
           <p class="body">Secondo NBC News, Kushner e Netanyahu avrebbero concordato che un generale statunitense sovrintenda alla "smilitarizzazione" di Hamas, un meccanismo pensato per dare garanzie a entrambe le parti e sbloccare l'impasse tra le richieste israeliane e quelle del movimento palestinese.</p>
-          <span class="source">Fonti: NBC News · Axios</span>
+          <span class="source">Fonti: <a href="https://www.nbcnews.com" target="_blank" rel="noopener noreferrer">NBC News</a> · <a href="https://www.axios.com" target="_blank" rel="noopener noreferrer">Axios</a></span>
         </div>
       </div>
     </div>
@@ -1171,19 +1314,25 @@
       <h2 class="section-title">Hormuz, Trump minaccia l'Oman mentre Teheran avverte: "Sorprese strategiche"</h2>
     </div>
     <div class="section-note">Tre posizioni sullo stesso nodo: la minaccia di Trump contro l'Oman, l'avvertimento dei Guardiani della rivoluzione iraniani, e il ruolo di Mascate come mediatore che negozia in proprio con Teheran.</div>
+
+    <div class="context-box">
+      <div class="context-box-label">Da sapere per capire</div>
+      <p>Lo Stretto di Hormuz è il collo di bottiglia da cui transita circa un quinto del petrolio mondiale, tra il Golfo Persico e l'Oceano Indiano. L'Iran minaccia periodicamente di chiuderlo in risposta alle pressioni occidentali, mentre l'Oman — unico paese del Golfo con canali aperti sia con Washington sia con Teheran — ha sempre giocato il ruolo di mediatore informale nella crisi del nucleare iraniano e nelle tensioni marittime. L'accordo appena raggiunto tra Mascate e Teheran su corridoi di navigazione separati è il motivo per cui Trump ha reagito con la minaccia diretta all'Oman.</p>
+    </div>
+
     <div class="duel">
       <div class="duel-grid">
         <div class="duel-side left">
           <span class="duel-tag">Stati Uniti — forzearmate.org</span>
           <div class="duel-headline">"Se l'Oman si mette di mezzo, lo bombardiamo alla grande"</div>
           <p class="body">Trump ha minacciato apertamente l'Oman dopo che Mascate ha negoziato con l'Iran un'intesa preliminare sulla gestione del traffico marittimo nello Stretto, con corridoi separati per le navi in entrata e in uscita. Trump ha comunque confermato l'esistenza di un canale riservato con i Guardiani della rivoluzione.</p>
-          <span class="source">Fonte: forzearmate.org</span>
+          <span class="source">Fonte: <a href="https://www.forzearmate.org" target="_blank" rel="noopener noreferrer">forzearmate.org</a></span>
         </div>
         <div class="duel-side right">
           <span class="duel-tag">Iran — Editoriale Domani (Wall Street Journal)</span>
           <div class="duel-headline">Il nemico "deve aspettarsi sorprese strategiche"</div>
           <p class="body">Un generale dei Guardiani della rivoluzione ha avvertito che l'assetto difensivo iraniano è pronto a trasformarsi in offensivo, mentre secondo il Wall Street Journal Teheran starebbe elaborando un piano per intensificare la contrapposizione con Washington, con l'intelligence Usa che segnala un cambio di linea verso i falchi del regime.</p>
-          <span class="source">Fonti: Editoriale Domani · Wall Street Journal</span>
+          <span class="source">Fonti: <a href="https://www.editorialedomani.it" target="_blank" rel="noopener noreferrer">Editoriale Domani</a> · <a href="https://www.wsj.com" target="_blank" rel="noopener noreferrer">Wall Street Journal</a></span>
         </div>
       </div>
       <div class="duel-grid" style="grid-template-columns:1fr; border-top:1px solid var(--rule);">
@@ -1191,7 +1340,7 @@
           <span class="duel-tag">Oman — forzearmate.org</span>
           <div class="duel-headline">Mascate negozia in proprio un'intesa sulle rotte con Teheran</div>
           <p class="body">L'Oman, mediatore tradizionale tra Washington e Teheran, ha raggiunto con l'Iran un'intesa preliminare su corridoi marittimi separati nello Stretto: le navi dirette al Golfo userebbero acque iraniane, quelle in uscita un corridoio in acque omanite. Restano da definire i controlli sul traffico e le eventuali tariffe di transito.</p>
-          <span class="source">Fonte: forzearmate.org</span>
+          <span class="source">Fonte: <a href="https://www.forzearmate.org" target="_blank" rel="noopener noreferrer">forzearmate.org</a></span>
         </div>
       </div>
     </div>
@@ -1204,26 +1353,30 @@
       <h2 class="section-title">Trump annuncia la visita di Xi, nuova scossa in Indonesia</h2>
     </div>
     <div class="section-note">Notizie dall'estero non legate ai temi già trattati altrove.</div>
+    <div class="context-box">
+      <div class="context-box-label">Da sapere per capire</div>
+      <p>La visita di Xi Jinping alla Casa Bianca il 24 settembre arriva dopo mesi di negoziati commerciali tesi tra Washington e Pechino su dazi e controlli sull'export di semiconduttori. Sarebbe la prima visita di un leader cinese negli Usa dal 2015: un segnale di disgelo che Trump vuole celebrare con un evento fuori misura, anche se la Casa Bianca resta sotto lavori di ristrutturazione dopo la demolizione dell'ala est voluta dallo stesso presidente.</p>
+    </div>
     <div class="articles">
       <div class="article lead">
         <h3>Trump: "Xi arriva il 24 settembre, vorrei ospitare 3mila persone alla Casa Bianca"</h3>
         <p>Il presidente Usa ha annunciato che il leader cinese Xi Jinping arriverà in visita il 24 settembre, esprimendo il desiderio di organizzare un ricevimento per 3mila persone. Trump ha spiegato di non poter usare la sala da pranzo di Stato per un blocco disposto da un tribunale, lamentando che "la Casa Bianca sta cadendo a pezzi".</p>
-        <span class="source">Fonte: Ansa</span>
+        <span class="source">Fonte: <a href="https://www.ansa.it" target="_blank" rel="noopener noreferrer">Ansa</a></span>
       </div>
       <div class="article">
         <h3>Indonesia, nuova scossa a Flores: nessuna allerta tsunami</h3>
         <p>Una nuova scossa di magnitudo 5.6 è stata avvertita al largo dell'isola di Flores, dove il bilancio del violento terremoto dei giorni scorsi resta pesante: almeno 51 morti, 101 feriti e circa 5mila sfollati. Le autorità non hanno emesso alcuna allerta tsunami per la nuova scossa.</p>
-        <span class="source">Fonti: Ansa · Adnkronos</span>
+        <span class="source">Fonti: <a href="https://www.ansa.it" target="_blank" rel="noopener noreferrer">Ansa</a> · <a href="https://www.adnkronos.com" target="_blank" rel="noopener noreferrer">Adnkronos</a></span>
       </div>
       <div class="article">
         <h3>Barcellona, notte tranquilla per l'italiano Nicola Maggiotto</h3>
         <p>Il 21enne di Asolo aggredito fuori da un locale a Barcellona, in coma farmacologico dopo un colpo alla nuca, "ha trascorso una notte tranquilla" con condizioni stabili, riferisce il padre. Nelle prossime ore i medici valuteranno una riduzione della sedazione per verificare eventuali danni cognitivi.</p>
-        <span class="source">Fonte: Ansa</span>
+        <span class="source">Fonte: <a href="https://www.ansa.it" target="_blank" rel="noopener noreferrer">Ansa</a></span>
       </div>
       <div class="article">
         <h3>Giappone, il Pil rallenta e manca le previsioni di crescita</h3>
         <p>Il Pil giapponese del secondo trimestre cresce dello 0,3% congiunturale (1,1% annuo), sotto le attese degli analisti (+0,5%); gli investimenti delle imprese calano dell'1,2%. Lo yen resta ai minimi da 40 anni sul dollaro e pesano i costi energetici, mentre le esportazioni legate all'IA restano un punto di forza.</p>
-        <span class="source">Fonte: Oxford Economics (via analisi indipendente)</span>
+        <span class="source">Fonte: <a href="https://www.oxfordeconomics.com" target="_blank" rel="noopener noreferrer">Oxford Economics</a> (via analisi indipendente)</span>
       </div>
     </div>
   </div>
@@ -1234,27 +1387,31 @@
       <span class="section-tag tag-italia">Italia</span>
       <h2 class="section-title">Vita lavorativa più corta d'Europa, Stellantis ferma Cassino, si tratta la Manovra</h2>
     </div>
+    <div class="context-box">
+      <div class="context-box-label">Da sapere per capire</div>
+      <p>Il dato Eurostat sulla vita lavorativa più corta d'Europa arriva mentre il governo tratta la Manovra 2027, con al centro il nodo pensioni e il rilancio dell'occupazione giovanile e femminile: due leve che, se non si muovono, tengono strutturalmente breve la carriera media degli italiani. Sullo sfondo, il debito pubblico record oltre i 3.200 miliardi restringe i margini di spesa per qualsiasi intervento espansivo.</p>
+    </div>
     <div class="articles">
       <div class="article lead">
         <h3>In Italia la vita lavorativa media è di appena 33 anni, ai minimi nell'Ue</h3>
         <p>Secondo l'ultima rilevazione Eurostat ripresa da Ansa, in Italia la durata media della vita lavorativa attesa è di appena 33 anni, tra le più basse dell'Unione europea, complici l'ingresso tardivo nel mondo del lavoro e i bassi tassi di occupazione femminile e giovanile.</p>
         <p>Nello stesso pacchetto di dati economici, il debito pubblico italiano ha toccato un nuovo record oltre i 3.200 miliardi di euro, mentre il governo prosegue il confronto sulla Manovra 2027, con sul tavolo un pacchetto fiscale da oltre 30 miliardi tra tagli Irpef e rinnovo dei contratti energetici.</p>
-        <span class="source">Fonti: Ansa · Eurostat</span>
+        <span class="source">Fonti: <a href="https://www.ansa.it" target="_blank" rel="noopener noreferrer">Ansa</a> · <a href="https://ec.europa.eu/eurostat" target="_blank" rel="noopener noreferrer">Eurostat</a></span>
       </div>
       <div class="article">
         <h3>Stellantis, produzione ferma a Cassino fino al 31 agosto</h3>
         <p>Lo stabilimento Stellantis di Cassino resta fermo fino al 31 agosto per la carenza di ordini, in una fase difficile per il gruppo automobilistico italo-francese; i sindacati chiedono chiarezza sul piano industriale e sul futuro dello stabilimento nel Lazio.</p>
-        <span class="source">Fonte: Ansa</span>
+        <span class="source">Fonte: <a href="https://www.ansa.it" target="_blank" rel="noopener noreferrer">Ansa</a></span>
       </div>
       <div class="article">
         <h3>Unicredit, ipotesi sulla cessione della quota di Berlino in Commerzbank</h3>
         <p>Circola l'ipotesi che il governo tedesco possa cedere la propria quota in Commerzbank a Unicredit, in un possibile nuovo passo della partita sulla banca tedesca che la banca guidata da Andrea Orcel segue da mesi con l'obiettivo di una fusione transfrontaliera.</p>
-        <span class="source">Fonte: Ansa</span>
+        <span class="source">Fonte: <a href="https://www.ansa.it" target="_blank" rel="noopener noreferrer">Ansa</a></span>
       </div>
       <div class="article">
         <h3>Ferrari Luce all'asta da Sotheby's per 40 milioni di dollari, record</h3>
         <p>Una Ferrari appartenuta a un collezionista è stata aggiudicata all'asta di Sotheby's per un prezzo record di 40 milioni di dollari, tra le cifre più alte mai raggiunte per un'auto d'epoca italiana, a conferma della tenuta del mercato del collezionismo di lusso nonostante le turbolenze economiche.</p>
-        <span class="source">Fonte: Ansa</span>
+        <span class="source">Fonte: <a href="https://www.ansa.it" target="_blank" rel="noopener noreferrer">Ansa</a></span>
       </div>
     </div>
   </div>
@@ -1266,26 +1423,30 @@
       <h2 class="section-title">Modena, Calabria, Lecco, Torino</h2>
     </div>
     <div class="section-note">Cronaca nera e sicurezza urbana.</div>
+    <div class="context-box">
+      <div class="context-box-label">Da sapere per capire</div>
+      <p>I due femminicidi di ieri (Montese nel Modenese e provincia di Cosenza) portano il conto dell'anno a un livello che le associazioni antiviolenza definiscono ancora allarmante, nonostante il rafforzamento del Codice Rosso: nella maggioranza dei casi, come in questi due, l'autore è il partner o l'ex partner, spesso già noto alle vittime per episodi di violenza pregressa.</p>
+    </div>
     <div class="articles">
       <div class="article lead">
         <h3>Accoltellato nel Modenese, arrestata la moglie</h3>
         <p>A Montese, in provincia di Modena, i carabinieri hanno arrestato la giovane moglie di Daouda Sangarè, operaio ivoriano di 31 anni ucciso a coltellate in via Righi: il fermo è stato eseguito su ordinanza di custodia cautelare della Procura per omicidio volontario. La donna sarà sentita nell'udienza di convalida.</p>
-        <span class="source">Fonte: Il Resto del Carlino</span>
+        <span class="source">Fonte: <a href="https://www.ilrestodelcarlino.it" target="_blank" rel="noopener noreferrer">Il Resto del Carlino</a></span>
       </div>
       <div class="article">
         <h3>Donna uccisa nel Cosentino, il compagno fermato a Bari</h3>
         <p>Una donna di 46 anni è morta dopo essere stata picchiata dal compagno in provincia di Cosenza; l'uomo è stato rintracciato e fermato al porto di Bari mentre tentava di imbarcarsi per l'Albania. L'udienza di convalida del fermo è attesa nelle prossime ore.</p>
-        <span class="source">Fonte: Ansa Calabria</span>
+        <span class="source">Fonte: <a href="https://www.ansa.it/calabria/" target="_blank" rel="noopener noreferrer">Ansa Calabria</a></span>
       </div>
       <div class="article">
         <h3>Nubifragio nel Lecchese, ventenne muore nel lago</h3>
         <p>Un ventenne è morto nelle acque del lago di Como dopo che un improvviso e violento nubifragio si è abbattuto sulla zona del Lecchese, sorprendendo diverse persone in acqua; sul posto sono intervenuti soccorritori e vigili del fuoco.</p>
-        <span class="source">Fonte: Ansa Lombardia</span>
+        <span class="source">Fonte: <a href="https://www.ansa.it/lombardia/" target="_blank" rel="noopener noreferrer">Ansa Lombardia</a></span>
       </div>
       <div class="article">
         <h3>Furto in tre negozi nel centro di Torino, arrestato da agenti fuori servizio</h3>
         <p>Un uomo di 49 anni è stato arrestato in via Roma a Torino dopo aver rubato scarpe, un rasoio e un abito in tre negozi diversi: a bloccarlo, con l'aiuto del personale dei negozi, sono stati tre agenti di polizia e una carabiniera liberi dal servizio che hanno assistito alla scena. L'uomo ha opposto resistenza prima dell'arrivo di una volante.</p>
-        <span class="source">Fonte: Ansa Piemonte</span>
+        <span class="source">Fonte: <a href="https://www.ansa.it/piemonte/" target="_blank" rel="noopener noreferrer">Ansa Piemonte</a></span>
       </div>
     </div>
   </div>
@@ -1296,27 +1457,31 @@
       <span class="section-tag tag-europa">Europa</span>
       <h2 class="section-title">Incendi in mezza Europa, l'Ue promette nuove sanzioni alla Russia in autunno</h2>
     </div>
+    <div class="context-box">
+      <div class="context-box-label">Da sapere per capire</div>
+      <p>L'estate 2026 sta seguendo il trend degli ultimi anni: temperature record e vegetazione secca alimentano incendi sempre più estesi dal Portogallo ai Balcani, mettendo sotto stress il meccanismo di protezione civile Ue (RescEU), che coordina l'invio di mezzi aerei e squadre tra paesi membri. Parallelamente, Bruxelles prepara da mesi un nuovo giro di vite sulle sanzioni alla Russia, in un pacchetto che si aggiungerebbe ai circa 3mila individui ed entità già colpiti dal 2022.</p>
+    </div>
     <div class="articles">
       <div class="article lead">
         <h3>Incendi in Belgio e Spagna, von der Leyen: "Solidarietà europea in campo"</h3>
         <p>Un rogo ha bruciato oltre 3mila ettari nella regione belga delle Alte Fagne, mentre in Aragona, in Spagna, le fiamme hanno distrutto circa 16mila ettari; colpiti anche Grecia, Germania, Montenegro, Albania, Francia e Italia. La presidente della Commissione Ue ha annunciato l'invio di aerei svedesi e elicotteri da Olanda, Norvegia e Germania in Belgio, e di 104 vigili del fuoco francesi con 36 mezzi in Aragona, con il meccanismo di protezione civile Ue attivato per otto paesi.</p>
         <p>La commissaria Hadja Lahbib ha dichiarato: "Nessun Paese dovrebbe affrontare gli incendi boschivi da solo".</p>
-        <span class="source">Fonte: Ansa</span>
+        <span class="source">Fonte: <a href="https://www.ansa.it" target="_blank" rel="noopener noreferrer">Ansa</a></span>
       </div>
       <div class="article">
         <h3>Italia-Spagna, i controlli di frontiera restano in vigore</h3>
         <p>Tajani conferma che l'Italia valuta "con grande attenzione" quando riaprire lo spazio Schengen con la Spagna, sospeso dal 31 luglio dopo la crisi migratoria di Ceuta; il Viminale non rivedrà la misura prima di metà agosto. Madrid ha attivato controlli reciproci sui viaggiatori dall'Italia fino al 7 settembre: la polizia spagnola ha già verificato 5.080 cittadini extra-Ue in arrivo dall'Italia.</p>
-        <span class="source">Fonte: Euronews</span>
+        <span class="source">Fonte: <a href="https://www.euronews.com" target="_blank" rel="noopener noreferrer">Euronews</a></span>
       </div>
       <div class="article">
         <h3>Dagli incendi riemergono ordigni della Seconda guerra mondiale</h3>
         <p>Il caldo estremo che alimenta gli incendi in Europa sta facendo riaffiorare vecchi ordigni bellici: a Le Porge, in Francia, oltre cento esplosioni tra granate da mortaio e proiettili anticarro; in Germania, nell'Hürtgenwald, il più grande rogo boschivo mai registrato nel Nordreno-Vestfalia ha coinvolto 1.800 abitanti, mentre nel distretto di Bad Kreuznach un incendio ha costretto all'evacuazione di 600 residenti vicino a un vecchio deposito di munizioni. In Italia, a Monfalcone, il ritrovamento di ordigni ha rallentato le operazioni antincendio.</p>
-        <span class="source">Fonte: Quotidiano Nazionale</span>
+        <span class="source">Fonte: <a href="https://www.quotidiano.net" target="_blank" rel="noopener noreferrer">Quotidiano Nazionale</a></span>
       </div>
       <div class="article">
         <h3>Kallas: "In autunno le sanzioni più ampie di sempre contro la Russia"</h3>
         <p>L'Alta rappresentante Ue per la politica estera Kaja Kallas ha annunciato che l'Unione europea proporrà in autunno il pacchetto di sanzioni "più ampio dall'inizio della guerra", con un aumento di circa un terzo del numero di entità ed individui russi colpiti, ai quasi 3mila già sanzionati dal 2022. "La pressione deve continuare a crescere finché Mosca non pone fine alla guerra", ha detto Kallas.</p>
-        <span class="source">Fonte: Euronews</span>
+        <span class="source">Fonte: <a href="https://www.euronews.com" target="_blank" rel="noopener noreferrer">Euronews</a></span>
       </div>
     </div>
   </div>
@@ -1327,26 +1492,30 @@
       <span class="section-tag tag-mondo">Mondo</span>
       <h2 class="section-title">Trump riduce le manovre con Seul, notte di attacchi Russia-Ucraina, rallenta la Cina</h2>
     </div>
+    <div class="context-box">
+      <div class="context-box-label">Da sapere per capire</div>
+      <p>La riduzione delle esercitazioni congiunte Usa-Corea del Sud arriva mentre Trump continua a coltivare un canale diretto con Kim Jong-un, nel solco del disgelo avviato nel suo primo mandato: Seul, che ospita circa 28mila soldati americani, teme che un allentamento delle manovre indebolisca la deterrenza verso Pyongyang proprio mentre il fronte Russia-Ucraina resta ad alta intensità e la Cina mostra segnali di rallentamento economico.</p>
+    </div>
     <div class="articles">
       <div class="article lead">
         <h3>Trump ordina la riduzione delle esercitazioni Usa-Corea del Sud</h3>
         <p>Donald Trump ha annunciato di aver ordinato al segretario alla Difesa Hegseth di "ridurre sostanzialmente" le esercitazioni militari congiunte con la Corea del Sud, citando il suo "buon rapporto" con Kim Jong-un e definendo le manovre un segnale "ostile" verso Pyongyang; Seul ha replicato che le esercitazioni Ulchi Freedom Shield, che coinvolgono 18mila soldati sudcoreani, proseguiranno "come previsto".</p>
-        <span class="source">Fonti: Al Jazeera · Adnkronos</span>
+        <span class="source">Fonti: <a href="https://www.aljazeera.com" target="_blank" rel="noopener noreferrer">Al Jazeera</a> · <a href="https://www.adnkronos.com" target="_blank" rel="noopener noreferrer">Adnkronos</a></span>
       </div>
       <div class="article">
         <h3>Ucraina colpisce i magazzini Wildberries in Russia, Mosca intercetta 205 droni</h3>
         <p>Kiev ha attaccato sette dei dieci principali magazzini del colosso russo dell'e-commerce Wildberries, mentre il ministero della Difesa russo sostiene di aver intercettato 205 droni ucraini nella notte su varie regioni e sul Mar d'Azov. Il fronte resta ad alta intensità dopo il massiccio scambio di attacchi dei giorni scorsi.</p>
-        <span class="source">Fonte: Sky TG24</span>
+        <span class="source">Fonte: <a href="https://tg24.sky.it" target="_blank" rel="noopener noreferrer">Sky TG24</a></span>
       </div>
       <div class="article">
         <h3>Cina, rallentano industria e consumi a luglio</h3>
         <p>La produzione industriale cinese rallenta più del previsto e le vendite al dettaglio crescono solo dello 0,6%, sotto le attese; calano anche gli investimenti, segnale di un avvio debole del secondo semestre per la seconda economia mondiale, alle prese con una domanda interna fiacca.</p>
-        <span class="source">Fonti: Ansa · Il Sole 24 Ore · Agenparl</span>
+        <span class="source">Fonti: <a href="https://www.ansa.it" target="_blank" rel="noopener noreferrer">Ansa</a> · <a href="https://www.ilsole24ore.com" target="_blank" rel="noopener noreferrer">Il Sole 24 Ore</a> · <a href="https://agenparl.eu" target="_blank" rel="noopener noreferrer">Agenparl</a></span>
       </div>
       <div class="article">
         <h3>Alibaba vende la divisione gaming Lingxi per oltre 1,5 miliardi</h3>
         <p>Il colosso cinese Alibaba cede la controllata Lingxi Games al fondo di private equity Trustar Capital per oltre 1,5 miliardi di dollari, nell'ambito della strategia dell'amministratore delegato Eddie Wu di razionalizzare le attività non strategiche per concentrare gli investimenti su intelligenza artificiale e cloud computing.</p>
-        <span class="source">Fonte: MilanoFinanza</span>
+        <span class="source">Fonte: <a href="https://www.milanofinanza.it" target="_blank" rel="noopener noreferrer">MilanoFinanza</a></span>
       </div>
     </div>
   </div>
@@ -1357,26 +1526,30 @@
       <span class="section-tag tag-fin">Finanza</span>
       <h2 class="section-title">Wall Street chiude in calo, Milano invariata, la Bce avverte sulla bolla IA</h2>
     </div>
+    <div class="context-box">
+      <div class="context-box-label">Da sapere per capire</div>
+      <p>L'avvertimento della Bce sulla bolla IA si inserisce in un dibattito che dura da mesi: le valutazioni delle big tech legate all'intelligenza artificiale sono salite a ritmi paragonabili alla bolla dot-com di fine anni '90, ma stavolta le famiglie europee sono esposte indirettamente per centinaia di miliardi tramite fondi pensione e investimenti indicizzati sui mercati Usa — da qui la preoccupazione di Francoforte per l'effetto di un'eventuale correzione sui risparmi degli europei.</p>
+    </div>
     <div class="articles">
       <div class="article lead">
         <h3>Wall Street chiude in calo, pesano petrolio e rendimenti</h3>
         <p>Dow Jones e S&P 500 chiudono entrambi a -0,5% (rispettivamente a 53.459,78 e 7.745,06 punti), Nasdaq -0,3% a 26.644,91: gli investitori riducono il rischio prima della settimana di trimestrali della grande distribuzione, mentre il Brent sale sopra gli 88 dollari (+3%) sulle tensioni Usa-Iran e i rendimenti dei Treasury a lungo termine salgono ai massimi.</p>
-        <span class="source">Fonti: Ansa · Eurasia Business News</span>
+        <span class="source">Fonti: <a href="https://www.ansa.it" target="_blank" rel="noopener noreferrer">Ansa</a> · <a href="https://eurasiabusinessnews.com" target="_blank" rel="noopener noreferrer">Eurasia Business News</a></span>
       </div>
       <div class="article">
         <h3>Milano chiude invariata, spread a 79,5 punti</h3>
         <p>Il Ftse Mib chiude la prima seduta dopo Ferragosto sostanzialmente piatto a 53.586 punti (+0,01%), con Stm (+5%), Prysmian e Fineco tra i migliori e Stellantis, Nexi e Moncler tra i peggiori. Lo spread Btp/Bund chiude in rialzo a 79,5 punti base, con il decennale al 3,97%.</p>
-        <span class="source">Fonti: Ansa · MilanoFinanza</span>
+        <span class="source">Fonti: <a href="https://www.ansa.it" target="_blank" rel="noopener noreferrer">Ansa</a> · <a href="https://www.milanofinanza.it" target="_blank" rel="noopener noreferrer">MilanoFinanza</a></span>
       </div>
       <div class="article">
         <h3>Bce avverte: "Probabile una correzione del boom IA", famiglie Ue esposte per 440 miliardi</h3>
         <p>In un'analisi la Bce scrive che "una correzione delle attuali valutazioni di Borsa è probabile" e avverte di un rischio grave per le famiglie europee, esposte per 440 miliardi di euro tra mercati domestici e investimenti diretti nella tecnologia Usa. Il rally dell'IA ha portato le valutazioni ai livelli della bolla dot-com, scrive l'istituto di Francoforte.</p>
-        <span class="source">Fonti: Ansa · Sky TG24 · MilanoFinanza</span>
+        <span class="source">Fonti: <a href="https://www.ansa.it" target="_blank" rel="noopener noreferrer">Ansa</a> · <a href="https://tg24.sky.it" target="_blank" rel="noopener noreferrer">Sky TG24</a> · <a href="https://www.milanofinanza.it" target="_blank" rel="noopener noreferrer">MilanoFinanza</a></span>
       </div>
       <div class="article">
         <h3>Tokyo +0,31% nonostante il Pil giapponese sotto le attese</h3>
         <p>Il Nikkei chiude in rialzo dello 0,31% pur in una giornata segnata dal dato deludente sul Pil giapponese del secondo trimestre; a muovere i listini anche la notizia che Alibaba cede la divisione gaming Lingxi Games a Trustar Capital per oltre 1,5 miliardi di dollari.</p>
-        <span class="source">Fonte: MilanoFinanza</span>
+        <span class="source">Fonte: <a href="https://www.milanofinanza.it" target="_blank" rel="noopener noreferrer">MilanoFinanza</a></span>
       </div>
     </div>
   </div>
@@ -1387,26 +1560,30 @@
       <span class="section-tag tag-fin">Intelligenza Artificiale</span>
       <h2 class="section-title">Amodei: "Abbiamo alimentato illusioni". Un manager IA licenzia un dipendente</h2>
     </div>
+    <div class="context-box">
+      <div class="context-box-label">Da sapere per capire</div>
+      <p>Le ammissioni di Dario Amodei arrivano in un momento delicato per il settore: dopo anni di promesse su una trasformazione imminente del lavoro e dell'economia, i dati mostrano che la maggior parte dei progetti aziendali di IA non produce ancora risultati misurabili, alimentando dubbi sulla sostenibilità degli investimenti miliardari del comparto — lo stesso terreno su cui la Bce, nella sezione Finanza di oggi, mette in guardia dal rischio di una bolla.</p>
+    </div>
     <div class="articles">
       <div class="article lead">
         <h3>Amodei (Anthropic): "Abbiamo alimentato illusioni sull'IA"</h3>
         <p>Cresce l'adozione dell'IA generativa (73% dei consumatori Usa, contro il 45% del 2024) ma cala l'entusiasmo, sceso del 30%: solo il 5% dei progetti aziendali di IA raggiunge un impatto significativo secondo uno studio del Mit, e il 42% delle aziende ha abbandonato la maggior parte delle iniziative nel 2025 (era il 17% nel 2024). Il ceo di Anthropic Dario Amodei ammette: "La responsabilità è interamente nostra: solo curare il cancro dimostrerebbe davvero che l'IA funziona, altrimenti in molti la considerano marketing ingannevole".</p>
-        <span class="source">Fonti: Ansa · Il Fatto Quotidiano</span>
+        <span class="source">Fonti: <a href="https://www.ansa.it" target="_blank" rel="noopener noreferrer">Ansa</a> · <a href="https://www.ilfattoquotidiano.it" target="_blank" rel="noopener noreferrer">Il Fatto Quotidiano</a></span>
       </div>
       <div class="article">
         <h3>Un manager IA licenzia per la prima volta un dipendente umano</h3>
         <p>Luna, il sistema di gestione basato su Claude Sonnet 4.6 sviluppato da Andon Labs per un negozio sperimentale a San Francisco, ha raccomandato e attuato il licenziamento di un dipendente dopo 17 assenze su 23 turni: è il primo caso noto di licenziamento gestito direttamente da un'intelligenza artificiale, e riapre il dibattito sul ruolo dell'IA nella gestione del personale.</p>
-        <span class="source">Fonte: AI Weekly</span>
+        <span class="source">Fonte: <a href="https://aiweekly.co" target="_blank" rel="noopener noreferrer">AI Weekly</a></span>
       </div>
       <div class="article">
         <h3>Una patch scritta da GitHub Copilot apre una falla, sfruttata da un'altra IA</h3>
         <p>Un commit co-firmato da GitHub Copilot Autofix aveva introdotto in un repository di Snowflake una vulnerabilità di shell-injection, rimuovendo un controllo di sicurezza esistente; l'agente di sicurezza "red team" di Wiz l'ha sfruttata per accedere in lettura ai progetti di ingegneria e sicurezza dell'azienda tramite Jira. Snowflake conferma di aver rimediato subito e di non aver trovato prove di accessi non autorizzati; Wiz avverte che "la revisione umana del codice non basta più" con la diffusione dell'IA tra gli sviluppatori.</p>
-        <span class="source">Fonti: The Register · Forbes</span>
+        <span class="source">Fonti: <a href="https://www.theregister.com" target="_blank" rel="noopener noreferrer">The Register</a> · <a href="https://www.forbes.com" target="_blank" rel="noopener noreferrer">Forbes</a></span>
       </div>
       <div class="article">
         <h3>Studio: modelli di intelligenza artificiale imparano a coordinarsi tra loro</h3>
         <p>Una nuova ricerca segnala comportamenti di coordinamento spontaneo tra sistemi di intelligenza artificiale distinti, senza istruzioni esplicite in tal senso: un fenomeno che gli autori definiscono rilevante per la sicurezza, in vista di scenari con più agenti IA operativi in contemporanea sugli stessi sistemi.</p>
-        <span class="source">Fonte: Il Fatto Quotidiano</span>
+        <span class="source">Fonte: <a href="https://www.ilfattoquotidiano.it" target="_blank" rel="noopener noreferrer">Il Fatto Quotidiano</a></span>
       </div>
     </div>
   </div>
@@ -1417,16 +1594,20 @@
       <span class="section-tag tag-migra">Immigrazione</span>
       <h2 class="section-title">Naufragio al largo della Libia, arrestato lo scafista di Chia</h2>
     </div>
+    <div class="context-box">
+      <div class="context-box-label">Da sapere per capire</div>
+      <p>La rotta del Mediterraneo centrale, tra Libia e Italia, resta la più battuta e la più letale d'Europa: le partenze da Zuwara, come quella naufragata oggi, avvengono spesso su imbarcazioni di fortuna sovraccariche, con la Guardia costiera libica che opera in un quadro di accordi con l'Ue contestato dalle ong per le condizioni nei centri di detenzione. In parallelo, la giustizia italiana continua a perseguire penalmente gli scafisti individuati durante gli sbarchi, come nel caso di Chia.</p>
+    </div>
     <div class="articles">
       <div class="article lead">
         <h3>Naufragio nella zona Sar libica: 7 morti, 50 salvati</h3>
         <p>La nave Life Support di Emergency ha soccorso in acque internazionali, nella zona di ricerca e salvataggio libica, un'imbarcazione partita da Zuwara: 7 migranti, somali ed egiziani, sono morti durante la traversata e 2 sono in condizioni critiche per soffocamento. Sono stati tratti in salvo 50 naufraghi, tra cui 29 minori non accompagnati; una motovedetta libica ha seguito l'intera operazione. Assegnato come porto di sbarco Bari.</p>
-        <span class="source">Fonte: Ansa</span>
+        <span class="source">Fonte: <a href="https://www.ansa.it" target="_blank" rel="noopener noreferrer">Ansa</a></span>
       </div>
       <div class="article">
         <h3>Sardegna, arrestato lo scafista che travolse una 18enne in mare</h3>
         <p>La procura di Cagliari ha disposto il fermo del conducente del barcone di migranti che domenica scorsa aveva travolto in acqua, davanti alla spiaggia di Chia, una diciottenne su un sup, procurandole diverse fratture. La misura arriva dopo che i carabinieri hanno esaminato i filmati dell'incidente e dello sbarco successivo dei migranti a bordo.</p>
-        <span class="source">Fonti: Ansa · LaPresse · Tgcom24</span>
+        <span class="source">Fonti: <a href="https://www.ansa.it" target="_blank" rel="noopener noreferrer">Ansa</a> · <a href="https://www.lapresse.it" target="_blank" rel="noopener noreferrer">LaPresse</a> · <a href="https://www.tgcom24.mediaset.it" target="_blank" rel="noopener noreferrer">Tgcom24</a></span>
       </div>
     </div>
   </div>
