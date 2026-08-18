@@ -963,7 +963,7 @@
   body.overlay-open{ overflow:hidden; }
 </style>
 </head>
-<body id="top">
+<body id="top" data-edition="2026-08-18">
 
 <!-- ===== OVERLAY INTRO — SEMPRE PRESENTE, IDENTICO OGNI GIORNO ===== -->
 <div class="overlay" id="introOverlay">
@@ -1565,15 +1565,24 @@
     var overlay = document.getElementById('introOverlay');
     var closeBtn = document.getElementById('closeOverlay');
     if (!overlay || !closeBtn) return;
-    document.body.classList.add('overlay-open');
+    var edition = document.body.getAttribute('data-edition') || 'ignota';
+    var storageKey = 'ilcontribuente_overlay_seen_' + edition;
+    var alreadySeen = false;
+    try { alreadySeen = localStorage.getItem(storageKey) === '1'; } catch (e) { alreadySeen = false; }
     function closeOverlay(){
       overlay.style.display = 'none';
       document.body.classList.remove('overlay-open');
+      try { localStorage.setItem(storageKey, '1'); } catch (e) {}
     }
-    closeBtn.addEventListener('click', closeOverlay);
-    overlay.addEventListener('click', function(e){
-      if (e.target === overlay) closeOverlay();
-    });
+    if (alreadySeen) {
+      overlay.style.display = 'none';
+    } else {
+      document.body.classList.add('overlay-open');
+      closeBtn.addEventListener('click', closeOverlay);
+      overlay.addEventListener('click', function(e){
+        if (e.target === overlay) closeOverlay();
+      });
+    }
   })();
 </script>
 </body>
