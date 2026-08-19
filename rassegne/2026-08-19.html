@@ -274,85 +274,68 @@
     .quote-day-inner{ padding:16px 18px; }
     .quote-day-text{ font-size:16px; }
   }
+  /* ===== INDICE — box in stile "citazione del giorno"/"stat" del quotidiano,
+     ricolorato in navy (invece dell'oro di quote-day/agenda), stessa larghezza
+     di .agenda-box. Scrittura: kicker in JetBrains Mono maiuscolo tracciato
+     (come .stat-label/.quote-day-label) + voci in Fraunces grassetto (come
+     .stat-value). Cursore a penna stilografica sui link. Stile fisso e
+     permanente (SKILL.md/template.html). ===== */
   .toc{
-    max-width:1260px;
-    margin:0 auto 44px auto;
-    padding:0 6vw;
-    perspective:1000px;
+    margin:0 0 44px 0;
   }
   .toc-inner{
-    background:linear-gradient(165deg, #ffffff 0%, var(--card) 60%);
-    border-radius:18px;
-    padding:20px 26px;
-    box-shadow:
-      0 1px 1px rgba(255,255,255,.8) inset,
-      0 1px 2px rgba(20,15,5,.05),
-      0 12px 26px rgba(20,15,5,.10),
-      0 30px 60px -20px rgba(20,15,5,.22);
-    border:1px solid rgba(255,255,255,.6);
-    display:flex;
-    align-items:center;
-    gap:14px;
-    flex-wrap:wrap;
-    transition:transform .3s ease, box-shadow .3s ease;
+    background:linear-gradient(160deg, #eaeef3, #dde4ec);
+    border-left:5px solid var(--navy);
+    border-radius:8px;
+    padding:22px 28px;
+    box-shadow: var(--shadow-md), inset 0 1px 0 rgba(255,255,255,.4);
   }
-  .toc-inner:hover{
-    transform:translateY(-3px);
-    box-shadow:
-      0 1px 1px rgba(255,255,255,.8) inset,
-      0 1px 2px rgba(20,15,5,.06),
-      0 16px 32px rgba(20,15,5,.12),
-      0 40px 72px -20px rgba(20,15,5,.26);
-  }
-  .toc-label{
+  .toc-kicker{
     font-family:'JetBrains Mono',monospace;
     font-size:11px;
     letter-spacing:.1em;
     text-transform:uppercase;
-    color:var(--ink-soft);
-    flex-shrink:0;
+    color:var(--navy);
+    margin-bottom:12px;
   }
   .toc-links{
     display:flex;
-    gap:9px;
     flex-wrap:wrap;
+    align-items:baseline;
+    row-gap:12px;
+    column-gap:0;
   }
   .toc-link{
-    font-family:'Inter',sans-serif;
-    font-size:13px;
-    font-weight:700;
+    font-family:'Fraunces',serif;
+    font-size:18px;
+    font-weight:800;
     color:var(--ink);
-    background:linear-gradient(180deg, #fdfcf8 0%, var(--paper2) 100%);
-    border-radius:20px;
-    padding:7px 16px;
     text-decoration:none;
-    border:1px solid rgba(199,188,159,.55);
-    box-shadow:
-      0 1px 0 rgba(255,255,255,.8) inset,
-      0 -3px 5px rgba(20,15,5,.06) inset,
-      0 2px 4px rgba(20,15,5,.08),
-      0 6px 14px rgba(20,15,5,.08);
-    transition:transform .2s ease, box-shadow .2s ease, background .2s ease, color .2s ease;
+    position:relative;
+    padding:2px 1px;
+    cursor:
+      url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDMyIDMyIj4KICA8ZyB0cmFuc2Zvcm09InJvdGF0ZSg0NSAxNiAxNikiPgogICAgPHBhdGggZD0iTTEzLjMgMiBMMTguNyAyIEwxOC43IDIwIEwxNiAzMCBMMTMuMyAyMCBaIiBmaWxsPSIjMWIxZTIyIiBzdHJva2U9IiNmZGZjZjciIHN0cm9rZS13aWR0aD0iMC44Ii8+CiAgICA8cmVjdCB4PSIxMy4zIiB5PSIxNy41IiB3aWR0aD0iNS40IiBoZWlnaHQ9IjIuNiIgZmlsbD0iI2E5N2ExZiIvPgogICAgPHBhdGggZD0iTTE2IDMwIEwxNC4zIDIwLjEgTDE3LjcgMjAuMSBaIiBmaWxsPSIjYTk3YTFmIi8+CiAgICA8cmVjdCB4PSIxMy42IiB5PSIyIiB3aWR0aD0iNC44IiBoZWlnaHQ9IjQuNSIgcng9IjAuNiIgZmlsbD0iIzNkNDU1MCIvPgogIDwvZz4KPC9zdmc+Cg==") 6 26,
+      pointer;
+    transition:color .18s ease;
   }
-  .toc-link:hover{
-    background:linear-gradient(180deg, #c99a3a 0%, var(--gold) 100%);
-    color:#fff;
-    border-color:var(--gold-deep);
-    transform:translateY(-3px) scale(1.03);
-    box-shadow:
-      0 1px 0 rgba(255,255,255,.35) inset,
-      0 -3px 6px rgba(0,0,0,.15) inset,
-      0 8px 16px rgba(169,122,31,.32),
-      0 16px 30px rgba(169,122,31,.24);
+  .toc-link:not(:first-child){ margin-left:18px; padding-left:18px; border-left:1px solid rgba(31,58,95,.25); }
+  .toc-link::after{
+    content:'';
+    position:absolute;
+    left:1px; right:1px; bottom:-3px;
+    height:2px;
+    background:var(--gold-deep);
+    transform:scaleX(0);
+    transform-origin:left;
+    transition:transform .22s ease;
   }
-  .toc-link:active{
-    transform:translateY(-1px) scale(1.01);
-    box-shadow:
-      0 2px 5px rgba(20,15,5,.18) inset;
-  }
+  .toc-link:hover{ color:var(--navy-deep); }
+  .toc-link:hover::after{ background:var(--gold); transform:scaleX(1); }
+  .toc-link:active{ color:var(--ink); }
   @media (max-width:640px){
-    .toc-inner{ padding:14px 16px; gap:10px; }
-    .toc-link{ font-size:12px; padding:5px 12px; }
+    .toc-inner{ padding:16px 18px; }
+    .toc-link{ font-size:15px; }
+    .toc-link:not(:first-child){ margin-left:13px; padding-left:13px; }
   }
   @media (max-width:640px){
     .market-bar-inner{
@@ -507,6 +490,19 @@
   }
   @media (max-width:820px){
     .articles{grid-template-columns:1fr;}
+  }
+  /* Immigrazione Europa: card sempre in orizzontale, affiancate a riempire lo spazio, mai una lead a piena larghezza */
+  #immigrazione-europa .articles{
+    grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+  }
+  #immigrazione-europa .article.lead{
+    grid-column:auto;
+  }
+  #immigrazione-europa .article.lead::before{
+    display:none;
+  }
+  @media (max-width:820px){
+    #immigrazione-europa .articles{grid-template-columns:1fr;}
   }
   .article{
     background:linear-gradient(165deg, #ffffff 0%, var(--card) 60%);
@@ -1094,7 +1090,6 @@
     <a class="badge" href="https://www.ilgiornale.it" target="_blank" rel="noopener noreferrer">Il Giornale</a>
     <a class="badge" href="https://www.lanazione.it" target="_blank" rel="noopener noreferrer">La Nazione</a>
     <a class="badge" href="https://www.ilmattino.it" target="_blank" rel="noopener noreferrer">Il Mattino</a>
-    <a class="badge" href="https://www.ilmessaggero.it" target="_blank" rel="noopener noreferrer">Il Messaggero</a>
     <a class="badge" href="https://www.ilgiorno.it" target="_blank" rel="noopener noreferrer">Il Giorno</a>
     <a class="badge" href="https://www.romatoday.it" target="_blank" rel="noopener noreferrer">RomaToday</a>
     <a class="badge" href="https://www.dire.it" target="_blank" rel="noopener noreferrer">Dire</a>
@@ -1122,10 +1117,14 @@
     <a class="badge" href="https://www.timesofisrael.com" target="_blank" rel="noopener noreferrer">Times of Israel</a>
     <a class="badge" href="https://www.cfr.org" target="_blank" rel="noopener noreferrer">Cfr</a>
     <a class="badge" href="https://techstartups.com" target="_blank" rel="noopener noreferrer">Tech Startups</a>
-    <a class="badge" href="https://www.dossiersalute.com" target="_blank" rel="noopener noreferrer">DossierSalute</a>
     <a class="badge" href="https://www.frontex.europa.eu" target="_blank" rel="noopener noreferrer">Frontex</a>
     <a class="badge" href="https://www.fnsi.it" target="_blank" rel="noopener noreferrer">FNSI</a>
     <a class="badge" href="https://www.milanotoday.it" target="_blank" rel="noopener noreferrer">MilanoToday</a>
+    <a class="badge" href="https://www.sciencedaily.com" target="_blank" rel="noopener noreferrer">ScienceDaily</a>
+    <a class="badge" href="https://jamanetwork.com" target="_blank" rel="noopener noreferrer">JAMA Network Open</a>
+    <a class="badge" href="https://www.nature.com" target="_blank" rel="noopener noreferrer">Nature</a>
+    <a class="badge" href="https://news.uthscsa.edu" target="_blank" rel="noopener noreferrer">UT Health San Antonio</a>
+    <a class="badge" href="https://www.cam.ac.uk" target="_blank" rel="noopener noreferrer">University of Cambridge</a>
   </div>
   <a href="../archivio.html" class="back-link">Archivio edizioni &rarr;</a>
 </div>
@@ -1187,7 +1186,7 @@
 <div class="wrap">
   <div class="toc">
     <div class="toc-inner">
-      <span class="toc-label">Indice</span>
+      <div class="toc-kicker">Indice</div>
       <div class="toc-links">
         <a href="#confronto" class="toc-link">Confronto</a>
         <a href="#italia" class="toc-link">Italia</a>
@@ -1195,16 +1194,16 @@
         <a href="#europa" class="toc-link">Europa</a>
         <a href="#mondo" class="toc-link">Mondo</a>
         <a href="#finanza" class="toc-link">Finanza</a>
+        <a href="#benessere" class="toc-link">Benessere</a>
         <a href="#tecnologia" class="toc-link">Tecnologia</a>
         <a href="#immigrazione-italia" class="toc-link">Immigrazione Italia</a>
         <a href="#immigrazione-europa" class="toc-link">Immigrazione Europa</a>
-        <a href="#benessere" class="toc-link">Benessere</a>
         <a href="#dati-immigrazione" class="toc-link">Dati Immigrazione</a>
       </div>
     </div>
   </div>
   <div class="verify-badge">
-    <div class="verify-badge-inner">✓ Oggi abbiamo confrontato <strong>80 fonti</strong> su <strong>44 testate</strong> diverse</div>
+    <div class="verify-badge-inner">✓ Oggi abbiamo confrontato <strong>81 fonti</strong> su <strong>47 testate</strong> diverse</div>
   </div>
   <div class="quote-day">
     <div class="quote-day-inner">
@@ -1269,19 +1268,23 @@
     <div class="duel">
       <div class="duel-fact">
         <div class="duel-fact-label">Il fatto</div>
-        <div class="duel-fact-text">Una nave commerciale è stata colpita da un proiettile nello Stretto di Hormuz, con preoccupazione per possibili fuoriuscite di petrolio. Il traffico navale resta a rilento: solo sei imbarcazioni transitate nelle ultime 24 ore. Trump ha rivendicato sui social lo stretto come "nostro territorio"; Teheran respinge la rivendicazione come illusoria.</div>
+        <div class="duel-fact-text">Una nave commerciale è stata colpita da un proiettile nello Stretto di Hormuz, con preoccupazione per possibili fuoriuscite di petrolio. Il traffico navale resta a rilento: solo sei imbarcazioni transitate nelle ultime 24 ore, contro le decine che normalmente percorrono lo stretto ogni giorno. Trump ha rivendicato sui social lo stretto come "nostro territorio"; Teheran respinge la rivendicazione come illusoria.</div>
       </div>
       <div class="duel-grid">
         <div class="duel-side left">
           <span class="duel-tag">Stati Uniti / Emirati</span>
           <div class="duel-headline">"Hormuz è territorio Usa"; Abu Dhabi: "Due missili iraniani finiti in mare"</div>
-          <p class="body">Trump ribadisce sui social che lo stretto è "nuovo territorio Usa". Gli Emirati sostengono che l'Iran abbia lanciato due missili, entrambi caduti in mare senza colpire obiettivi. Washington mantiene la pressione militare e diplomatica su Teheran dopo la scadenza della finestra negoziale di 60 giorni. Una nave commerciale è stata colpita da un "proiettile non identificato" secondo l'UKMTO, con un ferito a bordo dell'equipaggio.</p>
+          <p class="body">Trump ribadisce sui social che lo stretto è "nuovo territorio Usa", rilanciando una rivendicazione già anticipata nei giorni scorsi e che gli esperti di diritto internazionale marittimo giudicano priva di fondamento giuridico, trattandosi di acque internazionali condivise tra Iran e Oman. Gli Emirati Arabi Uniti sostengono che l'Iran abbia lanciato due missili nella zona, entrambi caduti in mare senza colpire obiettivi: una versione che Washington cita come prova dell'aggressività iraniana, mentre Teheran non ha confermato il lancio.</p>
+          <p class="body">Washington mantiene la pressione militare e diplomatica su Teheran dopo la scadenza, il 17 agosto, della finestra negoziale di 60 giorni concessa per un accordo sulla gestione del traffico marittimo. A complicare ulteriormente il quadro, una nave commerciale è stata colpita da un "proiettile non identificato" secondo la UK Maritime Trade Operations (UKMTO), l'agenzia britannica che monitora la sicurezza della navigazione nel Golfo: a bordo un membro dell'equipaggio è rimasto ferito, mentre la nave prosegue la navigazione verso il porto di destinazione.</p>
+          <p class="body">Il Pentagono ha intanto rafforzato la presenza navale nella regione, con un gruppo d'attacco imbarcato già in transito verso il Golfo Persico secondo quanto riferito da funzionari della Difesa Usa che hanno chiesto l'anonimato: una mossa che a Washington viene presentata come deterrenza difensiva, ma che analisti indipendenti leggono anche come segnale rivolto ai mercati assicurativi marittimi, dove i premi per le rotte in prossimità dello stretto sono già saliti sensibilmente nelle ultime settimane.</p>
           <span class="source">Fonti: <a href="https://www.ansa.it" target="_blank" rel="noopener noreferrer">Ansa</a> · <a href="https://www.internazionale.it" target="_blank" rel="noopener noreferrer">Internazionale (Reuters)</a> · <a href="https://www.tgcom24.mediaset.it" target="_blank" rel="noopener noreferrer">Tgcom24</a></span>
         </div>
         <div class="duel-side right">
           <span class="duel-tag">Iran</span>
           <div class="duel-headline">"Così finché Washington non rispetterà gli accordi"</div>
-          <p class="body">Teheran definisce "illusa" la rivendicazione territoriale di Trump e conferma la linea dura sul traffico marittimo: il blocco proseguirà finché gli Stati Uniti non rispetteranno gli accordi pregressi, tra cui la revoca delle sanzioni e lo sblocco degli asset iraniani.</p>
+          <p class="body">Teheran definisce "illusa" la rivendicazione territoriale di Trump e conferma la linea dura sul traffico marittimo: il blocco proseguirà finché gli Stati Uniti non rispetteranno gli accordi pregressi, tra cui la revoca delle sanzioni economiche e lo sblocco degli asset iraniani congelati nelle banche estere, rivendicazioni ribadite più volte nelle ultime settimane dai vertici della diplomazia e delle Guardie della rivoluzione.</p>
+          <p class="body">Fonti iraniane citate dalla stampa sottolineano che la chiusura parziale dello stretto non è una misura improvvisata ma una leva negoziale calcolata, pensata per far pesare sull'economia globale — circa un quinto del petrolio mondiale transita da lì — il costo del mancato accordo con Washington.</p>
+          <p class="body">Sul fronte interno, la linea dura viene presentata dalla leadership iraniana anche come risposta a un consenso popolare eroso da mesi di sanzioni e inflazione a doppia cifra: mostrare fermezza verso Washington, notano osservatori regionali, serve al governo anche a consolidare compattezza interna in un momento di forte pressione economica sulla popolazione.</p>
           <span class="source">Fonti: <a href="https://www.adnkronos.com" target="_blank" rel="noopener noreferrer">Adnkronos</a> · <a href="https://www.tgcom24.mediaset.it" target="_blank" rel="noopener noreferrer">Tgcom24</a></span>
         </div>
       </div>
@@ -1289,7 +1292,9 @@
         <div class="duel-side left" style="border-right:none; background:linear-gradient(160deg, #f0ece0, #e7e1d2);">
           <span class="duel-tag">Pechino</span>
           <div class="duel-headline">Pechino non si espone, ma continua a comprare</div>
-          <p class="body">La Cina, primo acquirente del greggio iraniano, mantiene passaggio prioritario nello stretto per le proprie petroliere e una posizione diplomatica bilanciata: critica l'avvio del conflitto ma condanna anche gli attacchi iraniani contro i paesi vicini, restando di fatto fuori dallo scontro diretto mentre ne beneficia sul fronte energetico.</p>
+          <p class="body">La Cina, primo acquirente del greggio iraniano, mantiene passaggio prioritario nello stretto per le proprie petroliere fin dall'inizio della crisi, un canale preferenziale poi esteso anche a Russia, India, Pakistan e Malesia. Pechino conserva una posizione diplomatica volutamente bilanciata: critica pubblicamente l'avvio del conflitto ma condanna anche gli attacchi iraniani contro i paesi vicini, e ha più volte usato il proprio peso al Consiglio di sicurezza dell'Onu contro risoluzioni percepite come sbilanciate a sfavore di Teheran.</p>
+          <p class="body">Il risultato, secondo diversi analisti citati dalla stampa internazionale, è che la Cina resta di fatto fuori dallo scontro diretto tra Washington e Teheran mentre ne trae vantaggio sul fronte energetico, acquistando greggio iraniano a prezzi scontati proprio a causa dell'isolamento internazionale del paese.</p>
+          <p class="body">Questa equidistanza calcolata permette a Pechino di presentarsi, nei fori internazionali, come mediatore potenziale tra le parti — un ruolo che finora non ha esercitato concretamente, ma che tiene in riserva come leva diplomatica, mentre le raffinerie cinesi continuano ad assorbire volumi crescenti di greggio iraniano scontato senza che questo comprometta i rapporti commerciali di Pechino con le altre potenze del Golfo.</p>
           <span class="source">Fonte: ricostruzione da fonti internazionali aggregate</span>
         </div>
       </div>
@@ -1309,23 +1314,30 @@
     <div class="articles">
       <div class="article lead">
         <h3>Caso Ranucci: Colosimo chiede di ridurre la scorta, Lavitola indagato per depistaggio</h3>
-        <p>La deputata di FdI e presidente dell'Antimafia Chiara Colosimo fa pressing sul Viminale per ridurre la scorta a Sigfrido Ranucci: "Sono stata io la prima a chiedere un aumento della tutela, ma penso che dopo quanto emerso non abbia più motivo di essere così elevata", ha detto, in dialogo con il ministro Piantedosi.</p>
-        <p>L'inchiesta su Valter Lavitola, che ha confessato di essere il mandante dell'attentato alla villa di Ranucci, si allarga ora al reato di depistaggio ai magistrati. Dal carcere, tramite il suo avvocato, Lavitola fa sapere: "La scelta dell'attentato è stata solo mia, sono pentito di aver inguaiato mio fratello Ranucci".</p>
+        <p>La deputata di Fratelli d'Italia e presidente della Commissione parlamentare Antimafia Chiara Colosimo fa pressing sul Viminale per ridurre la scorta a Sigfrido Ranucci: "Sono stata io la prima a chiedere un aumento della tutela, ma penso che dopo quanto emerso non abbia più motivo di essere così elevata", ha detto, in un dialogo diretto con il ministro dell'Interno Matteo Piantedosi riportato dalla stampa. La posizione ha subito diviso il dibattito politico, con le opposizioni che l'accusano di voler indebolire la protezione del giornalista di Report proprio mentre l'inchiesta sul suo attentato è ancora aperta.</p>
+        <p>L'inchiesta su Valter Lavitola, l'ex parlamentare ed editore che ha confessato di essere il mandante dell'attentato alla villa di Ranucci del 16 ottobre 2025, si allarga ora al reato di depistaggio nei confronti dei magistrati: secondo gli investigatori, Lavitola avrebbe fornito ai pm una prima versione dei fatti volutamente fuorviante prima di ammettere le proprie responsabilità. Dal carcere, tramite il suo avvocato, Lavitola fa sapere: "La scelta dell'attentato è stata solo mia, sono pentito di aver inguaiato mio fratello Ranucci" — una dichiarazione che riapre l'interrogativo sul rapporto personale tra i due, definito dagli inquirenti "di forte vicinanza" negli anni precedenti ai fatti.</p>
+        <p>La vicenda continua a intrecciarsi con il piano politico-istituzionale: l'Ordine dei giornalisti e diverse sigle sindacali del settore hanno chiesto garanzie sulla continuità della tutela per Ranucci, sottolineando come una riduzione della scorta in questa fase dell'inchiesta rischierebbe di essere letta come un segnale di allentamento dell'attenzione istituzionale verso un caso che ha riportato al centro del dibattito pubblico il tema della sicurezza dei giornalisti d'inchiesta in Italia.</p>
         <span class="source">Fonti: <a href="https://www.fnsi.it" target="_blank" rel="noopener noreferrer">FNSI</a> · <a href="https://www.open.online" target="_blank" rel="noopener noreferrer">Open</a> · <a href="https://www.virgilio.it" target="_blank" rel="noopener noreferrer">Virgilio Notizie</a> · <a href="https://www.corriere.it" target="_blank" rel="noopener noreferrer">Corriere della Sera</a></span>
       </div>
       <div class="article">
         <h3>Delmastro, la Camera rimanda in procura il dischetto con le chat</h3>
-        <p>Dopo il voto dell'aula, il presidente della Camera Fontana rimanda ai pm il materiale con i dialoghi tra l'ex sottosegretario di FdI Andrea Delmastro e l'ex prestanome del clan Senese: la maggioranza non vuole che le chat vengano lette in aula, e il dischetto — che era chiuso in cassaforte a Montecitorio — resta segreto.</p>
+        <p>Dopo un voto in aula segnato da tensioni tra maggioranza e opposizioni, il presidente della Camera Lorenzo Fontana rimanda ai pm il materiale con i dialoghi tra l'ex sottosegretario di Fratelli d'Italia Andrea Delmastro e l'ex prestanome del clan Senese: la maggioranza si è opposta a che le chat venissero lette pubblicamente in aula, sostenendo che la richiesta della procura fosse "generica e senza limiti" nell'ambito temporale delle comunicazioni da acquisire.</p>
+        <p>Il dischetto contenente il materiale — che era rimasto chiuso in una cassaforte a Montecitorio dallo scorso mese — resta di fatto segreto, riaprendo le polemiche sulla presunta vicinanza tra Delmastro e ambienti legati alla camorra, un dossier che il centrosinistra continua a considerare irrisolto.</p>
+        <p>Le opposizioni parlano di un vero e proprio "scudo" istituzionale costruito attorno al caso, chiedendo che la Giunta per le autorizzazioni fissi tempi certi per la trasmissione del materiale alla procura; la maggioranza replica accusando gli avversari di voler trasformare un atto dovuto di garanzia procedurale in un caso politico mediatico, in vista delle prossime scadenze parlamentari d'autunno.</p>
         <span class="source">Fonti: <a href="https://www.ansa.it" target="_blank" rel="noopener noreferrer">Ansa</a> · <a href="https://tg24.sky.it" target="_blank" rel="noopener noreferrer">Sky TG24</a></span>
       </div>
       <div class="article">
         <h3>Accise sui carburanti, lo sconto è già sparito</h3>
-        <p>Dopo oltre 2,2 miliardi di euro spesi per calmierare i prezzi dei carburanti, il diesel è tornato ai livelli del 4 agosto: l'effetto dello sconto si è già esaurito. Bruxelles esclude gli aiuti alla pompa dalla clausola di salvaguardia, mentre la maggiore libertà sui conti pubblici apre spazi — circa 14,4 miliardi di flessibilità Ue — per la prossima legge di Bilancio.</p>
+        <p>Dopo oltre 2,2 miliardi di euro spesi dallo Stato per calmierare i prezzi dei carburanti attraverso la riduzione temporanea delle accise, il prezzo del diesel è tornato praticamente ai livelli del 4 agosto, prima dell'intervento: l'effetto dello sconto sui listini alla pompa si è già esaurito nel giro di poche settimane, complice il rialzo parallelo delle quotazioni internazionali del greggio legato alle tensioni su Hormuz.</p>
+        <p>Bruxelles esclude nel frattempo gli aiuti alla pompa dalla clausola di salvaguardia sul debito, un vincolo che limitava lo spazio di manovra del governo. La maggiore libertà sui conti pubblici concessa dall'Unione europea — circa 14,4 miliardi di euro di flessibilità aggiuntiva — apre ora nuovi spazi di discussione per la prossima legge di Bilancio, anche se resta da capire se una parte di quelle risorse sarà destinata a un nuovo intervento sui carburanti o dirottata su altre priorità.</p>
+        <p>Le associazioni dei consumatori calcolano che l'intervento sulle accise abbia prodotto un risparmio medio per famiglia nell'ordine di poche decine di euro nell'arco delle settimane in cui è stato attivo, un impatto che gli osservatori economici definiscono modesto rispetto al costo complessivo per le casse pubbliche: un elemento che alimenta il dibattito, in vista della manovra, su se e come intervenire nuovamente sul caro-carburanti con strumenti più strutturali.</p>
         <span class="source">Fonti: <a href="https://www.ilsole24ore.com" target="_blank" rel="noopener noreferrer">Il Sole 24 Ore</a> · <a href="https://www.ansa.it" target="_blank" rel="noopener noreferrer">Ansa</a></span>
       </div>
       <div class="article">
         <h3>Palio di Siena, trionfa Il Nicchio dopo 28 anni</h3>
-        <p>Il Nicchio vince il Palio dell'Assunta a Siena: tredicesimo trionfo per il fantino Tittia, che ora insidia il record di 14 vittorie di Aceto. Il drappellone, realizzato dall'artista romena Teodora Axente, torna alla contrada dopo 28 anni: l'ultima vittoria risaliva al 16 agosto 1998. Tittia è caduto da cavallo dopo il traguardo ed è stato portato in ospedale per accertamenti.</p>
+        <p>Il Nicchio vince il Palio dell'Assunta a Siena, riportando il drappellone nella propria contrada dopo 28 anni di attesa: l'ultima vittoria risaliva al 16 agosto 1998, con il fantino Dario Colagè detto Bufera in sella al cavallo Re Artù. Per il fantino Tittia si tratta del tredicesimo trionfo in carriera, un risultato che lo avvicina sempre di più al record assoluto di 14 vittorie detenuto dal leggendario fantino Aceto.</p>
+        <p>Il drappellone di questa edizione è stato realizzato dall'artista romena Teodora Axente. La festa si è però interrotta subito dopo il traguardo: Tittia è caduto da cavallo nella fase di rallentamento successiva alla vittoria ed è stato trasportato in ospedale per accertamenti precauzionali, mentre la contrada già festeggiava in piazza del Campo.</p>
+        <p>Piazza del Campo si è riempita in poche ore della tradizionale onda di fumogeni verdi e gialli, i colori del Nicchio: per una contrada che attendeva il drappellone da quasi tre decadi, la vittoria arriva a coronare anni di piazzamenti mancati per un soffio, e riapre già le discussioni informali sui pronostici per il Palio di luglio dell'anno prossimo.</p>
         <span class="source">Fonti: <a href="https://www.lanazione.it" target="_blank" rel="noopener noreferrer">La Nazione</a> · <a href="https://www.ansa.it" target="_blank" rel="noopener noreferrer">Ansa</a> · <a href="https://tg24.sky.it" target="_blank" rel="noopener noreferrer">Sky TG24</a> · <a href="https://www.ilmattino.it" target="_blank" rel="noopener noreferrer">Il Mattino</a></span>
       </div>
     </div>
@@ -1344,23 +1356,30 @@
     <div class="articles">
       <div class="article lead">
         <h3>Colleferro, donna uccisa a coltellate in casa: il marito confessa</h3>
-        <p>Una donna di 50 anni è stata uccisa a coltellate nella sua abitazione di Colleferro, in provincia di Roma, davanti a uno dei cinque figli della coppia: è stata proprio la figlia a lanciare l'allarme e a chiamare i soccorsi, inutili i tentativi di rianimazione. La polizia ha fermato il marito nelle vicinanze della casa; l'uomo ha confessato e la Procura ha aperto un fascicolo per femminicidio.</p>
-        <p>È il terzo femminicidio in tre giorni in Italia, dopo il caso Terrin in Veneto raccontato qui accanto: a Corigliano-Rossano, in Calabria, una donna di 72 anni è stata uccisa a colpi di pietra in un fondo agricolo, al vaglio la posizione del marito.</p>
+        <p>Una donna di 50 anni è stata uccisa a coltellate nella sua abitazione di Colleferro, in provincia di Roma, davanti a uno dei cinque figli della coppia: è stata proprio la figlia più piccola a lanciare l'allarme e a chiamare i soccorsi, arrivati sul posto in pochi minuti ma non in tempo — inutili i tentativi di rianimazione praticati dai sanitari del 118. La polizia ha rintracciato e fermato il marito poco dopo, nelle vicinanze della casa: l'uomo ha confessato l'omicidio agli inquirenti e la Procura di Velletri ha aperto un fascicolo per femminicidio, il reato aggravato introdotto dalla riforma del Codice Rosso.</p>
+        <p>Quello di Colleferro è il terzo femminicidio in tre giorni in Italia, un dato che ha riacceso il dibattito pubblico sulla prevenzione: dopo il caso Terrin in Veneto raccontato qui accanto, a Corigliano-Rossano, in provincia di Cosenza, una donna di 72 anni è stata uccisa a colpi di pietra in un fondo agricolo isolato, con gli inquirenti che stanno vagliando la posizione del marito come principale indiziato. Non è un caso isolato: secondo Treccani, "femminicidio" è stata la parola più cercata sul suo sito nel corso del 2026.</p>
+        <p>Il susseguirsi ravvicinato dei tre casi ha spinto diverse associazioni contro la violenza di genere a chiedere un rafforzamento dei centri antiviolenza territoriali e una revisione delle procedure di valutazione del rischio nei casi di conflittualità familiare pregressa, mentre il ministero della Giustizia ha annunciato l'avvio di un monitoraggio straordinario sui fascicoli aperti per maltrattamenti in ambito familiare nella provincia di Roma.</p>
         <span class="source">Fonti: <a href="https://www.ansa.it" target="_blank" rel="noopener noreferrer">Ansa</a> · <a href="https://www.tgcom24.mediaset.it" target="_blank" rel="noopener noreferrer">Tgcom24</a> · <a href="https://www.open.online" target="_blank" rel="noopener noreferrer">Open</a> · <a href="https://www.romatoday.it" target="_blank" rel="noopener noreferrer">RomaToday</a></span>
       </div>
       <div class="article">
         <h3>Camponogara (Ve), Tania Terrin uccisa dall'ex: "L'avevamo denunciato 7 volte"</h3>
-        <p>La madre di Tania Terrin, uccisa dall'ex compagno Dino Keber a Camponogara, racconta: "Lo avevamo denunciato sette volte". L'uomo era già stato segnalato altre tre volte da precedenti compagne. Il governatore del Veneto Zaia: "È un fallimento". La segretaria Pd Schlein chiede più prevenzione.</p>
+        <p>La madre di Tania Terrin, uccisa dall'ex compagno Dino Keber a Camponogara, in provincia di Venezia, racconta ai cronisti tra le lacrime: "Lo avevamo denunciato sette volte, ma non è bastato a fermarlo". Secondo quanto ricostruito dagli inquirenti, l'uomo era già stato segnalato altre tre volte da precedenti compagne per episodi simili, un quadro di recidiva che secondo gli esperti di violenza di genere avrebbe dovuto far scattare misure cautelari più incisive molto prima della tragedia.</p>
+        <p>Il caso ha avuto immediate ripercussioni politiche: il governatore del Veneto Luca Zaia lo ha definito senza mezzi termini "un fallimento" del sistema di protezione, mentre la segretaria del Pd Elly Schlein ha chiesto che "le istituzioni facciano di più" sul fronte della prevenzione, tornando a sollecitare risorse aggiuntive per i centri antiviolenza e per il monitoraggio dei condannati per stalking e maltrattamenti.</p>
+        <p>Le sette denunce precedenti, secondo quanto ricostruito dagli avvocati della famiglia, non si sono mai tradotte in un ammonimento o in una misura cautelare stabile nei confronti dell'uomo: un vuoto procedurale che riporta al centro del dibattito la proposta, già avanzata in passato da diverse associazioni, di introdurre un fascicolo unico che tracci in modo continuativo tutte le segnalazioni relative alla stessa persona, anche quando presentate da compagne diverse in momenti diversi.</p>
         <span class="source">Fonti: <a href="https://www.ansa.it" target="_blank" rel="noopener noreferrer">Ansa</a> · <a href="https://www.iltempo.it" target="_blank" rel="noopener noreferrer">Il Tempo</a> · <a href="https://www.dire.it" target="_blank" rel="noopener noreferrer">Dire</a></span>
       </div>
       <div class="article">
         <h3>Foggia, 25enne disabile preso a sassate da una baby gang</h3>
-        <p>A San Giovanni Rotondo un 25enne disabile è stato aggredito a sassate da un gruppo di minori. Il suo avvocato parla di "atti persecutori" e annuncia iniziative legali contro i responsabili e le loro famiglie.</p>
+        <p>A San Giovanni Rotondo, in provincia di Foggia, un 25enne con disabilità è stato aggredito a sassate da un gruppo di minori mentre si trovava in un'area pubblica: le pietre lanciate lo hanno colpito procurandogli diverse contusioni, mentre il gruppo si allontanava ridendo secondo la ricostruzione fornita dai testimoni presenti.</p>
+        <p>Il suo avvocato ha parlato apertamente di "atti persecutori" reiterati nel tempo, non un episodio isolato, e ha annunciato l'avvio di iniziative legali sia contro i minori responsabili sia contro le rispettive famiglie, ritenute civilmente responsabili per la mancata vigilanza. Il caso si inserisce in una serie di episodi di violenza giovanile di gruppo che negli ultimi mesi hanno interessato diverse città del Sud Italia.</p>
+        <p>Il sindaco di San Giovanni Rotondo ha annunciato un potenziamento della videosorveglianza nelle aree pubbliche più frequentate dai gruppi giovanili e un tavolo con le scuole del territorio per rafforzare i progetti di educazione alla legalità, mentre associazioni locali per la disabilità chiedono che episodi simili vengano sistematicamente registrati come aggravati dalla condizione di vulnerabilità della vittima.</p>
         <span class="source">Fonte: <a href="https://www.ilfattoquotidiano.it" target="_blank" rel="noopener noreferrer">Il Fatto Quotidiano</a></span>
       </div>
       <div class="article">
         <h3>Milano, tentata violenza al parco Segantini: aggressore in fuga</h3>
-        <p>Una ventenne è stata palpeggiata e scaraventata a terra da un uomo al parco Segantini di Milano: le sue urla hanno messo in fuga l'aggressore, ora ricercato. In un episodio distinto, la Polizia di Stato ha arrestato un 26enne per violenza sessuale in viale Liguria dopo aver pedinato e aggredito una donna appena uscita dalla metropolitana.</p>
+        <p>Una ventenne è stata palpeggiata e scaraventata a terra da un uomo al parco Segantini di Milano, in un'aggressione improvvisa avvenuta in pieno giorno: le sue urla hanno attirato l'attenzione di passanti nelle vicinanze e messo in fuga l'aggressore, che al momento resta ricercato dalla polizia sulla base delle telecamere di sorveglianza della zona.</p>
+        <p>In un episodio distinto avvenuto nello stesso periodo, la Polizia di Stato ha arrestato un 26enne per violenza sessuale in viale Liguria, sempre a Milano: l'uomo aveva pedinato una donna dall'uscita della metropolitana fino a un'area isolata, per poi aggredirla. I due casi, avvenuti a distanza di pochi giorni in zone diverse della città, hanno riacceso il dibattito sulla sicurezza dei parchi e delle aree pubbliche milanesi nelle ore diurne.</p>
+        <p>Il Comune di Milano ha annunciato l'intensificazione dei pattugliamenti nelle aree verdi cittadine nelle fasce orarie diurne, mentre alcuni comitati di quartiere chiedono l'installazione di nuovi punti luce e telecamere lungo i percorsi pedonali del parco Segantini, segnalato da tempo come punto critico per l'illuminazione insufficiente in alcune zone interne.</p>
         <span class="source">Fonti: <a href="https://www.ilgiorno.it" target="_blank" rel="noopener noreferrer">Il Giorno</a> · <a href="https://www.milanotoday.it" target="_blank" rel="noopener noreferrer">MilanoToday</a></span>
       </div>
     </div>
@@ -1379,23 +1398,30 @@
     <div class="articles">
       <div class="article lead">
         <h3>Merz ai minimi con l'AfD al 28%, Lecornu punta al 4,9% di deficit</h3>
-        <p>In Germania i sondaggi confermano l'AfD di Alice Weidel primo partito, stabile attorno al 28%, con il gradimento del cancelliere Friedrich Merz ai minimi storici; cresce tra i commentatori l'ipotesi che Merz possa porre la questione di fiducia in autunno, prima del voto in Sassonia.</p>
-        <p>In Francia il premier Sébastien Lecornu punta per il 2027 a un deficit pubblico del 4,9% del Pil, abbandonando l'obiettivo Ue del 3% entro il 2029: nessun aumento delle tasse, ma spesa in crescita del 2,4% trainata da difesa e interessi sul debito. Manca però una maggioranza parlamentare a pochi mesi dalle presidenziali di aprile 2027.</p>
+        <p>In Germania i sondaggi confermano l'AfD di Alice Weidel come primo partito, stabile attorno al 28% delle intenzioni di voto, mentre il gradimento personale del cancelliere Friedrich Merz è scivolato ai minimi storici dal suo insediamento. Cresce tra i commentatori politici tedeschi l'ipotesi che Merz possa arrivare a porre la questione di fiducia in autunno, nel tentativo di ricompattare la maggioranza prima dell'appuntamento elettorale in Sassonia, considerato un test decisivo per la tenuta della coalizione di governo.</p>
+        <p>In Francia, intanto, il premier Sébastien Lecornu punta per il 2027 a un deficit pubblico del 4,9% del Pil, abbandonando di fatto l'obiettivo europeo del 3% entro il 2029 fissato dalle regole di bilancio Ue: la strategia prevede nessun aumento delle tasse, ma una spesa pubblica in crescita del 2,4%, trainata soprattutto dagli investimenti in difesa e dal peso crescente degli interessi sul debito. Manca però ancora una maggioranza parlamentare solida a pochi mesi dalle elezioni presidenziali di aprile 2027, e diversi analisti dubitano che il piano possa essere approvato senza modifiche sostanziali.</p>
+        <p>A Bruxelles la Commissione osserva con crescente attenzione entrambi i dossier: il possibile scostamento francese dagli obiettivi di bilancio concordati rischia di riaprire la procedura per deficit eccessivo proprio mentre la Germania, tradizionale garante del rigore nell'Eurozona, appare politicamente troppo indebolita per esercitare la consueta pressione su Parigi — un doppio vuoto di leadership che secondo alcuni economisti comunitari rende più fragile l'intera architettura di bilancio europea in vista della revisione del Patto di stabilità.</p>
         <span class="source">Fonti: <a href="https://www.ilsussidiario.net" target="_blank" rel="noopener noreferrer">Il Sussidiario</a> · <a href="https://www.agenzianova.com" target="_blank" rel="noopener noreferrer">Agenzia Nova</a> · <a href="https://www.journaldunet.com" target="_blank" rel="noopener noreferrer">Journal du Net</a> · <a href="https://www.publicsenat.fr" target="_blank" rel="noopener noreferrer">Public Sénat</a></span>
       </div>
       <div class="article">
         <h3>Spagna, la crisi di Ceuta spacca il Psoe</h3>
-        <p>Un mese dopo l'attraversamento di massa a Ceuta di fine luglio, la gestione della crisi ha aggravato le fratture interne al partito socialista: sindaci e candidati alle comunali di maggio 2027 chiedono a Sánchez di anticipare le elezioni generali. Sánchez rifiuta e conferma l'intenzione di arrivare a fine legislatura, a luglio 2027.</p>
+        <p>Un mese dopo l'attraversamento di massa a Ceuta di fine luglio, che ha coinvolto decine di migliaia di persone in poche ore, la gestione politica della crisi ha aggravato le fratture interne al partito socialista spagnolo: sindaci e candidati in vista delle comunali di maggio 2027 chiedono apertamente al premier Pedro Sánchez di anticipare le elezioni generali, temendo che il tema migratorio possa costare caro al partito alle urne.</p>
+        <p>Sánchez, dal canto suo, rifiuta ogni ipotesi di elezioni anticipate e conferma l'intenzione di portare a termine la legislatura fino alla scadenza naturale, a luglio 2027, respingendo le pressioni interne come "un cedimento alla destra" sul tema dell'immigrazione.</p>
+        <p>Il partito popolare all'opposizione cavalca intanto le divisioni socialiste, chiedendo un dibattito parlamentare straordinario sulla gestione della crisi di Ceuta: sondaggi interni circolati tra i deputati del Psoe indicherebbero un calo di consensi proprio nelle regioni del sud della Spagna più esposte ai flussi migratori, un dato che alimenta ulteriormente le pressioni per un cambio di linea prima delle comunali.</p>
         <span class="source">Fonti: <a href="https://theobjective.com" target="_blank" rel="noopener noreferrer">The Objective</a></span>
       </div>
       <div class="article">
         <h3>Attacco hacker al fisco francese: rubati i dati di 678mila contribuenti</h3>
-        <p>Un attacco informatico ha colpito l'amministrazione fiscale francese, sottraendo i dati personali di circa 678mila contribuenti, ora "in vendita" secondo quanto riportato dagli inquirenti. Le autorità francesi hanno aperto un'indagine per valutare l'origine dell'attacco e i rischi per i cittadini coinvolti.</p>
+        <p>Un attacco informatico su vasta scala ha colpito l'amministrazione fiscale francese (DGFiP), sottraendo i dati personali di circa 678mila contribuenti — nomi, indirizzi e informazioni fiscali sensibili — ora messi "in vendita" su canali underground secondo quanto riportato dagli inquirenti che seguono il caso. La procura di Parigi ha aperto un'inchiesta per accertare le modalità di accesso ai sistemi informatici del fisco.</p>
+        <p>Le autorità francesi hanno annunciato che i contribuenti coinvolti verranno informati singolarmente, con l'invito a monitorare eventuali tentativi di phishing o furto d'identità nelle prossime settimane. L'episodio riaccende il dibattito sulla sicurezza informatica delle amministrazioni pubbliche europee, già sotto pressione dopo una serie di attacchi simili registrati nell'ultimo anno in diversi paesi Ue.</p>
+        <p>Il ministero dell'Economia francese ha annunciato un audit straordinario sui sistemi di sicurezza informatica di tutte le agenzie fiscali territoriali, mentre l'authority francese per la protezione dei dati (Cnil) ha aperto un proprio filone d'indagine parallelo per verificare se la DGFiP abbia rispettato gli obblighi di notifica tempestiva previsti dal regolamento europeo sulla protezione dei dati.</p>
         <span class="source">Fonti: <a href="https://www.laregione.ch" target="_blank" rel="noopener noreferrer">laRegione.ch</a> · <a href="https://www.rsi.ch" target="_blank" rel="noopener noreferrer">RSI</a> · <a href="https://it.euronews.com" target="_blank" rel="noopener noreferrer">Euronews</a></span>
       </div>
       <div class="article">
         <h3>Nuovo terremoto a Granada: tre feriti, evacuata l'Alhambra</h3>
-        <p>Una scossa di magnitudo 4,7 ha colpito la provincia di Granada, in Spagna — la seconda in tre giorni — causando tre feriti e costringendo all'evacuazione precauzionale del complesso monumentale dell'Alhambra e di alcuni centri commerciali. Le autorità locali contano circa 600 sfollati precauzionali e monitorano l'evoluzione dello sciame sismico.</p>
+        <p>Una scossa di magnitudo 4,7 ha colpito la provincia di Granada, in Spagna — la seconda in tre giorni dopo un evento sismico di intensità simile — causando tre feriti non gravi e costringendo all'evacuazione precauzionale del complesso monumentale dell'Alhambra, patrimonio Unesco tra i più visitati del paese, oltre che di alcuni centri commerciali della zona.</p>
+        <p>Le autorità locali contano circa 600 sfollati precauzionali, sistemati temporaneamente in strutture di accoglienza allestite nelle aree circostanti, e monitorano l'evoluzione dello sciame sismico in corso, che secondo i sismologi spagnoli potrebbe proseguire con repliche di minore intensità nei prossimi giorni.</p>
+        <p>La protezione civile andalusa ha attivato il piano regionale per il rischio sismico, con squadre di ingegneri strutturali già al lavoro per verificare la tenuta degli edifici storici del centro di Granada: l'Alhambra, spiegano i tecnici, resta chiusa in via precauzionale fino al completamento delle verifiche sulle strutture più antiche del complesso, mentre il settore turistico locale segnala le prime cancellazioni di prenotazioni per le prossime settimane.</p>
         <span class="source">Fonti: <a href="https://www.elespanol.com" target="_blank" rel="noopener noreferrer">El Español</a> · <a href="https://www.cnn.com" target="_blank" rel="noopener noreferrer">CNN</a></span>
       </div>
     </div>
@@ -1414,22 +1440,30 @@
     <div class="articles">
       <div class="article lead">
         <h3>Ucraina, missili su Kharkiv: 10 morti. Kiev lancia 620 droni su Mosca</h3>
-        <p>Nella notte missili russi hanno colpito Kharkiv, causando almeno 10 morti secondo le autorità ucraine; in risposta Kiev ha lanciato circa 620 droni contro obiettivi nell'area di Mosca. L'ex ministro ucraino Fedorov è tornato a parlare pubblicamente chiedendo che si trovi "un meccanismo legale, sicuro e realistico" per tenere elezioni in Ucraina anche in tempo di guerra, sostenendo che "la democrazia non può essere ostaggio della Russia".</p>
+        <p>Nella notte tra il 18 e il 19 agosto missili russi hanno colpito la città di Kharkiv, nel nord-est dell'Ucraina, causando almeno 10 morti secondo il bilancio comunicato dalle autorità locali e diversi feriti, alcuni dei quali in condizioni gravi trasportati negli ospedali della città. In risposta, l'esercito ucraino ha lanciato circa 620 droni contro obiettivi nell'area di Mosca, uno dei più massicci attacchi con velivoli senza pilota dall'inizio dell'anno, colpendo — secondo fonti ucraine — infrastrutture logistiche e militari nella capitale russa.</p>
+        <p>Sul fronte politico, l'ex ministro ucraino per la Trasformazione digitale Mykhailo Fedorov è tornato a parlare pubblicamente chiedendo che si trovi "un meccanismo legale, sicuro e realistico" per tenere elezioni in Ucraina anche in tempo di guerra, un tema delicato dato che la legge marziale in vigore dal 2022 ne sospende lo svolgimento. "La democrazia non può essere ostaggio della Russia", ha dichiarato Fedorov, aprendo un dibattito interno sulla possibilità di un percorso elettorale parallelo al proseguimento del conflitto.</p>
+        <p>Gli alleati occidentali di Kiev seguono con attenzione lo scambio di attacchi su Kharkiv e Mosca, letto da diversi analisti militari come un segnale che entrambe le parti puntano a mantenere alta la pressione reciproca in vista di un'eventuale ripresa dei negoziati in autunno, piuttosto che come l'anticipo di un'escalation su scala più ampia: la contabilità dei danni alle infrastrutture energetiche russe, in particolare, resta un indicatore chiave osservato dai mercati petroliferi internazionali.</p>
         <span class="source">Fonti: <a href="https://www.ilgiornale.it" target="_blank" rel="noopener noreferrer">Il Giornale</a> · <a href="https://www.ilpost.it" target="_blank" rel="noopener noreferrer">Il Post</a> · <a href="https://www.dire.it" target="_blank" rel="noopener noreferrer">Dire</a> · <a href="https://www.ansa.it" target="_blank" rel="noopener noreferrer">Ansa</a></span>
       </div>
       <div class="article">
         <h3>Gaza e Cisgiordania, dubbi sul piano di pace dopo la visita di Kushner</h3>
-        <p>Un raid israeliano mortale su un caffè a Gaza City, avvenuto un giorno dopo la visita dell'inviato Usa Jared Kushner, alimenta dubbi sui reali progressi del piano di pace. In Cisgiordania un video mostra soldati israeliani marchiare con un numero un palestinese durante un interrogatorio: l'Idf ha ammesso l'accaduto. Israele valuta inoltre di trasferire il controllo sui coloni dall'esercito alla polizia del ministro Ben-Gvir, che parla di "un passo verso l'annessione".</p>
+        <p>Un raid israeliano ritenuto mortale ha colpito un caffè nel centro di Gaza City, avvenuto appena un giorno dopo la visita dell'inviato Usa Jared Kushner nell'area, un tempismo che alimenta seri dubbi sui reali progressi del piano di pace promosso dall'amministrazione statunitense. In Cisgiordania, intanto, un video diffuso sui social mostra soldati israeliani marchiare con un numero un palestinese fermato durante un interrogatorio, un episodio che l'Idf ha dovuto ammettere pubblicamente dopo la diffusione delle immagini, definendolo "una prassi non autorizzata" al vaglio di un'indagine interna.</p>
+        <p>Israele valuta inoltre di trasferire il controllo sui coloni della Cisgiordania dall'esercito alla polizia, sotto la diretta responsabilità del ministro della Sicurezza nazionale Itamar Ben-Gvir, che ha salutato l'ipotesi come "un passo verso l'annessione" dei territori — una dichiarazione che ha provocato reazioni preoccupate da parte della comunità internazionale e degli osservatori diplomatici, che vi leggono un ulteriore allontanamento dalla prospettiva di una soluzione negoziata.</p>
+        <p>Gli osservatori delle Nazioni Unite presenti nell'area segnalano che l'episodio della marchiatura in Cisgiordania si inserisce in un pattern più ampio di denunce sulle modalità di fermo dei civili palestinesi, mentre a Washington cresce il pressing di alcuni parlamentari democratici perché l'amministrazione condizioni esplicitamente il sostegno militare a un reale avanzamento del piano di pace, finora rimasto sulla carta nonostante gli annunci.</p>
         <span class="source">Fonti: <a href="https://www.timesofisrael.com" target="_blank" rel="noopener noreferrer">Times of Israel</a> · <a href="https://www.cfr.org" target="_blank" rel="noopener noreferrer">Cfr</a></span>
       </div>
       <div class="article">
         <h3>Trump riduce le esercitazioni con la Corea del Sud, vuole incontrare Kim</h3>
-        <p>Donald Trump ha ordinato al segretario alla Difesa Hegseth di "ridurre sostanzialmente" le esercitazioni militari congiunte con la Corea del Sud, citando il suo "buon rapporto" con Kim Jong-un; Seul ha replicato che le esercitazioni Ulchi Freedom Shield proseguiranno comunque come previsto. Il Pentagono conferma il ridimensionamento delle manovre.</p>
+        <p>Donald Trump ha ordinato al segretario alla Difesa Pete Hegseth di "ridurre sostanzialmente" le esercitazioni militari congiunte con la Corea del Sud, citando il suo "buon rapporto" personale con il leader nordcoreano Kim Jong-un e lasciando intendere l'auspicio di un nuovo incontro diretto tra i due, sul modello dei vertici già tenuti durante il primo mandato presidenziale.</p>
+        <p>Seul ha replicato con cautela che le esercitazioni Ulchi Freedom Shield, tra le più importanti del calendario militare congiunto, proseguiranno comunque come previsto nonostante le pressioni di Washington, mentre il Pentagono conferma ufficialmente il ridimensionamento di alcune manovre minori, in una mossa che analisti militari leggono come un possibile segnale di apertura verso Pyongyang più che come un reale arretramento strategico nella regione.</p>
+        <p>A Tokyo e Seul cresce comunque la preoccupazione che un riavvicinamento troppo rapido tra Washington e Pyongyang, se non accompagnato da reali concessioni sul programma nucleare nordcoreano, possa essere percepito come una legittimazione implicita dell'arsenale di Kim senza contropartite concrete sulla sicurezza regionale: un timore condiviso anche da diversi think tank di Washington che seguono da vicino il dossier.</p>
         <span class="source">Fonti: <a href="https://www.quotidiano.net" target="_blank" rel="noopener noreferrer">Quotidiano Nazionale</a> · <a href="https://www.ilsole24ore.com" target="_blank" rel="noopener noreferrer">Il Sole 24 Ore</a> · <a href="https://www.panorama.it" target="_blank" rel="noopener noreferrer">Panorama</a></span>
       </div>
       <div class="article">
         <h3>Gli Usa sanzionano la presidente della Corte penale internazionale Tomoko Akane</h3>
-        <p>Washington ha imposto sanzioni alla presidente della Corte penale internazionale Tomoko Akane. La replica dell'Aja: la misura mette "a rischio lo Stato di diritto" a livello internazionale.</p>
+        <p>Washington ha imposto sanzioni economiche e restrizioni di viaggio alla presidente della Corte penale internazionale Tomoko Akane, magistrata giapponese alla guida del tribunale dell'Aja dal 2024, in quella che l'amministrazione statunitense definisce una risposta alle indagini della Corte su cittadini e alleati americani. È l'ultimo di una serie di provvedimenti simili adottati da Washington contro i vertici della Cpi negli ultimi mesi.</p>
+        <p>La replica dell'Aja non si è fatta attendere: la Corte ha definito la misura un tentativo di mettere "a rischio lo Stato di diritto" a livello internazionale, sostenendo che le sanzioni contro i propri magistrati rappresentano un pericoloso precedente per l'indipendenza della giustizia penale internazionale nel suo complesso.</p>
+        <p>L'Unione europea, che riconosce la giurisdizione della Cpi, ha espresso "piena solidarietà" alla magistrata sanzionata, mentre diversi paesi membri valutano contromisure diplomatiche mirate: il caso riaccende anche il dibattito, mai sopito da quando gli Stati Uniti non hanno ratificato lo Statuto di Roma, sul rapporto asimmetrico tra Washington e il sistema di giustizia penale internazionale.</p>
         <span class="source">Fonti: <a href="https://www.tgcom24.mediaset.it" target="_blank" rel="noopener noreferrer">Tgcom24</a> · <a href="https://www.internazionale.it" target="_blank" rel="noopener noreferrer">Internazionale (Reuters)</a> · <a href="https://www.ilsole24ore.com" target="_blank" rel="noopener noreferrer">Il Sole 24 Ore</a></span>
       </div>
     </div>
@@ -1448,23 +1482,73 @@
     <div class="articles">
       <div class="article lead">
         <h3>Rendimenti dei Treasury Usa trentennali ai massimi dal 2002 dopo il balzo del deficit</h3>
-        <p>I rendimenti dei titoli di Stato Usa a 30 anni sono saliti ai massimi dal 2002, spinti dal balzo del deficit federale; in scia sono saliti anche i rendimenti dei Bund tedeschi. Il Nasdaq ha chiuso la seduta del 18 agosto in calo dell'1,33%, mentre cresce tra gli analisti l'attenzione sui costi di finanziamento del debito pubblico su entrambe le sponde dell'Atlantico.</p>
+        <p>I rendimenti dei titoli di Stato Usa a 30 anni sono saliti ai massimi dal 2002, spinti dal balzo del deficit federale annunciato nelle ultime settimane e da timori crescenti sulla sostenibilità del debito pubblico americano nel lungo periodo. In scia al movimento statunitense sono saliti anche i rendimenti dei Bund tedeschi, segno che la pressione sui costi di finanziamento del debito non riguarda soltanto Washington ma si sta trasmettendo all'intero mercato obbligazionario occidentale.</p>
+        <p>Il Nasdaq ha chiuso la seduta del 18 agosto in calo dell'1,33%, penalizzato in particolare dai titoli tecnologici più sensibili al rialzo dei tassi a lungo termine, mentre cresce tra gli analisti l'attenzione sui costi di finanziamento del debito pubblico su entrambe le sponde dell'Atlantico: un rendimento più alto sui titoli trentennali significa infatti un costo maggiore per gli Stati nel rifinanziare il proprio debito nei prossimi decenni.</p>
+        <p>Diversi gestori di fondi obbligazionari interpellati dalla stampa finanziaria segnalano che il movimento sui Treasury riflette anche un cambio strutturale nella domanda: gli acquirenti esteri tradizionali, banche centrali in testa, stanno riducendo gradualmente l'esposizione al debito Usa a lungo termine, costringendo il Tesoro americano a offrire rendimenti più generosi per collocare le nuove emissioni — una dinamica che, se dovesse consolidarsi, avrebbe ripercussioni dirette sui tassi ipotecari e sul costo del credito per famiglie e imprese americane.</p>
         <span class="source">Fonti: <a href="https://www.cnbc.com" target="_blank" rel="noopener noreferrer">CNBC</a> · <a href="https://www.bloomberg.com" target="_blank" rel="noopener noreferrer">Bloomberg</a></span>
       </div>
       <div class="article">
         <h3>Stellantis sprofonda in Borsa</h3>
-        <p>Il titolo Stellantis continua a soffrire in Borsa, penalizzato da incertezze sul mercato americano, dalla pressione dei fondi speculativi e da margini ridotti: gli analisti restano cauti sulle prospettive a breve termine del gruppo italo-francese.</p>
+        <p>Il titolo Stellantis continua a soffrire pesantemente in Borsa, penalizzato da un mix di fattori che gli analisti considerano difficili da invertire nel breve periodo: le incertezze sul mercato automobilistico americano, dove il gruppo fatica a recuperare quote di mercato, la pressione crescente dei fondi speculativi che scommettono al ribasso sul titolo, e margini di profitto ridotti rispetto ai concorrenti diretti.</p>
+        <p>Gli analisti finanziari citati dalla stampa specializzata restano cauti sulle prospettive a breve termine del gruppo italo-francese, sottolineando come la combinazione di costi di produzione elevati e domanda debole in alcuni mercati chiave renda difficile una ripresa rapida delle quotazioni senza un intervento strutturale sulla strategia industriale.</p>
+        <p>Sul fronte sindacale cresce la preoccupazione per l'occupazione negli stabilimenti italiani del gruppo, con le sigle metalmeccaniche che chiedono un incontro urgente al management per avere chiarimenti sui piani di produzione dei prossimi trimestri, mentre il titolo continua a essere tra i più scambiati al ribasso dell'intero listino milanese nelle ultime sedute.</p>
         <span class="source">Fonti: <a href="https://it.finance.yahoo.com" target="_blank" rel="noopener noreferrer">Yahoo Finanza Italia</a> · <a href="https://www.ilsole24ore.com" target="_blank" rel="noopener noreferrer">Il Sole 24 Ore</a></span>
       </div>
       <div class="article">
         <h3>Ex Ilva, Federacciai con 14 imprese presenta la manifestazione d'interesse senza altiforni</h3>
-        <p>Federacciai, insieme a 14 imprese del comparto siderurgico, ha presentato una manifestazione d'interesse per l'ex Ilva che esclude gli altiforni, aprendo un nuovo capitolo nella lunga vicenda dello stabilimento di Taranto.</p>
+        <p>Federacciai, l'associazione di categoria dei produttori di acciaio, insieme a un consorzio di 14 imprese del comparto siderurgico, ha presentato una manifestazione d'interesse formale per l'ex Ilva che esclude esplicitamente gli altiforni tradizionali, puntando invece su tecnologie di produzione alternative meno impattanti dal punto di vista ambientale.</p>
+        <p>La proposta apre un nuovo capitolo nella lunga e travagliata vicenda dello stabilimento di Taranto, il più grande complesso siderurgico d'Europa, alle prese da anni con la difficile transizione tra sostenibilità ambientale, tutela occupazionale e competitività industriale: resta da capire come il governo e i sindacati valuteranno una proposta che, di fatto, ridisegna il modello produttivo storico dell'impianto.</p>
+        <p>Le organizzazioni sindacali di categoria hanno chiesto un tavolo urgente al ministero delle Imprese per valutare l'impatto occupazionale della transizione verso tecnologie alternative agli altiforni, un passaggio che comporterebbe una riconversione profonda delle competenze richieste alla forza lavoro dello stabilimento tarantino nell'arco dei prossimi anni.</p>
         <span class="source">Fonti: <a href="https://www.lapresse.it" target="_blank" rel="noopener noreferrer">LaPresse</a> · <a href="https://www.ansa.it" target="_blank" rel="noopener noreferrer">Ansa</a> · <a href="https://www.ilsole24ore.com" target="_blank" rel="noopener noreferrer">Il Sole 24 Ore</a></span>
       </div>
       <div class="article">
         <h3>Assunzioni nel pubblico, via libera a 3.500 nuovi ingressi</h3>
-        <p>Il governo ha dato il via libera a 3.500 nuove assunzioni nella pubblica amministrazione, dall'Agenzia delle Entrate ai ministeri: si tratta di uno dei pacchetti di ingressi più consistenti degli ultimi mesi nel pubblico impiego.</p>
+        <p>Il governo ha dato il via libera a un pacchetto di 3.500 nuove assunzioni nella pubblica amministrazione, che spazieranno dall'Agenzia delle Entrate ai principali ministeri: si tratta di uno dei pacchetti di ingressi più consistenti approvati negli ultimi mesi nel pubblico impiego, pensato per colmare le carenze di organico accumulate dopo anni di blocco del turnover.</p>
+        <p>Le nuove assunzioni riguarderanno soprattutto profili tecnici e amministrativi, con l'obiettivo dichiarato di velocizzare i tempi di risposta della macchina pubblica su pratiche fiscali, previdenziali e amministrative che negli ultimi anni hanno accumulato ritardi significativi.</p>
+        <p>I sindacati della funzione pubblica accolgono con favore il pacchetto ma chiedono che venga accompagnato da un piano di adeguamento salariale per il personale già in servizio, sottolineando come il divario retributivo con il settore privato resti uno dei principali ostacoli alla capacità della pubblica amministrazione di attrarre i profili tecnici più qualificati.</p>
         <span class="source">Fonte: <a href="https://www.corriere.it" target="_blank" rel="noopener noreferrer">Corriere della Sera</a></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- BENESSERE (4 notizie, sempre fonti internazionali, nessun confronto multi-testata richiesto) -->
+  <div class="section" id="benessere">
+    <div class="section-head">
+      <span class="section-tag tag-benessere">Benessere</span>
+      <h2 class="section-title">Dieta vegana e infiammazione, un farmaco da 100 anni contro lo scompenso cardiaco</h2>
+    </div>
+    <div class="context-box">
+      <div class="context-box-label">Da sapere per capire</div>
+      <p>Le quattro notizie di questa sezione arrivano direttamente da riviste scientifiche e istituzioni di ricerca internazionali, non da rassegne della stampa italiana: per questo qui non serve il confronto tra più testate nazionali che riprendono la stessa notizia, basta una fonte internazionale solida — studio, rivista peer-reviewed o ateneo — per ciascun articolo.</p>
+    </div>
+    <div class="articles">
+      <div class="article lead">
+        <h3>Una dieta vegana di sole due settimane riduce i marcatori d'infiammazione legati al peso</h3>
+        <p>Uno studio randomizzato pubblicato su JAMA Network Open e condotto dal Physicians Committee for Responsible Medicine ha rilevato che una dieta vegana a basso contenuto di grassi, seguita per appena due settimane, riduce in modo misurabile i livelli di proteina C-reattiva, un marcatore infiammatorio associato a obesità e rischio cardiovascolare, indipendentemente dalla perdita di peso effettiva.</p>
+        <p>La ricercatrice Hana Kahleova, autrice principale dello studio, sottolinea come il risultato suggerisca che l'infiammazione legata al tessuto adiposo possa essere contrastata attraverso la sola composizione della dieta, prima ancora che si registrino cali significativi sulla bilancia: un dato che gli autori giudicano rilevante per la prevenzione precoce delle malattie metaboliche croniche.</p>
+        <p>Lo studio ha coinvolto un gruppo di controllo che ha mantenuto la propria dieta abituale, permettendo ai ricercatori di isolare l'effetto della sola composizione alimentare da altri fattori confondenti come l'attività fisica: i risultati aprono la strada, secondo gli autori, a ulteriori trial di più lunga durata per verificare se il beneficio anti-infiammatorio osservato in due settimane si mantenga stabile nel tempo.</p>
+        <span class="source">Fonti: <a href="https://www.sciencedaily.com" target="_blank" rel="noopener noreferrer">ScienceDaily</a> · <a href="https://jamanetwork.com" target="_blank" rel="noopener noreferrer">JAMA Network Open</a></span>
+      </div>
+      <div class="article">
+        <h3>La digossina, farmaco vecchio di un secolo, torna utile contro una forma di scompenso cardiaco</h3>
+        <p>Un trial clinico su oltre 1.000 pazienti condotto in 43 centri nei Paesi Bassi e presentato al congresso ESC Heart Failure di Barcellona, con i risultati pubblicati su Nature Medicine, mostra che la digossina — un farmaco derivato dalla digitale e utilizzato da oltre cent'anni — riduce in modo significativo i ricoveri ospedalieri nei pazienti con scompenso cardiaco a frazione di eiezione preservata e fibrillazione atriale.</p>
+        <p>I ricercatori sottolineano come il farmaco, poco costoso e ampiamente disponibile, fosse finora utilizzato in modo marginale in questo specifico sottogruppo di pazienti: i nuovi dati potrebbero portare a un suo impiego più sistematico nelle linee guida cardiologiche internazionali.</p>
+        <p>Il sottogruppo di pazienti con scompenso a frazione di eiezione preservata è tra i più difficili da trattare in cardiologia, con opzioni farmacologiche storicamente limitate rispetto alle altre forme di scompenso cardiaco: proprio per questo la conferma dell'efficacia di un farmaco già ampiamente disponibile, spiegano i ricercatori, avrebbe un impatto pratico immediato sui sistemi sanitari, senza i costi e i tempi di approvazione di una nuova molecola.</p>
+        <span class="source">Fonti: <a href="https://www.sciencedaily.com" target="_blank" rel="noopener noreferrer">ScienceDaily</a> · <a href="https://www.nature.com" target="_blank" rel="noopener noreferrer">Nature Medicine</a></span>
+      </div>
+      <div class="article">
+        <h3>L'attività fisica in mezza età protegge la memoria più tardi nella vita</h3>
+        <p>Uno studio della UT Health San Antonio, condotto su 402 partecipanti e pubblicato sulla rivista Alzheimer's & Dementia: Behavior & Socioeconomics of Aging, ha rilevato che le persone fisicamente attive tra i 40 e i 60 anni mostrano un declino cognitivo più lento nei decenni successivi rispetto ai coetanei sedentari, indipendentemente da altri fattori di rischio cardiovascolare.</p>
+        <p>Secondo gli autori, il dato rafforza l'idea che la mezza età rappresenti una finestra critica per la prevenzione del declino cognitivo, spostando l'attenzione della ricerca sull'invecchiamento cerebrale da interventi tardivi a scelte di stile di vita adottate con anticipo di decenni.</p>
+        <p>I ricercatori hanno seguito i partecipanti per un periodo prolungato, incrociando i dati sull'attività fisica riportata in mezza età con test cognitivi standardizzati somministrati diversi anni più tardi: il team sottolinea che l'effetto protettivo osservato resta significativo anche dopo aver corretto i risultati per livello di istruzione e condizioni socioeconomiche, due variabili che tipicamente influenzano sia lo stile di vita sia la salute cognitiva.</p>
+        <span class="source">Fonti: <a href="https://www.sciencedaily.com" target="_blank" rel="noopener noreferrer">ScienceDaily</a> · <a href="https://news.uthscsa.edu" target="_blank" rel="noopener noreferrer">UT Health San Antonio</a></span>
+      </div>
+      <div class="article">
+        <h3>Scoperto il meccanismo di un recettore chiave per la perdita di peso indotta dai farmaci GLP-1</h3>
+        <p>Un gruppo di ricerca dell'Institute of Metabolic Science dell'Università di Cambridge, guidato da Jo Lewis e pubblicato su Nature Metabolism il 15 agosto, ha chiarito il meccanismo molecolare con cui il recettore GIP contribuisce alla perdita di peso nei farmaci di nuova generazione per obesità e diabete, aprendo la strada a terapie più mirate con minori effetti collaterali gastrointestinali.</p>
+        <p>Lo studio, condotto su modelli animali, individua specifiche popolazioni cellulari nel cervello attivate dal recettore GIP: un passo che gli autori definiscono utile per progettare la prossima generazione di farmaci anti-obesità, calibrando meglio l'equilibrio tra efficacia ed effetti collaterali.</p>
+        <p>La scoperta arriva in un momento di forte espansione del mercato dei farmaci GLP-1/GIP per il trattamento di obesità e diabete di tipo 2, con milioni di pazienti già in trattamento a livello globale: comprendere con precisione i meccanismi cellulari coinvolti, spiegano i ricercatori di Cambridge, è il passo necessario per sviluppare una prossima generazione di molecole capaci di preservare l'efficacia dimagrante riducendo gli effetti collaterali gastrointestinali che oggi spingono una parte dei pazienti a interrompere la terapia.</p>
+        <span class="source">Fonti: <a href="https://www.sciencedaily.com" target="_blank" rel="noopener noreferrer">ScienceDaily</a> · <a href="https://www.cam.ac.uk" target="_blank" rel="noopener noreferrer">University of Cambridge</a></span>
       </div>
     </div>
   </div>
@@ -1484,21 +1568,28 @@
         <h3>Unitree vola +500% al debutto in Borsa a Shanghai</h3>
         <p>Il produttore cinese di robot Unitree è balzato fino al 629% nel giorno del debutto in Borsa a Shanghai, dopo una Ipo da 904 milioni di dollari sottoscritta oltre 5.500 volte dagli investitori retail: il titolo si è poi assestato attorno al +542%, secondo grande gruppo tecnologico cinese legato al boom dell'intelligenza artificiale a impennarsi subito dopo la quotazione.</p>
         <p>In parallelo, Nvidia starebbe per garantire circa 100 miliardi di dollari di credito per finanziare l'espansione dei data center di OpenAI, consolidando il ruolo dell'azienda di Jensen Huang come finanziatore, oltre che fornitore di chip, dell'intero ecosistema dell'intelligenza artificiale.</p>
+        <p>Il debutto di Unitree si inserisce in un'ondata più ampia di quotazioni di aziende cinesi legate alla robotica e all'intelligenza artificiale, sostenute da un forte appetito degli investitori retail domestici: gli analisti di mercato segnalano tuttavia il rischio di una bolla valutativa in un settore dove i ricavi effettivi delle aziende quotate restano, in diversi casi, ancora modesti rispetto alle capitalizzazioni raggiunte in Borsa nei giorni immediatamente successivi alle Ipo.</p>
         <span class="source">Fonti: <a href="https://www.bloomberg.com" target="_blank" rel="noopener noreferrer">Bloomberg</a> · <a href="https://www.cnbc.com" target="_blank" rel="noopener noreferrer">CNBC</a> · <a href="https://www.cnn.com" target="_blank" rel="noopener noreferrer">CNN</a> · <a href="https://techstartups.com" target="_blank" rel="noopener noreferrer">Tech Startups</a></span>
       </div>
       <div class="article">
         <h3>Processo storico contro Meta: "corresponsabile della crisi di salute mentale dei minori"</h3>
-        <p>29 Stati Usa hanno portato Meta a processo, accusandola di aver reso dipendenti i minori e di aver ingannato il pubblico sui rischi delle sue piattaforme: l'azienda rischia fino a 1.400 miliardi di dollari di multa (teorici) e un possibile sconvolgimento del futuro di Instagram e Facebook.</p>
+        <p>29 procuratori generali statali degli Stati Uniti hanno portato Meta davanti a un tribunale federale, accusando l'azienda di Mark Zuckerberg di aver progettato deliberatamente meccanismi di dipendenza sulle proprie piattaforme rivolti ai minori e di aver ingannato il pubblico sui rischi noti internamente, come emerso da documenti interni citati nell'atto d'accusa.</p>
+        <p>L'azienda rischia teoricamente fino a 1.400 miliardi di dollari di multa complessiva, una cifra puramente teorica calcolata sulla base delle violazioni contestate stato per stato, ma che comunque segnala la portata potenziale del procedimento: gli osservatori legali parlano di un possibile sconvolgimento del modello di business di Instagram e Facebook, qualora il tribunale dovesse imporre modifiche strutturali agli algoritmi di raccomandazione dei contenuti per gli utenti minorenni.</p>
+        <p>Il caso riunisce procuratori generali sia repubblicani sia democratici, un elemento raro che secondo gli osservatori legali segnala quanto il tema della sicurezza dei minori online sia ormai trasversale al dibattito politico statunitense: Meta, dal canto suo, respinge le accuse sostenendo di aver investito significativamente in strumenti di controllo parentale e verifica dell'età negli ultimi anni.</p>
         <span class="source">Fonti: <a href="https://www.ilgiornaleditalia.it" target="_blank" rel="noopener noreferrer">Il Giornale d'Italia</a> · <a href="https://www.open.online" target="_blank" rel="noopener noreferrer">Open</a></span>
       </div>
       <div class="article">
         <h3>Studio su Science: gli agenti di intelligenza artificiale si coordinano da soli</h3>
-        <p>Una ricerca pubblicata su Science segnala che gli agenti di intelligenza artificiale tendono a mettersi d'accordo spontaneamente, seguendo la maggioranza anche in gruppi di mille, senza istruzioni esplicite in tal senso: un fenomeno che gli autori definiscono rilevante per la sicurezza in vista di scenari con più agenti IA operativi sugli stessi sistemi.</p>
+        <p>Una ricerca pubblicata sulla rivista Science segnala che gli agenti di intelligenza artificiale, quando messi in interazione tra loro senza istruzioni esplicite di collaborazione, tendono a mettersi d'accordo spontaneamente seguendo il comportamento della maggioranza — un fenomeno osservato anche in gruppi sperimentali fino a mille agenti simultanei.</p>
+        <p>Gli autori dello studio definiscono la scoperta rilevante soprattutto dal punto di vista della sicurezza informatica e della governance dell'IA, in vista di scenari futuri in cui più sistemi di intelligenza artificiale autonomi opereranno in contemporanea sugli stessi sistemi critici, dalla finanza alle infrastrutture, senza un coordinamento centralizzato imposto dall'uomo.</p>
+        <p>Il fenomeno osservato ricorda dinamiche già note negli studi di comportamento collettivo umano, ma applicate qui a sistemi artificiali: i ricercatori sottolineano che la capacità degli agenti di convergere spontaneamente su convenzioni condivise potrebbe rivelarsi un'arma a doppio taglio, utile per il coordinamento efficiente di sistemi complessi ma anche potenzialmente sfruttabile per manipolare il comportamento collettivo di reti di agenti IA attraverso pochi nodi compromessi.</p>
         <span class="source">Fonte: <a href="https://www.ilfattoquotidiano.it" target="_blank" rel="noopener noreferrer">Il Fatto Quotidiano</a></span>
       </div>
       <div class="article">
         <h3>Apple cambia il "Non tracciarmi" su iPhone</h3>
-        <p>Apple introduce una nuova schermata per la gestione della privacy delle app su iPhone, aggiornando il sistema "Non tracciarmi": le novità, spiega l'azienda, arriveranno anche in Italia nelle prossime versioni di iOS.</p>
+        <p>Apple introduce una nuova schermata per la gestione della privacy delle app su iPhone, aggiornando il sistema "Chiedi di non tracciare" introdotto anni fa con il framework App Tracking Transparency: la nuova interfaccia promette di rendere più chiaro all'utente quali dati ciascuna app richiede di condividere con terze parti a fini pubblicitari.</p>
+        <p>Le novità, spiega l'azienda, arriveranno anche in Italia nelle prossime versioni di iOS, in un contesto in cui il tema della privacy digitale resta al centro di un braccio di ferro regolatorio con l'Unione europea, che negli ultimi anni ha più volte contestato le pratiche pubblicitarie delle grandi piattaforme tecnologiche statunitensi.</p>
+        <p>Le associazioni per i diritti digitali accolgono con favore la maggiore trasparenza annunciata da Apple, ma chiedono che la nuova interfaccia renda davvero semplice il rifiuto del tracciamento in un solo passaggio, senza i percorsi articolati che in passato hanno reso più difficile per l'utente medio negare il consenso rispetto ad accettarlo.</p>
         <span class="source">Fonte: <a href="https://www.ilfattoquotidiano.it" target="_blank" rel="noopener noreferrer">Il Fatto Quotidiano</a></span>
       </div>
     </div>
@@ -1517,7 +1608,9 @@
     <div class="articles">
       <div class="article lead">
         <h3>Sbarchi in crollo, crescono i rimpatri</h3>
-        <p>Dal 1° gennaio al 10 agosto sono sbarcati in Italia 17.176 migranti, contro i 37.952 dello stesso periodo 2025: un crollo del 55%. Le nazionalità principali sono Bangladesh, Somalia, Algeria, Sudan e Pakistan. Crescono invece i rimpatri: 5.247 nei primi otto mesi del 2026 (734 volontari assistiti, 4.513 forzati), +34% sull'anno precedente; in calo i minori stranieri non accompagnati.</p>
+        <p>Dal 1° gennaio al 10 agosto sono sbarcati in Italia 17.176 migranti, contro i 37.952 registrati nello stesso periodo del 2025: un crollo del 55% che il governo rivendica come risultato delle proprie politiche di contrasto all'immigrazione irregolare. Le nazionalità principali di provenienza restano Bangladesh, Somalia, Algeria, Sudan e Pakistan, un quadro sostanzialmente stabile rispetto agli anni precedenti.</p>
+        <p>Crescono invece, in controtendenza, i rimpatri: 5.247 nei primi otto mesi del 2026, di cui 734 volontari assistiti e 4.513 forzati, per un aumento del 34% sull'anno precedente. In calo invece il numero dei minori stranieri non accompagnati registrati negli hotspot, un dato che le associazioni di settore seguono con particolare attenzione perché considerato un indicatore della vulnerabilità complessiva dei flussi migratori.</p>
+        <p>Il dibattito politico sulle cause del calo resta acceso: il governo lo attribuisce agli accordi bilaterali con i paesi di partenza e al rafforzamento dei pattugliamenti, mentre analisti indipendenti citati dalla stampa specializzata sottolineano che una parte della flessione è legata anche a fattori esterni non direttamente controllabili da Roma, come le condizioni meteomarine e i mutamenti nelle rotte gestite dalle organizzazioni criminali dedite al traffico di persone.</p>
         <span class="source">Fonti: dati Viminale · <a href="https://www.ansa.it" target="_blank" rel="noopener noreferrer">Ansa</a> · <a href="https://www.ilsole24ore.com" target="_blank" rel="noopener noreferrer">Il Sole 24 Ore</a></span>
       </div>
     </div>
@@ -1534,50 +1627,19 @@
       <p>La partita politica sullo Schengen sospeso tra Italia e Spagna resta aperta a livello europeo, con il Partito socialista europeo diviso tra chi difende e chi critica la linea dura sull'immigrazione della premier danese Frederiksen, mentre si moltiplicano i rimpatri verso l'Italia da altri paesi Ue in base al regolamento di Dublino.</p>
     </div>
     <div class="articles">
-      <div class="article lead">
+      <div class="article">
         <h3>Dopo 4 anni riprendono i trasferimenti Dublino dalla Svizzera verso l'Italia</h3>
-        <p>Dopo quattro anni di stop, riprendono i trasferimenti Dublino dalla Svizzera verso l'Italia dei richiedenti asilo non di sua competenza: i primi voli sono attesi da fine agosto, mentre la Germania ha già ripreso i rimpatri, generando frizioni diplomatiche con Roma sul nuovo meccanismo.</p>
+        <p>Dopo quattro anni di sospensione di fatto, riprendono i trasferimenti Dublino dalla Svizzera verso l'Italia dei richiedenti asilo non di competenza elvetica: i primi voli con i migranti a bordo sono attesi da fine agosto, secondo quanto confermato dalle autorità di Berna. Il meccanismo, previsto dal regolamento Dublino III, stabilisce che la domanda d'asilo venga esaminata dal primo paese Ue di ingresso del richiedente — nella maggior parte dei casi proprio l'Italia, per la sua posizione geografica.</p>
+        <p>La Germania ha già ripreso i propri rimpatri verso l'Italia da alcune settimane, generando frizioni diplomatiche con Roma sul nuovo meccanismo di redistribuzione: il governo italiano lamenta di dover farsi carico di un numero sproporzionato di richiedenti rispetto agli altri paesi Ue, mentre Berlino rivendica il pieno diritto di applicare le regole europee vigenti.</p>
+        <p>Le associazioni per i diritti dei migranti temono che la ripresa simultanea dei trasferimenti da più paesi europei possa mettere sotto pressione i centri di accoglienza italiani già vicini alla saturazione in diverse regioni, chiedendo al governo un piano di redistribuzione interna che eviti concentrazioni eccessive nelle strutture di primo ingresso del Sud Italia.</p>
         <span class="source">Fonti: <a href="https://www.rsi.ch" target="_blank" rel="noopener noreferrer">RSI</a> · <a href="https://www.quotidiano.net" target="_blank" rel="noopener noreferrer">Quotidiano Nazionale</a> · <a href="https://www.globalist.it" target="_blank" rel="noopener noreferrer">Globalist</a></span>
       </div>
       <div class="article">
         <h3>Ue, Pd e Psoe contro la Danimarca: "Alleanza con Meloni sull'immigrazione"</h3>
-        <p>Il Partito Democratico italiano e il Partito Socialista spagnolo hanno scritto una lettera al presidente del Partito Socialista Europeo, Stefan Löfven, per criticare la linea della premier socialdemocratica danese Mette Frederiksen, accusata di un'alleanza di fatto con Giorgia Meloni sui temi migratori. La replica di Copenaghen: "Siamo irremovibili".</p>
-        <p>Sul fronte Schengen, il leader di Azione Carlo Calenda in un'intervista sostiene che "il governo ha sbagliato" nella gestione della crisi con la Spagna e "ora fa la gara a chi è più duro", ricordando che l'Ue si era impegnata già nove mesi fa ad allestire una barriera anti-droni russi, senza però progressi concreti.</p>
+        <p>Il Partito Democratico italiano e il Partito Socialista spagnolo hanno scritto congiuntamente al presidente del Partito Socialista Europeo, Stefan Löfven, per criticare apertamente la linea della premier socialdemocratica danese Mette Frederiksen, accusata di aver stretto un'alleanza di fatto con Giorgia Meloni sui temi migratori all'interno delle istituzioni europee, in particolare sul dossier dei rimpatri e dei centri esterni per il trattenimento dei richiedenti asilo. La replica di Copenaghen non si è fatta attendere: "Siamo irremovibili" sulla linea attuale, hanno fatto sapere fonti del governo danese.</p>
+        <p>Sul fronte parallelo dello Schengen sospeso tra Italia e Spagna, il leader di Azione Carlo Calenda, in un'intervista, sostiene che "il governo ha sbagliato" nella gestione della crisi con Madrid e "ora fa la gara a chi è più duro" sul tema sicurezza, ricordando come l'Unione europea si fosse impegnata già nove mesi fa ad allestire una barriera anti-droni russi alle frontiere orientali, un progetto che secondo Calenda resta ancora sulla carta senza progressi concreti sul terreno.</p>
+        <p>La frattura interna al Partito Socialista Europeo riflette una divisione più ampia che attraversa le famiglie politiche progressiste in tutta Europa, strette tra la pressione elettorale della destra sui temi securitari e la propria base tradizionale, più orientata a un approccio garantista sull'immigrazione: un nodo che il vertice del partito, secondo fonti diplomatiche europee, dovrà affrontare direttamente nel prossimo congresso.</p>
         <span class="source">Fonti: <a href="https://www.corriere.it" target="_blank" rel="noopener noreferrer">Corriere della Sera</a> · <a href="https://www.ilfattoquotidiano.it" target="_blank" rel="noopener noreferrer">Il Fatto Quotidiano</a></span>
-      </div>
-    </div>
-  </div>
-
-  <!-- BENESSERE (nuova sezione) -->
-  <div class="section" id="benessere">
-    <div class="section-head">
-      <span class="section-tag tag-benessere">Benessere</span>
-      <h2 class="section-title">Le scale allungano la vita, il digiuno intermittente forse meno di quanto si pensi</h2>
-    </div>
-    <div class="context-box">
-      <div class="context-box-label">Da sapere per capire</div>
-      <p>Più testate diverse riprendono nello stesso giorno una ricerca sui benefici cardiovascolari delle scale, segno di quanto il tema della prevenzione tramite abitudini quotidiane sia oggi al centro dell'attenzione scientifica e giornalistica.</p>
-    </div>
-    <div class="articles">
-      <div class="article lead">
-        <h3>Dimenticate l'ascensore: le scale riducono del 39% il rischio cardiovascolare</h3>
-        <p>Un gesto quotidiano alla portata di tutti — salire le scale invece di prendere l'ascensore — può ridurre fino al 39% il rischio di morte cardiovascolare, secondo un nuovo studio ripreso da più testate, che conferma come l'attività fisica minima ma regolare abbia un impatto misurabile sulla salute del cuore e sulla longevità.</p>
-        <span class="source">Fonti: <a href="https://www.ilmessaggero.it" target="_blank" rel="noopener noreferrer">Il Messaggero</a> · <a href="https://www.adnkronos.com" target="_blank" rel="noopener noreferrer">Adnkronos</a> · <a href="https://www.dossiersalute.com" target="_blank" rel="noopener noreferrer">DossierSalute</a> · <a href="https://www.corriere.it" target="_blank" rel="noopener noreferrer">Corriere della Sera</a></span>
-      </div>
-      <div class="article">
-        <h3>Digiuno intermittente e longevità: benefici sopravvalutati?</h3>
-        <p>Una rassegna scientifica ripresa dal Corriere della Sera mette in discussione l'entusiasmo attorno al digiuno intermittente come strumento per allungare la vita: secondo gli esperti citati, i benefici osservati negli studi sull'uomo sarebbero più modesti di quanto suggerito dalla divulgazione, e comunque non generalizzabili a tutte le persone.</p>
-        <span class="source">Fonte: <a href="https://www.corriere.it" target="_blank" rel="noopener noreferrer">Corriere della Sera</a></span>
-      </div>
-      <div class="article">
-        <h3>Una nuova classificazione dei neuroni per capire dipendenze e disturbi psichiatrici</h3>
-        <p>Uno studio pubblicato su Science propone una nuova classificazione dei neuroni che potrebbe aiutare a comprendere meglio i meccanismi biologici alla base delle dipendenze e di alcuni disturbi psichiatrici, aprendo la strada a possibili approcci terapeutici più mirati.</p>
-        <span class="source">Fonte: <a href="https://www.ilfattoquotidiano.it" target="_blank" rel="noopener noreferrer">Il Fatto Quotidiano</a></span>
-      </div>
-      <div class="article">
-        <h3>In breve: risate, peperoncino e i miti alimentari da sfatare</h3>
-        <p>Ridere spesso fa bene alla salute oltre che all'umore, secondo la sintesi di studi pubblicata dal Corriere della Sera. Sempre il Corriere segnala due studi che ribaltano convinzioni diffuse a tavola: il peperoncino aiuterebbe a mangiare meno, mentre bere acqua durante i pasti non avrebbe l'effetto dimagrante spesso attribuitogli.</p>
-        <span class="source">Fonte: <a href="https://www.corriere.it" target="_blank" rel="noopener noreferrer">Corriere della Sera</a></span>
       </div>
     </div>
   </div>
