@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guerre — Russia e Ucraina, dalle origini a oggi | Il Contribuente</title>
+<meta name="description" content="Una timeline verificata, numeri alla mano, del conflitto tra Russia e Ucraina: dall'annessione della Crimea del 2014 alla guerra in corso.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,900&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#efe9da;
+    --paper2:#e4dcc7;
+    --ink:#1b1e22;
+    --ink-soft:#565c64;
+    --rule:#c7bc9f;
+    --red:#a3291f;
+    --red-deep:#7c1d16;
+    --navy:#1f3a5f;
+    --navy-deep:#122438;
+    --gold:#a97a1f;
+    --gold-deep:#7d5a13;
+    --green:#3d6b4f;
+    --green-deep:#264734;
+    --wine:#6b2438;
+    --wine-deep:#481725;
+    --card:#fdfcf7;
+    --shadow-sm:0 1px 3px rgba(27,30,34,.12);
+    --shadow-md:0 4px 16px rgba(27,30,34,.14);
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    font-size:16px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{ max-width:900px; margin:0 auto; padding:0 6vw 80px 6vw; }
+  .topnav{
+    max-width:900px;
+    margin:0 auto;
+    padding:22px 6vw 0 6vw;
+    display:flex;
+    gap:18px;
+  }
+  .topnav a{
+    font-family:'JetBrains Mono',monospace;
+    font-size:12.5px;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    text-decoration:none;
+    border-bottom:1px solid var(--rule);
+    padding-bottom:2px;
+  }
+  .topnav a:hover{ color:var(--ink); border-bottom-color:var(--ink); }
+  .masthead{ padding:30px 6vw 34px 6vw; border-bottom:3px solid var(--ink); max-width:900px; margin:0 auto; }
+  .dossier-kicker{
+    display:inline-block;
+    font-family:'JetBrains Mono',monospace;
+    font-size:12px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:#fff;
+    background:linear-gradient(160deg,#2f5c5c,#1d3a3a);
+    padding:5px 12px;
+    border-radius:4px;
+    margin-bottom:16px;
+  }
+  h1.title{
+    font-family:'Fraunces',serif;
+    font-weight:900;
+    font-size:clamp(32px,5vw,50px);
+    line-height:1.08;
+    margin:0 0 14px 0;
+    color:var(--ink);
+  }
+  .subtitle{
+    font-family:'Inter',sans-serif;
+    font-size:17px;
+    color:var(--ink-soft);
+    max-width:640px;
+    margin:0;
+  }
+  .brand-line{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11.5px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin-top:20px;
+  }
+  .brand-line em{ font-style:normal; color:var(--ink); font-weight:700; }
+  .intro{
+    margin:36px 0 8px 0;
+    font-size:17.5px;
+    color:var(--ink);
+  }
+  .intro strong{ color:var(--navy); }
+  .updated-note{
+    font-family:'JetBrains Mono',monospace;
+    font-size:12px;
+    color:var(--ink-soft);
+    margin:6px 0 40px 0;
+  }
+  .timeline{
+    position:relative;
+    margin:44px 0;
+    padding-left:28px;
+    border-left:3px solid var(--gold);
+  }
+  .era{
+    position:relative;
+    margin-bottom:40px;
+  }
+  .era::before{
+    content:'';
+    position:absolute;
+    left:-35px;
+    top:4px;
+    width:14px;
+    height:14px;
+    border-radius:50%;
+    background:var(--gold);
+    border:3px solid var(--paper);
+    box-shadow:0 0 0 2px var(--gold);
+  }
+  .era.current::before{ background:var(--navy-deep); box-shadow:0 0 0 2px var(--navy-deep); }
+  .era-years{
+    font-family:'JetBrains Mono',monospace;
+    font-size:12.5px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--gold-deep);
+    font-weight:700;
+    margin-bottom:6px;
+  }
+  .era.current .era-years{ color:var(--navy-deep); }
+  .era-title{
+    font-family:'Fraunces',serif;
+    font-weight:800;
+    font-size:24px;
+    margin:0 0 10px 0;
+    color:var(--ink);
+  }
+  .era-body{ font-size:16px; color:var(--ink); }
+  .era-body p{ margin:0 0 12px 0; }
+  .era-numbers{
+    background:var(--card);
+    border-left:4px solid var(--gold);
+    border-radius:6px;
+    padding:14px 18px;
+    margin:14px 0;
+    box-shadow:var(--shadow-sm);
+  }
+  .era.current .era-numbers{ border-left-color:var(--navy-deep); }
+  .era-numbers-label{
+    font-family:'JetBrains Mono',monospace;
+    font-size:10.5px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin-bottom:6px;
+  }
+  .era-numbers p{ margin:0; font-size:15px; }
+  .era-numbers strong{ color:var(--ink); }
+  .era-source{
+    font-family:'JetBrains Mono',monospace;
+    font-size:12px;
+    color:var(--ink-soft);
+    margin-top:8px;
+  }
+  .cumulative-box{
+    background:linear-gradient(160deg,#2f5c5c,#1d3a3a);
+    color:#fff;
+    border-radius:10px;
+    padding:26px 30px;
+    margin:44px 0;
+    box-shadow:var(--shadow-md);
+  }
+  .cumulative-box .k{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11.5px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:#a8c9c9;
+    margin-bottom:10px;
+  }
+  .cumulative-box p{ margin:0 0 10px 0; font-size:16px; }
+  .cumulative-box p:last-child{ margin-bottom:0; }
+  .cumulative-box strong{ color:#fff; }
+  .two-views{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:0;
+    margin:44px 0;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:var(--shadow-md);
+  }
+  .view{
+    padding:24px 26px;
+  }
+  .view.left{ background:linear-gradient(160deg,#e0e6ee,#ccd6e2); border-right:1px solid var(--rule); }
+  .view.right{ background:linear-gradient(160deg,#eee4d0,#e4d6b8); }
+  .view-tag{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    font-weight:700;
+    color:var(--ink-soft);
+    margin-bottom:10px;
+  }
+  .view p{ font-size:15px; margin:0; }
+  .sources-box{
+    margin:44px 0 0 0;
+    padding-top:24px;
+    border-top:1px solid var(--rule);
+  }
+  .sources-box h3{
+    font-family:'JetBrains Mono',monospace;
+    font-size:12px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin:0 0 12px 0;
+  }
+  .sources-box ul{ margin:0; padding-left:18px; font-size:13.5px; color:var(--ink-soft); }
+  .sources-box li{ margin-bottom:5px; }
+  footer{
+    max-width:900px;
+    margin:60px auto 0 auto;
+    padding:28px 6vw 40px 6vw;
+    border-top:3px solid var(--ink);
+  }
+  .footer-back{
+    display:inline-block;
+    margin-bottom:22px;
+    margin-right:20px;
+    font-family:'JetBrains Mono',monospace;
+    font-size:12.5px;
+    text-transform:uppercase;
+    letter-spacing:.06em;
+    color:var(--ink-soft);
+    text-decoration:none;
+    border-bottom:1px solid var(--rule);
+    padding-bottom:2px;
+  }
+  .footer-legal p{
+    font-size:12px;
+    color:var(--ink-soft);
+    line-height:1.6;
+    margin:0 0 8px 0;
+  }
+  .footer-legal p:last-child{ margin-bottom:0; }
+  @media (max-width:640px){
+    .two-views{ grid-template-columns:1fr; }
+    .view.left{ border-right:none; border-bottom:1px solid var(--rule); }
+    .timeline{ padding-left:20px; }
+    .era::before{ left:-27px; width:11px; height:11px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topnav">
+  <a href="../index.html">&larr; Il Contribuente</a>
+  <a href="index.html">&larr; Tutti i dossier "Guerre"</a>
+</div>
+
+<div class="masthead">
+  <span class="dossier-kicker">Approfondimenti fissi &middot; Guerre</span>
+  <h1 class="title">Russia e Ucraina: dalle origini a oggi</h1>
+  <p class="subtitle">Una timeline verificata, numeri alla mano, dall'annessione della Crimea nel 2014 alla guerra su vasta scala in corso — perché anche questo conflitto non comincia il 24 febbraio 2022.</p>
+  <div class="brand-line">Dossier di <em>Il Contribuente</em> &middot; secondo di una serie di approfondimenti fissi sui conflitti in corso</div>
+</div>
+
+<div class="wrap">
+
+  <p class="intro">Come per Gaza, anche per l'Ucraina la cronaca quotidiana rischia di far dimenticare che questa guerra ha una storia più lunga dell'invasione su vasta scala del 2022. Otto anni di guerra "a bassa intensità" nel Donbass, prima che tutto esplodesse su scala molto più ampia. Questa pagina mette in fila i numeri di ciascuna fase, con le fonti sempre indicate — <strong>gli Stati Uniti e il Regno Unito restano tra le fonti più citate sulle perdite militari russe</strong>, perché né Mosca né Kyiv diffondono dati ufficiali regolari e verificabili.</p>
+  <div class="updated-note">Ultimo aggiornamento numeri: 21 agosto 2026, su dati pubblicati a luglio 2026 (Csis) e febbraio 2025 (Onu/Unhcr) — le cifre più recenti possono variare, fonti sempre indicate</div>
+
+  <div class="timeline">
+
+    <div class="era">
+      <div class="era-years">2014</div>
+      <h2 class="era-title">L'annessione della Crimea e l'inizio del Donbass</h2>
+      <div class="era-body">
+        <p>Dopo le proteste di piazza Maidan e la caduta del presidente filorusso Viktor Yanukovich, la Russia annette la Crimea a marzo 2014 tramite un referendum non riconosciuto dalla comunità internazionale. Nello stesso anno scoppia la guerra nel Donbass, dove milizie separatiste filorusse — sostenute militarmente da Mosca secondo Kyiv, Nato e Onu — proclamano le "repubbliche popolari" di Donetsk e Luhansk, mai riconosciute a livello internazionale.</p>
+      </div>
+    </div>
+
+    <div class="era">
+      <div class="era-years">2014 – 2022</div>
+      <h2 class="era-title">Otto anni di guerra nel Donbass</h2>
+      <div class="era-body">
+        <p>Nonostante gli accordi di Minsk (2014 e 2015), pensati per congelare il conflitto, gli scontri lungo la linea del fronte nel Donbass proseguono per otto anni a intensità variabile, senza mai fermarsi del tutto — una guerra spesso definita "dimenticata" dalla stampa internazionale perché priva della visibilità mediatica che avrà dopo il 2022.</p>
+      </div>
+      <div class="era-numbers">
+        <div class="era-numbers-label">I numeri</div>
+        <p>Circa <strong>14.000 morti</strong> (di cui almeno 3.000 civili) dal 2014 al 2022; oltre <strong>730.000 sfollati</strong>, di cui 360.000 solo nel 2014, all'apice del conflitto.</p>
+        <div class="era-source">Fonte: Onu</div>
+      </div>
+    </div>
+
+    <div class="era current">
+      <div class="era-years">Dal 24 febbraio 2022</div>
+      <h2 class="era-title">L'invasione su vasta scala</h2>
+      <div class="era-body">
+        <p>Il 24 febbraio 2022 la Russia lancia un'invasione su vasta scala dell'Ucraina, ben oltre i confini del Donbass, puntando inizialmente anche sulla capitale Kyiv. L'esercito ucraino respinge l'avanzata su Kyiv nelle prime settimane, ma il conflitto si trasforma rapidamente in una guerra di logoramento lungo un fronte di centinaia di chilometri, con un costo umano e materiale che nessuna delle due parti diffonde ufficialmente in modo completo — le stime più citate arrivano da governi terzi (Usa, Regno Unito) e da organismi Onu.</p>
+      </div>
+      <div class="era-numbers">
+        <div class="era-numbers-label">I numeri — costo umanitario (a 3 anni dall'invasione, feb. 2025)</div>
+        <p><strong>6,9 milioni di rifugiati</strong> registrati all'estero e <strong>3,7 milioni di sfollati interni</strong> — quasi <strong>11 milioni di persone</strong> costrette a lasciare la propria casa in totale; oltre <strong>42.000 vittime civili</strong> tra morti e feriti, di cui 2.500 bambini; oltre 2 milioni di abitazioni danneggiate o distrutte (~10% del patrimonio immobiliare) e 152 miliardi di dollari di danni alle infrastrutture essenziali.</p>
+        <div class="era-source">Fonte: Onu/Unhcr</div>
+      </div>
+      <div class="era-numbers">
+        <div class="era-numbers-label">I numeri — perdite militari (dato più recente, luglio 2026)</div>
+        <p>Oltre <strong>2 milioni</strong> tra morti e feriti nell'insieme del conflitto in quasi quattro anni e mezzo: la Russia avrebbe perso circa <strong>1,4 milioni</strong> tra morti e feriti (~450.000 morti), l'Ucraina tra <strong>525.000 e 625.000</strong> (125.000-150.000 morti). Nel 2026 le perdite mensili russe oscillerebbero tra 30.000 e 34.000 unità, un ritmo che secondo lo studio supererebbe il tasso di reclutamento russo, stimato in circa 27.000 al mese.</p>
+        <div class="era-source">Fonte: Center for Strategic and International Studies (Csis), su dati Usa/Regno Unito — Mosca e Kyiv non diffondono cifre ufficiali complete</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="cumulative-box">
+    <div class="k">Il quadro d'insieme</div>
+    <p>Anche qui, come per Gaza, sommare cifre di fasi e fonti diverse rischia di essere fuorviante — per questo ogni numero resta agganciato alla propria fase e fonte. Ma il confronto tra le due fasi resta comunque netto: gli otto anni di guerra "a bassa intensità" nel Donbass (2014-2022) hanno provocato circa 14.000 morti in totale; <strong>l'invasione su vasta scala dal 2022, da sola, ha già superato il milione di morti tra le due parti nei soli quattro anni e mezzo successivi</strong> — un salto di scala che rende il 2022 lo spartiacque assoluto di questo conflitto, non un episodio tra tanti.</p>
+  </div>
+
+  <div class="two-views">
+    <div class="view left">
+      <div class="view-tag">Prospettiva ucraina / occidentale</div>
+      <p>L'invasione del 2022 è un atto di aggressione non provocato contro uno Stato sovrano, in violazione del diritto internazionale, che arriva dopo otto anni in cui la Russia aveva già annesso la Crimea e sostenuto militarmente i separatisti nel Donbass. Kyiv e i suoi alleati occidentali la definiscono una guerra di conquista territoriale mascherata da "operazione speciale", e ne chiedono la fine con il ritiro delle truppe russe dai territori occupati.</p>
+    </div>
+    <div class="view right">
+      <div class="view-tag">Prospettiva russa</div>
+      <p>Mosca giustifica ufficialmente l'intervento come una risposta necessaria all'espansione della Nato verso i propri confini e alla tutela delle popolazioni russofone del Donbass, che il Cremlino sostiene fossero vittime di discriminazioni da parte di Kyiv dal 2014. Il governo russo respinge la definizione di "invasione", parlando di "operazione militare speciale", e considera l'annessione di Crimea e territori del Donbass una scelta legittimata da referendum, non riconosciuti a livello internazionale.</p>
+    </div>
+  </div>
+
+  <div class="sources-box">
+    <h3>Fonti citate in questa pagina</h3>
+    <ul>
+      <li>Onu — bilancio vittime e sfollati Donbass 2014-2022</li>
+      <li>Onu/Unhcr — costo umanitario dell'invasione su vasta scala (dato a 3 anni, febbraio 2025)</li>
+      <li>Center for Strategic and International Studies (Csis) — perdite militari complessive (dato luglio 2026), basato su fonti Usa e Regno Unito</li>
+    </ul>
+  </div>
+
+</div>
+
+<footer>
+  <a href="index.html" class="footer-back">&larr; Tutti i dossier "Guerre"</a>
+  <a href="../index.html" class="footer-back">&larr; Torna a Il Contribuente</a>
+  <div class="footer-legal">
+    <p>Pubblicazione indipendente e personale, priva di finalità commerciali. Non sono presenti pubblicità, abbonamenti, sponsorizzazioni o finanziamenti di alcun tipo, pubblici o privati.</p>
+    <p>I contenuti pubblicati costituiscono sintesi originali e rielaborazioni redazionali di notizie di pubblico dominio, diffuse da fonti terze regolarmente citate accanto a ciascun contenuto. Non viene riprodotto integralmente alcun testo, titolo, fotografia o materiale protetto da diritto d'autore appartenente alle fonti citate. Si invita alla consultazione delle fonti originali.</p>
+    <p>Le sintesi riportano posizioni e opinioni riconducibili esclusivamente alle fonti citate, non a chi cura questa pubblicazione, il cui intento è offrire un quadro informativo comparato e non esprimere posizioni editoriali proprie.</p>
+    <p>Eventuali richieste di rettifica o rimozione di contenuti possono essere inoltrate a <a href="mailto:ilcontribuente@gmail.com" style="color:var(--ink-soft);">ilcontribuente@gmail.com</a>.</p>
+  </div>
+</footer>
+
+</body>
+</html>
