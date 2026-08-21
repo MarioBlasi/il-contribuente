@@ -290,6 +290,45 @@
     padding:22px 28px;
     box-shadow: var(--shadow-md), inset 0 1px 0 rgba(255,255,255,.4);
   }
+  /* ===== Fascia "Approfondimenti fissi" (Guerre) — colore petrolio approvato da
+     Mario il 21/8/2026, dopo vari tentativi in oro (troppo simile a .quote-day-inner)
+     e in bronzo scuro (troppo scuro). NON cambiare colore senza chiederglielo di nuovo. ===== */
+  .pinned-strip{
+    margin:0 0 28px 0;
+    background:linear-gradient(160deg, #a8c9c9, #7fa8a8);
+    border-left:5px solid #2f5c5c;
+    border-radius:8px;
+    padding:14px 28px;
+    box-shadow: var(--shadow-md), inset 0 1px 0 rgba(255,255,255,.35);
+    display:flex;
+    align-items:baseline;
+    flex-wrap:wrap;
+    gap:6px 14px;
+  }
+  .pinned-kicker{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:#1d3a3a;
+    white-space:nowrap;
+  }
+  .pinned-link{
+    font-family:'Fraunces',serif;
+    font-weight:800;
+    font-size:17px;
+    color:var(--ink);
+    text-decoration:none;
+    border-bottom:1px solid var(--ink);
+    padding-bottom:1px;
+  }
+  .pinned-link:hover{ border-bottom-color:var(--ink); }
+  .pinned-sub{
+    font-family:'Inter',sans-serif;
+    font-weight:400;
+    font-size:13.5px;
+    color:#1d3a3a;
+  }
   .toc-kicker{
     font-family:'JetBrains Mono',monospace;
     font-size:11px;
@@ -1261,6 +1300,11 @@
         <a href="#dati-immigrazione" class="toc-link">Dati Immigrazione</a>
       </div>
     </div>
+  </div>
+  <div class="pinned-strip">
+    <span class="pinned-kicker">Approfondimenti fissi</span>
+    <a href="../guerre/index.html" class="pinned-link">Guerre</a>
+    <span class="pinned-sub">— la storia di Palestina e Israele dalle origini a oggi &rarr;</span>
   </div>
   <div class="verify-badge">
     <div class="verify-badge-inner">✓ Oggi abbiamo confrontato <strong>56 fonti</strong> su <strong>38 testate</strong> diverse</div>
