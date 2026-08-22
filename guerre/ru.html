@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Guerre — Russia e Ucraina, dalle origini a oggi | Il Contribuente</title>
-<meta name="description" content="Una timeline verificata, numeri alla mano, del conflitto tra Russia e Ucraina: dall'annessione della Crimea del 2014 alla guerra in corso.">
+<meta name="description" content="Timeline verificata del conflitto Russia-Ucraina, dalla crisi del 2014 al 21 agosto 2026.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,900&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
@@ -128,7 +128,7 @@
     border:3px solid var(--paper);
     box-shadow:0 0 0 2px var(--gold);
   }
-  .era.current::before{ background:var(--navy-deep); box-shadow:0 0 0 2px var(--navy-deep); }
+  .era.current::before{ background:var(--red-deep); box-shadow:0 0 0 2px var(--red-deep); }
   .era-years{
     font-family:'JetBrains Mono',monospace;
     font-size:12.5px;
@@ -138,16 +138,18 @@
     font-weight:700;
     margin-bottom:6px;
   }
-  .era.current .era-years{ color:var(--navy-deep); }
+  .era.current .era-years{ color:var(--red-deep); }
   .era-title{
     font-family:'Fraunces',serif;
     font-weight:800;
-    font-size:24px;
+    font-size:23px;
     margin:0 0 10px 0;
     color:var(--ink);
   }
   .era-body{ font-size:16px; color:var(--ink); }
   .era-body p{ margin:0 0 12px 0; }
+  .era-body ul{ margin:0 0 12px 0; padding-left:20px; }
+  .era-body li{ margin-bottom:4px; }
   .era-numbers{
     background:var(--card);
     border-left:4px solid var(--gold);
@@ -156,7 +158,7 @@
     margin:14px 0;
     box-shadow:var(--shadow-sm);
   }
-  .era.current .era-numbers{ border-left-color:var(--navy-deep); }
+  .era.current .era-numbers{ border-left-color:var(--red-deep); }
   .era-numbers-label{
     font-family:'JetBrains Mono',monospace;
     font-size:10.5px;
@@ -166,6 +168,9 @@
     margin-bottom:6px;
   }
   .era-numbers p{ margin:0; font-size:15px; }
+  .era-numbers p + p{ margin-top:8px; }
+  .era-numbers ul{ margin:6px 0 0 0; padding-left:18px; font-size:15px; }
+  .era-numbers li{ margin-bottom:3px; }
   .era-numbers strong{ color:var(--ink); }
   .era-source{
     font-family:'JetBrains Mono',monospace;
@@ -201,11 +206,9 @@
     overflow:hidden;
     box-shadow:var(--shadow-md);
   }
-  .view{
-    padding:24px 26px;
-  }
-  .view.left{ background:linear-gradient(160deg,#e0e6ee,#ccd6e2); border-right:1px solid var(--rule); }
-  .view.right{ background:linear-gradient(160deg,#eee4d0,#e4d6b8); }
+  .view{ padding:24px 26px; }
+  .view.left{ background:linear-gradient(160deg,#eee4d0,#e4d6b8); border-right:1px solid var(--rule); }
+  .view.right{ background:linear-gradient(160deg,#e0e6ee,#ccd6e2); }
   .view-tag{
     font-family:'JetBrains Mono',monospace;
     font-size:11px;
@@ -215,7 +218,9 @@
     color:var(--ink-soft);
     margin-bottom:10px;
   }
-  .view p{ font-size:15px; margin:0; }
+  .view p{ font-size:15px; margin:0 0 10px 0; }
+  .view p:last-child{ margin-bottom:0; }
+  .view ul{ margin:0 0 10px 0; padding-left:18px; font-size:15px; }
   .sources-box{
     margin:44px 0 0 0;
     padding-top:24px;
@@ -257,11 +262,105 @@
     margin:0 0 8px 0;
   }
   .footer-legal p:last-child{ margin-bottom:0; }
+  .section-block{
+    margin:56px 0 0 0;
+    padding-top:30px;
+    border-top:3px double var(--rule);
+  }
+  .block-kicker{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11.5px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--gold-deep);
+    margin-bottom:8px;
+  }
+  .block-title{
+    font-family:'Fraunces',serif;
+    font-weight:800;
+    font-size:28px;
+    margin:0 0 16px 0;
+    color:var(--ink);
+  }
+  .sub-title{
+    font-family:'Fraunces',serif;
+    font-weight:700;
+    font-size:19px;
+    margin:22px 0 8px 0;
+    color:var(--ink);
+  }
+  .section-block p{ margin:0 0 12px 0; font-size:16px; }
+  .section-block ul{ margin:0 0 12px 0; padding-left:20px; font-size:16px; }
+  .section-block li{ margin-bottom:4px; }
+  table.loss-table{
+    width:100%;
+    border-collapse:collapse;
+    margin:14px 0;
+    font-size:14.5px;
+    background:var(--card);
+    border-radius:6px;
+    overflow:hidden;
+    box-shadow:var(--shadow-sm);
+  }
+  table.loss-table th, table.loss-table td{
+    padding:9px 14px;
+    border-bottom:1px solid var(--rule);
+    text-align:left;
+  }
+  table.loss-table th{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    letter-spacing:.05em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    background:var(--paper2);
+  }
+  table.loss-table tr:last-child td{ border-bottom:none; }
+  .phase-block{
+    background:var(--card);
+    border-left:4px solid var(--navy);
+    border-radius:6px;
+    padding:16px 20px;
+    margin:14px 0;
+    box-shadow:var(--shadow-sm);
+  }
+  .phase-num{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--navy);
+    margin-bottom:4px;
+  }
+  .phase-block h4{
+    font-family:'Fraunces',serif;
+    font-weight:700;
+    font-size:17px;
+    margin:0 0 6px 0;
+  }
+  .phase-block p{ margin:0; font-size:14.5px; color:var(--ink-soft); }
+  .not-doc{
+    background:linear-gradient(160deg,#eee4d0,#e4d6b8);
+    border-left:4px solid var(--gold-deep);
+    border-radius:6px;
+    padding:14px 18px;
+    margin:14px 0;
+  }
+  .doc-box{
+    background:var(--card);
+    border-left:4px solid var(--green-deep);
+    border-radius:6px;
+    padding:14px 18px;
+    margin:14px 0;
+    box-shadow:var(--shadow-sm);
+  }
   @media (max-width:640px){
     .two-views{ grid-template-columns:1fr; }
     .view.left{ border-right:none; border-bottom:1px solid var(--rule); }
     .timeline{ padding-left:20px; }
     .era::before{ left:-27px; width:11px; height:11px; }
+    table.loss-table{ font-size:12.5px; }
+    table.loss-table th, table.loss-table td{ padding:6px 8px; }
   }
 </style>
 </head>
@@ -275,116 +374,436 @@
 <div class="masthead">
   <span class="dossier-kicker">Approfondimenti fissi &middot; Guerre</span>
   <h1 class="title">Russia e Ucraina: dalle origini a oggi</h1>
-  <p class="subtitle">Una timeline verificata, numeri alla mano, dall'annessione della Crimea nel 2014 alla guerra su vasta scala in corso — perché anche questo conflitto non comincia il 24 febbraio 2022.</p>
-  <div class="brand-line">Dossier di <em>Il Contribuente</em> &middot; secondo di una serie di approfondimenti fissi sui conflitti in corso</div>
+  <p class="subtitle">Timeline verificata del conflitto, dalla crisi del 2014 al 21 agosto 2026.</p>
+  <div class="brand-line">Dossier di <em>Il Contribuente</em> &middot; secondo di una serie di approfondimenti sui conflitti in corso</div>
 </div>
 
 <div class="wrap">
 
-  <p class="intro">Come per Gaza, anche per l'Ucraina la cronaca quotidiana rischia di far dimenticare che questa guerra ha una storia più lunga dell'invasione su vasta scala del 2022. Otto anni di guerra "a bassa intensità" nel Donbass, prima che tutto esplodesse su scala molto più ampia. Questa pagina mette in fila i numeri di ciascuna fase, con le fonti sempre indicate.</p>
-  <p class="intro" style="font-size:15.5px; color:var(--ink-soft);">Una nota sulle fonti delle perdite militari: <strong>né la Russia né l'Ucraina pubblicano dati ufficiali completi, regolari e verificabili sui propri soldati morti o feriti</strong> — entrambe hanno interesse a non far conoscere le proprie perdite reali. Per questo le stime più citate dalla stampa internazionale, in particolare sul lato russo, non arrivano da Mosca o da Kiev ma da analisi di intelligence di governi terzi, soprattutto Stati Uniti e Regno Unito: sono queste le fonti su cui si basa, ad esempio, lo studio Csis citato più sotto per il dato più recente.</p>
-  <div class="updated-note">Ultimo aggiornamento numeri: 21 agosto 2026, su dati pubblicati a luglio 2026 (Csis) e febbraio 2025 (Onu/Unhcr) — le cifre più recenti possono variare, fonti sempre indicate</div>
+  <p class="intro"><strong>Una guerra che non comincia il 24 febbraio 2022.</strong> La guerra russo-ucraina non nasce il 24 febbraio 2022. Il conflitto armato contemporaneo comincia nel 2014, con la crisi politica ucraina, l'occupazione e successiva annessione russa della Crimea e l'inizio della guerra nel Donbass tra le forze governative ucraine e le formazioni separatiste filorusse. Tra il 2014 e il 2021 il conflitto provoca, secondo le stime dell'Ohchr, circa 14.200–14.400 morti complessivi. Il 24 febbraio 2022 la Russia avvia invece un'invasione su vasta scala, estendendo le operazioni militari a gran parte dell'Ucraina.</p>
+  <p class="intro" style="font-size:15.5px; color:var(--ink-soft);">Questa distinzione è fondamentale: parlare della guerra soltanto a partire dal 24 febbraio 2022 elimina otto anni di conflitto precedente; considerare invece il conflitto del 2014 come una semplice "operazione russa" senza tenere conto delle successive dinamiche militari, politiche e internazionali sarebbe altrettanto riduttivo. Questa pagina mette in fila i principali passaggi, distinguendo tra fatti documentati, stime e posizioni delle parti.</p>
+  <div class="updated-note">Ultimo aggiornamento: 21 agosto 2026, con i dati disponibili entro questa data. Per le vittime civili viene utilizzato principalmente l'Ohchr; per le perdite militari il Csis. Le cifre non verificabili indipendentemente sono indicate come stime o come risultati dichiarati dalle parti.</div>
+
+  <div class="section-block">
+    <div class="block-kicker">Le quattro fasi</div>
+    <h2 class="block-title">Il bilancio storico</h2>
+    <div class="phase-block">
+      <div class="phase-num">Fase 1 &middot; 2014–2015</div>
+      <h4>Guerra aperta nel Donbass</h4>
+      <p>Crimea, nascita delle formazioni separatiste, guerra nel Donbass, MH17 e accordi di Minsk.</p>
+    </div>
+    <div class="phase-block">
+      <div class="phase-num">Fase 2 &middot; 2016–2021</div>
+      <h4>Conflitto congelato ma non concluso</h4>
+      <p>Linea di contatto relativamente stabile, ma continui combattimenti, vittime e tensione politica.</p>
+    </div>
+    <div class="phase-block">
+      <div class="phase-num">Fase 3 &middot; Febbraio 2022–2023</div>
+      <h4>Invasione su vasta scala e grandi cambiamenti territoriali</h4>
+      <p>Offensiva russa verso Kyiv, ritirata russa dal nord, caduta di Mariupol, conquiste russe nel Donbass, controffensive ucraine a Kharkiv e Kherson, Bakhmut e successiva controffensiva ucraina del 2023.</p>
+    </div>
+    <div class="phase-block">
+      <div class="phase-num">Fase 4 &middot; 2024 – 21 agosto 2026</div>
+      <h4>Guerra di logoramento e droni</h4>
+      <p>Russia nuovamente all'offensiva, caduta di Avdiivka, incursione ucraina a Kursk, aumento degli attacchi a lunga distanza, crescente impiego di droni, guerra industriale e tentativi diplomatici senza accordo definitivo.</p>
+    </div>
+  </div>
 
   <div class="timeline">
 
     <div class="era">
-      <div class="era-years">Marzo 2014</div>
-      <h2 class="era-title">La Crimea: referendum e annessione immediata</h2>
+      <div class="era-years">Febbraio – marzo 2014</div>
+      <h2 class="era-title">Crisi politica e Crimea</h2>
       <div class="era-body">
-        <p>Dopo le proteste di piazza Maidan a Kiev e la caduta del presidente filorusso Viktor Yanukovich (febbraio 2014), truppe russe senza insegne ("omini verdi") prendono il controllo dei punti strategici della Crimea. Il 16 marzo 2014 si tiene un referendum sull'adesione della penisola alla Federazione Russa, organizzato sotto occupazione militare russa: il risultato ufficiale dichiarato è di circa il 97% di sì, con un'affluenza del 83%, cifre mai verificate da osservatori internazionali indipendenti e respinte da Kiev, Onu, Ue e Stati Uniti come illegittime. Il 18 marzo 2014, appena due giorni dopo, la Russia firma il trattato di annessione della Crimea: a differenza di quanto accadrà poi nel Donbass, qui Mosca agisce e formalizza l'annessione quasi immediatamente.</p>
+        <p>Alla fine del 2013 il presidente ucraino Viktor Yanukovych sospende il percorso verso un accordo di associazione con l'Unione europea. Seguono le proteste di Euromaidan a Kyiv. Nel febbraio 2014 Yanukovych lascia Kyiv e successivamente il Paese.</p>
+        <p>La Russia considera illegittimo il nuovo assetto politico ucraino; Ucraina e gran parte della comunità internazionale considerano invece legittimo il cambiamento istituzionale seguito alla fuga del presidente.</p>
+        <p>In Crimea, forze russe assumono il controllo di edifici governativi, infrastrutture e punti strategici. Il 16 marzo 2014 viene organizzato un referendum sul futuro status della Crimea. Secondo i risultati ufficiali delle autorità organizzatrici, circa il 96,8–97% dei votanti avrebbe scelto l'adesione alla Russia, con un'affluenza dichiarata superiore all'80%. Il voto non viene riconosciuto dall'Ucraina né dalle Nazioni Unite come base valida per modificare lo status territoriale della Crimea.</p>
+        <p>Il 18 marzo 2014 la Russia firma il trattato di incorporazione della Crimea e di Sebastopoli nella Federazione Russa. L'Assemblea generale dell'Onu approva successivamente la risoluzione 68/262, che riafferma l'integrità territoriale dell'Ucraina e considera il referendum privo di validità. La Corte europea dei diritti dell'uomo ha inoltre riconosciuto, nell'ambito delle proprie valutazioni sul contenzioso relativo alla Crimea, l'esistenza del controllo russo sulla penisola già dal febbraio 2014.</p>
+      </div>
+      <div class="era-numbers" style="border-left-color:var(--navy-deep);">
+        <div class="era-numbers-label">Dato essenziale</div>
+        <p>La Russia considera la Crimea parte della Federazione Russa; Ucraina, Onu e gran parte della comunità internazionale la considerano territorio ucraino temporaneamente occupato.</p>
+        <div class="era-source">Fonte: documentazione Onu e Corte europea dei diritti dell'uomo</div>
+      </div>
+    </div>
+
+    <div class="era">
+      <div class="era-years">Aprile 2014</div>
+      <h2 class="era-title">Inizio della guerra nel Donbass</h2>
+      <div class="era-body">
+        <p>Nelle regioni orientali di Donetsk e Luhansk gruppi armati filorussi occupano edifici pubblici e proclamano entità separatiste. Il governo ucraino lancia quella che viene definita "Anti-Terrorist Operation". Comincia una guerra tra le forze governative ucraine e le formazioni separatiste.</p>
+        <p>La Russia nega inizialmente di essere parte diretta del conflitto, mentre Ucraina e governi occidentali accusano Mosca di fornire armi, finanziamenti, personale e sostegno militare ai separatisti. Nel corso degli anni successivi vengono documentati combattenti provenienti dalla Russia e trasferimenti di equipaggiamento militare verso il Donbass.</p>
+        <p>La misura dell'intervento diretto russo nel periodo iniziale è stata oggetto di controversie politiche, ma il coinvolgimento russo nel conflitto diventa progressivamente documentato da numerose fonti internazionali.</p>
+      </div>
+    </div>
+
+    <div class="era">
+      <div class="era-years">2 maggio 2014</div>
+      <h2 class="era-title">Odessa: gli scontri e l'incendio della Casa dei Sindacati</h2>
+      <div class="era-body">
+        <p>Il 2 maggio 2014 Odessa è teatro di violenti scontri tra gruppi con posizioni contrapposte sulla crisi ucraina. Gli scontri iniziano nel centro della città e successivamente si spostano nell'area di Kulikovo Field e della Casa dei Sindacati. Un incendio coinvolge l'edificio nel quale si erano rifugiati numerosi manifestanti filorussi.</p>
+        <p>L'Ohchr ha registrato 48 morti complessivi negli eventi del 2 maggio. Circa 42 persone morirono nell'incendio della Casa dei Sindacati, mentre altre vittime morirono negli scontri precedenti. Le autorità internazionali hanno criticato duramente la gestione dell'ordine pubblico e le successive indagini. L'Onu ha inoltre sottolineato la violenza esercitata da entrambe le parti e le carenze delle autorità nel prevenire gli scontri e nell'accertare efficacemente le responsabilità.</p>
       </div>
       <div class="era-numbers">
         <div class="era-numbers-label">I numeri</div>
-        <p>Referendum del 16 marzo 2014: ~<strong>97% di sì dichiarato</strong> all'adesione alla Russia, affluenza dichiarata all'<strong>83%</strong> — dati non verificabili in modo indipendente, votazione tenuta sotto occupazione militare russa. Annessione formalizzata il 18 marzo 2014, due giorni dopo il voto.</p>
-        <div class="era-source">Fonte: ricostruzione da agenzie internazionali dell'epoca</div>
+        <p><strong>48 morti</strong> complessivi negli eventi di Odessa del 2 maggio 2014, di cui <strong>circa 42</strong> nell'incendio della Casa dei Sindacati; centinaia di feriti.</p>
+        <div class="era-source">Fonte: Ohchr e Consiglio d'Europa</div>
+      </div>
+      <div class="era-numbers" style="border-left-color:var(--wine-deep);">
+        <div class="era-numbers-label">Una precisazione importante su Azov</div>
+        <p>Azov non partecipò agli eventi di Odessa del 2 maggio 2014. Il nucleo originario del battaglione Azov viene costituito il 5 maggio 2014, quindi dopo gli eventi di Odessa. Attribuire ad Azov l'incendio della Casa dei Sindacati è pertanto storicamente errato.</p>
+      </div>
+    </div>
+
+    <div class="era">
+      <div class="era-years">11 – 12 maggio 2014</div>
+      <h2 class="era-title">I referendum di Donetsk e Luhansk</h2>
+      <div class="era-body">
+        <p>L'11 maggio 2014 vengono organizzati referendum nelle aree controllate dai separatisti di Donetsk e Luhansk. I risultati dichiarati dagli organizzatori indicano percentuali molto elevate di voto favorevole all'autoproclamazione delle rispettive "repubbliche popolari". I referendum non vengono riconosciuti dal governo ucraino né dalla comunità internazionale come consultazioni valide.</p>
+        <p>Il 12 maggio la leadership separatista di Donetsk chiede alla Russia di prendere in considerazione l'annessione. La Russia non procede all'annessione di Donetsk e Luhansk nel 2014.</p>
       </div>
     </div>
 
     <div class="era">
       <div class="era-years">Maggio 2014</div>
-      <h2 class="era-title">Donetsk e Luhansk: due referendum separati, la richiesta a Mosca respinta</h2>
+      <h2 class="era-title">Azov: nascita e origini</h2>
       <div class="era-body">
-        <p>L'11 maggio 2014 si tengono, separatamente, due referendum sull'"autogoverno statale" nelle regioni orientali di Donetsk e Luhansk, organizzati dalle autorità separatiste filorusse — non da Kiev, e senza alcun riconoscimento legale ucraino. La domanda posta agli elettori era se sostenessero l'atto di indipendenza statale delle autoproclamate "repubbliche popolari"; un terzo tentativo di voto, nella regione di Charkiv, non arriva a un risultato paragonabile. Secondo gli organizzatori il sì avrebbe raccolto una larghissima maggioranza in entrambe le regioni (le stime pubblicate all'epoca variano, tra l'79% e oltre il 90% a seconda della fonte), con un'affluenza stimata da alcuni osservatori attorno al 32% — ma senza osservatori internazionali indipendenti e in piena situazione di conflitto armato, questi dati non sono mai stati verificabili in modo affidabile. L'unico Stato a riconoscere l'esito è stata la Russia; Ucraina, Stati Uniti, Unione Europea e altri li hanno respinti come illegittimi, denunciando brogli e pressioni armate sui seggi.</p>
-        <p>Il giorno seguente, 12 maggio 2014, la dirigenza della autoproclamata "Repubblica popolare di Donetsk" chiede formalmente a Mosca di annettere la regione alla Federazione Russa: una richiesta diretta di adesione, sul modello di quanto appena avvenuto in Crimea. Questa volta, però, il Cremlino non asseconda subito la richiesta: il portavoce presidenziale Dmitry Peskov dichiara che la Russia "rispetta la volontà popolare" espressa nel voto, ma invita al "dialogo" tra Kiev, Donetsk e Luhansk invece di procedere a un'annessione immediata. Le "repubbliche popolari" di Donetsk e Luhansk restano quindi entità autoproclamate, non riconosciute nemmeno dalla Russia, sostenute militarmente ed economicamente da Mosca secondo Kiev, Nato e Onu, ma formalmente ancora territorio ucraino.</p>
-      </div>
-      <div class="era-numbers">
-        <div class="era-numbers-label">I numeri</div>
-        <p>Referendum dell'11 maggio 2014 a Donetsk e Luhansk: sì dichiarato tra il <strong>79% e oltre il 90%</strong> a seconda della fonte, affluenza stimata attorno al <strong>32%</strong> — nessun dato verificato da osservatori indipendenti. Il 12 maggio la leadership di Donetsk chiede l'annessione alla Russia: richiesta non accolta nell'immediato da Mosca.</p>
-        <div class="era-source">Fonte: ricostruzione da agenzie internazionali dell'epoca (Ansa, Wikipedia — voce "Referendum per l'indipendenza del Donbass del 2014")</div>
+        <p>Il battaglione Azov nasce come formazione volontaria impegnata nel conflitto contro i separatisti filorussi. Le sue origini sono legate all'ambiente del nazionalismo radicale ucraino. È documentata la presenza, tra alcuni fondatori e membri iniziali, di persone associate all'estrema destra e a ideologie ultranazionaliste e, in alcuni casi, neonaziste.</p>
+        <p>Successivamente Azov viene incorporato nella Guardia nazionale ucraina, diventando una formazione militare ufficiale.</p>
       </div>
       <div class="era-numbers" style="border-left-color:var(--navy-deep);">
-        <div class="era-numbers-label">Cosa succede dopo (per completezza)</div>
-        <p>Mosca riconoscerà formalmente l'indipendenza delle "repubbliche popolari" di Donetsk e Luhansk solo il 21 febbraio 2022, pochi giorni prima dell'invasione su vasta scala, firmando contestualmente trattati di "mutua assistenza" — citati poi da Putin tra le giustificazioni dell'attacco del 24 febbraio. L'annessione formale di Donetsk, Luhansk e delle regioni di Zaporizhzhia e Kherson arriverà solo a settembre 2022, dopo nuovi referendum tenuti sotto occupazione militare russa durante la guerra su vasta scala — anch'essi non riconosciuti dalla comunità internazionale.</p>
+        <div class="era-numbers-label">Due generalizzazioni da evitare</div>
+        <p>È documentato che il movimento originario di Azov abbia avuto forti componenti dell'estrema destra; non è invece corretto dedurre da questo che ogni membro di Azov sia nazista o che l'intero esercito ucraino sia nazista.</p>
+        <p>Analogamente, l'esistenza di Azov non dimostra che il governo ucraino sia controllato dall'estrema destra.</p>
       </div>
     </div>
 
     <div class="era">
-      <div class="era-years">2014 – 2022</div>
-      <h2 class="era-title">Otto anni di guerra nel Donbass</h2>
+      <div class="era-years">2014 – 2015</div>
+      <h2 class="era-title">Escalation nel Donbass: Ilovaisk, Debaltseve e il volo MH17</h2>
       <div class="era-body">
-        <p>Nonostante gli accordi di Minsk (2014 e 2015), pensati per congelare il conflitto, gli scontri lungo la linea del fronte nel Donbass proseguono per otto anni a intensità variabile, senza mai fermarsi del tutto — una guerra spesso definita "dimenticata" dalla stampa internazionale perché priva della visibilità mediatica che avrà dopo il 2022.</p>
+        <p>I combattimenti aumentano. Tra le principali battaglie vi sono quelle per Ilovaisk e Debaltseve.</p>
+        <p>Nel 2014 un aereo civile, il Malaysia Airlines MH17, viene abbattuto sopra il Donbass. Morirono tutte le 298 persone a bordo. Le successive indagini internazionali attribuirono il lancio del missile a un sistema Buk proveniente dalla Russia e alla formazione separatista responsabile dell'area di lancio. La Russia ha contestato le conclusioni delle indagini.</p>
+      </div>
+    </div>
+
+    <div class="era">
+      <div class="era-years">5 settembre 2014</div>
+      <h2 class="era-title">Primo accordo di Minsk</h2>
+      <div class="era-body">
+        <p>Viene firmato il Protocollo di Minsk. L'obiettivo è interrompere i combattimenti e creare un percorso politico per il Donbass. Il cessate il fuoco non regge pienamente e i combattimenti continuano.</p>
+      </div>
+    </div>
+
+    <div class="era">
+      <div class="era-years">Febbraio 2015</div>
+      <h2 class="era-title">Minsk II</h2>
+      <div class="era-body">
+        <p>Dopo la nuova escalation militare viene raggiunto un secondo accordo, noto come Minsk II. Il pacchetto prevede, tra le altre cose:</p>
+        <ul><li>cessate il fuoco;</li><li>ritiro delle armi pesanti;</li><li>scambio di prigionieri;</li><li>riforma costituzionale ucraina;</li><li>particolare status per alcune aree di Donetsk e Luhansk;</li><li>ripristino del controllo ucraino del confine con la Russia.</li></ul>
+        <p>Gli accordi non vengono attuati integralmente. Il conflitto entra in una fase di guerra a bassa e media intensità lungo la linea di contatto.</p>
+      </div>
+    </div>
+
+    <div class="era">
+      <div class="era-years">2015 – 2021</div>
+      <h2 class="era-title">La guerra congelata che non era realmente congelata</h2>
+      <div class="era-body">
+        <p>Negli anni successivi il fronte cambia relativamente poco rispetto alla fase iniziale, ma continuano bombardamenti, scontri, vittime militari e civili, mine, violazioni del cessate il fuoco, arresti e detenzioni, e accuse reciproche di violazioni dei diritti umani. Le Nazioni Unite documentano violazioni commesse da entrambe le parti.</p>
+        <p>Questo punto è importante: il fatto che la Russia abbia successivamente lanciato l'invasione del 2022 non significa che tutte le violazioni commesse nel Donbass prima del 2022 siano state commesse esclusivamente da una sola parte. Allo stesso modo, documentare violazioni ucraine non cancella il coinvolgimento russo o separatista.</p>
+      </div>
+    </div>
+
+    <div class="era">
+      <div class="era-years">2019</div>
+      <h2 class="era-title">Zelensky presidente</h2>
+      <div class="era-body">
+        <p>Volodymyr Zelensky vince le elezioni presidenziali ucraine con un'ampia maggioranza. Uno dei temi centrali della sua politica è la ricerca di una soluzione al conflitto nel Donbass. Nel dicembre 2019 Zelensky e Vladimir Putin partecipano a un vertice a Parigi nell'ambito del formato Normandia. Non viene raggiunta una soluzione definitiva.</p>
+      </div>
+    </div>
+
+    <div class="era">
+      <div class="era-years">2020 – 2021</div>
+      <h2 class="era-title">Crescente tensione</h2>
+      <div class="era-body">
+        <p>Nel 2021 la Russia concentra progressivamente grandi quantità di forze militari vicino ai confini dell'Ucraina. Mosca presenta le proprie richieste di sicurezza come risposta all'espansione della Nato e alle proprie preoccupazioni strategiche. Tra le richieste russe vi sono garanzie contro un'ulteriore espansione della Nato verso est e restrizioni alla presenza militare occidentale nell'Europa orientale.</p>
+        <p>Gli Stati Uniti e la Nato respingono le richieste, considerate incompatibili con il principio secondo cui ogni Stato può scegliere liberamente le proprie alleanze. Alla fine del 2021 e all'inizio del 2022 aumentano drasticamente le tensioni.</p>
+      </div>
+    </div>
+
+    <div class="era">
+      <div class="era-years">21 febbraio 2022</div>
+      <h2 class="era-title">Russia riconosce Donetsk e Luhansk</h2>
+      <div class="era-body">
+        <p>Vladimir Putin riconosce formalmente le autoproclamate Repubbliche popolari di Donetsk e Luhansk. La Russia firma con esse accordi di cooperazione e sicurezza. Ucraina, Stati Uniti, Unione europea e altri governi considerano il riconoscimento una violazione della sovranità territoriale ucraina.</p>
+      </div>
+    </div>
+
+    <div class="era">
+      <div class="era-years">24 febbraio 2022</div>
+      <h2 class="era-title">L'invasione su vasta scala</h2>
+      <div class="era-body">
+        <p>Alle prime ore del 24 febbraio 2022 la Russia avvia un'invasione su vasta scala dell'Ucraina. Le operazioni vengono condotte contemporaneamente da più direzioni: nord verso Kyiv, nord-est verso Kharkiv, sud dalla Crimea, est dal Donbass.</p>
+        <p>Putin definisce l'operazione una "operazione militare speciale". Le autorità russe indicano tra le motivazioni la protezione del Donbass, la sicurezza della Russia e la "denazificazione" e "demilitarizzazione" dell'Ucraina. Ucraina e maggioranza degli Stati membri dell'Onu descrivono invece l'azione come un'aggressione e una violazione della sovranità e dell'integrità territoriale ucraina.</p>
+        <p>L'invasione trasforma il conflitto regionale del Donbass in una guerra su scala nazionale e internazionale.</p>
+      </div>
+    </div>
+
+    <div class="era">
+      <div class="era-years">Febbraio – aprile 2022</div>
+      <h2 class="era-title">Kyiv, Kharkiv e il fallimento dell'offensiva settentrionale</h2>
+      <div class="era-body">
+        <p>Le forze russe avanzano verso Kyiv. I combattimenti interessano anche Bucha, Irpin, Hostomel, Chernihiv, Sumy e Kharkiv. L'offensiva russa verso Kyiv non raggiunge l'obiettivo di conquistare la capitale. Tra fine marzo e aprile le forze russe si ritirano dalle regioni settentrionali. Dopo il ritiro vengono scoperte numerose vittime civili nelle aree precedentemente occupate.</p>
+      </div>
+      <div class="era-numbers" style="border-left-color:var(--wine-deep);">
+        <div class="era-numbers-label">Bucha</div>
+        <p>A Bucha vengono rinvenuti numerosi corpi di civili. Le autorità ucraine accusano le forze russe di esecuzioni e altri crimini. Le Nazioni Unite hanno documentato uccisioni di civili e altre gravi violazioni. La Russia respinge le accuse e sostiene che alcune immagini e ricostruzioni siano state manipolate. Le indagini internazionali hanno successivamente documentato numerosi casi di uccisione deliberata di civili e altre violazioni attribuite alle forze russe.</p>
+      </div>
+    </div>
+
+    <div class="era">
+      <div class="era-years">Marzo – aprile 2022</div>
+      <h2 class="era-title">I negoziati</h2>
+      <div class="era-body">
+        <p>Russia e Ucraina avviano diversi cicli di negoziati, anche in Bielorussia e successivamente in Turchia. Vengono discussi: neutralità ucraina, garanzie di sicurezza, status dei territori, futuro della Crimea, Donbass, cessate il fuoco. Non viene raggiunto un accordo definitivo. Le due parti forniscono successivamente versioni differenti sul motivo del fallimento dei negoziati.</p>
+      </div>
+    </div>
+
+    <div class="era">
+      <div class="era-years">Marzo – maggio 2022</div>
+      <h2 class="era-title">Mariupol: assedio, teatro e maternità</h2>
+      <div class="era-body">
+        <p>Mariupol viene circondata dalle forze russe e subisce pesanti bombardamenti: vengono colpiti edifici residenziali, infrastrutture e strutture civili. Tra gli episodi più noti: l'attacco al teatro di Mariupol, l'attacco alla maternità, e l'assedio dell'acciaieria Azovstal. Il numero reale delle vittime dell'assedio rimane incerto; le autorità ucraine stimarono circa 20.000 morti civili nella città, dato non verificato indipendentemente.</p>
+        <p>Il 16 marzo 2022 il teatro drammatico di Mariupol, utilizzato anche come rifugio per civili, viene colpito. Le autorità ucraine affermano che l'edificio fu deliberatamente bombardato dalle forze russe; la Russia nega e sostiene che l'edificio fosse stato utilizzato da combattenti ucraini. Un'indagine di Amnesty International ha concluso che l'attacco fu probabilmente effettuato da forze russe e che vi furono vittime civili. Le stime iniziali di circa 600 morti sono state ampiamente citate, ma non devono essere presentate come un conteggio definitivo verificato.</p>
       </div>
       <div class="era-numbers">
         <div class="era-numbers-label">I numeri</div>
-        <p>Circa <strong>14.000 morti</strong> (di cui almeno 3.000 civili) dal 2014 al 2022; oltre <strong>730.000 sfollati</strong>, di cui 360.000 solo nel 2014, all'apice del conflitto.</p>
-        <div class="era-source">Fonte: Onu</div>
+        <p>Vittime civili complessive dell'assedio: <strong>~20.000</strong> secondo le autorità ucraine (non verificato indipendentemente).</p>
+        <p>Teatro di Mariupol, 16 marzo 2022: <strong>~600 morti</strong> secondo una stima ampiamente citata ma non verificata come bilancio definitivo.</p>
+        <div class="era-source">Fonte: autorità municipali di Mariupol, Amnesty International</div>
+      </div>
+    </div>
+
+    <div class="era">
+      <div class="era-years">Marzo – maggio 2022</div>
+      <h2 class="era-title">Azovstal e la propaganda della "denazificazione"</h2>
+      <div class="era-body">
+        <p>Nell'acciaieria Azovstal si rifugiano combattenti ucraini e civili. Tra i combattenti vi sono membri del Reggimento Azov, insieme ad altre unità ucraine. Dopo settimane di assedio, i combattenti vengono evacuati o si arrendono. La Russia parla di resa; l'Ucraina parla di evacuazione e salvataggio dei militari. Le cifre comunicate dalle parti variano: sono generalmente indicati circa 2.400–2.500 combattenti coinvolti nella resa/evacuazione finale.</p>
+        <p>La presenza di Azov ad Azovstal diventa uno degli elementi centrali della propaganda russa, che sostiene che Azov rappresenti la presenza del nazismo nell'apparato militare ucraino.</p>
+      </div>
+      <div class="era-numbers" style="border-left-color:var(--navy-deep);">
+        <div class="era-numbers-label">Cosa è documentato e cosa no</div>
+        <p>È storicamente documentato che: Azov nasce nel 2014; il movimento originario ha avuto legami con l'estrema destra; alcuni fondatori e membri iniziali avevano ideologie ultranazionaliste e neonaziste; il reparto viene successivamente integrato nella Guardia nazionale.</p>
+        <p>Non è invece dimostrato che: tutti i membri di Azov siano nazisti; l'intero esercito ucraino sia nazista; lo Stato ucraino sia controllato da nazisti; la presenza di Azov costituisca da sola una giustificazione giuridica dell'invasione russa. Sono due questioni diverse.</p>
+      </div>
+    </div>
+
+    <div class="era">
+      <div class="era-years">Giugno – agosto 2022</div>
+      <h2 class="era-title">La guerra si sposta verso est e sud</h2>
+      <div class="era-body">
+        <p>Dopo il fallimento dell'offensiva verso Kyiv, la Russia concentra maggiormente le proprie forze nel Donbass. Le forze russe conquistano progressivamente Severodonetsk, Lysychansk e altre aree del Donbass. La battaglia per il controllo del Donbass diventa sempre più una guerra di artiglieria e logoramento.</p>
+      </div>
+    </div>
+
+    <div class="era">
+      <div class="era-years">Agosto – novembre 2022</div>
+      <h2 class="era-title">Le controffensive ucraine</h2>
+      <div class="era-body">
+        <p>L'Ucraina avvia un'importante controffensiva. A settembre le forze ucraine riconquistano ampie aree nella regione di Kharkiv; il fronte russo nel nord-est collassa in diversi settori. A novembre l'Ucraina riconquista la città di Kherson, costringendo le forze russe a ritirarsi sulla sponda orientale del Dnipro. Sono le principali conquiste territoriali ucraine della guerra dopo l'invasione su vasta scala.</p>
+      </div>
+    </div>
+
+    <div class="era">
+      <div class="era-years">30 settembre 2022</div>
+      <h2 class="era-title">Le annessioni russe</h2>
+      <div class="era-body">
+        <p>La Russia organizza referendum nelle aree occupate di Donetsk, Luhansk, Zaporizhzhia e Kherson. I risultati ufficiali dichiarati dalle autorità russe indicano percentuali di voto favorevoli estremamente elevate. La Russia proclama l'annessione dei quattro territori il 30 settembre 2022, pur non controllando militarmente l'intero territorio delle quattro regioni.</p>
+        <p>L'Assemblea generale dell'Onu condanna l'annessione: 143 favorevoli, 5 contrari, 35 astensioni. L'Onu considera i referendum privi di validità come base per modificare i confini internazionalmente riconosciuti dell'Ucraina.</p>
+      </div>
+    </div>
+
+    <div class="era">
+      <div class="era-years">2023</div>
+      <h2 class="era-title">Guerra di logoramento: Bakhmut, Kakhovka, la rivolta Wagner</h2>
+      <div class="era-body">
+        <p>La battaglia di Bakhmut dura mesi; le forze russe impiegano massicciamente il gruppo Wagner. Nel maggio 2023 Wagner e forze russe dichiarano la conquista della città; l'Ucraina mantiene inizialmente alcune posizioni periferiche e conduce poi operazioni sui fianchi.</p>
+        <p>Il 6 giugno 2023 la diga di Kakhovka viene distrutta, con conseguenze enormi: inondazioni, evacuazioni, morti, danni alle abitazioni, danni agricoli, problemi all'approvvigionamento idrico. Russia e Ucraina si accusano reciprocamente; non esiste un consenso internazionale definitivo che consenta di attribuire con assoluta certezza la responsabilità dell'esplosione a una sola parte.</p>
+        <p>Nello stesso mese, il capo di Wagner Yevgeny Prigozhin accusa il ministero della Difesa russo di incompetenza e lancia una marcia armata verso Mosca; le forze Wagner occupano temporaneamente Rostov sul Don, poi Prigozhin interrompe la marcia dopo una mediazione. Il 23 agosto 2023 Prigozhin muore in un incidente aereo.</p>
+        <p>Tra estate e autunno l'Ucraina lancia una grande controffensiva con l'obiettivo di rompere il corridoio terrestre russo verso la Crimea: ottiene alcuni progressi ma non raggiunge il principale obiettivo operativo, contro difese russe fatte di campi minati, trincee, fortificazioni, ostacoli anticarro, artiglieria e droni. Alla fine del 2023 la linea del fronte rimane sostanzialmente stabile rispetto alle aspettative ucraine iniziali.</p>
+      </div>
+    </div>
+
+    <div class="era">
+      <div class="era-years">2024</div>
+      <h2 class="era-title">La Russia recupera l'iniziativa: Avdiivka, Kursk, la guerra dei droni</h2>
+      <div class="era-body">
+        <p>Il 2024 segna un cambiamento dell'equilibrio militare: l'Ucraina deve affrontare carenza di munizioni e personale, ritardi negli aiuti occidentali, crescente pressione russa. A febbraio le forze russe conquistano Avdiivka, importante centro fortificato del Donetsk, da cui l'esercito ucraino si ritira — una delle principali conquiste russe dopo Bakhmut.</p>
+        <p>Ad aprile, dopo mesi di blocco politico, il Congresso Usa approva un nuovo pacchetto di aiuti all'Ucraina da circa 61 miliardi di dollari, in un momento in cui Kyiv denuncia una grave carenza di munizioni. A maggio la Russia apre una nuova direttrice offensiva nella regione di Kharkiv, per creare pressione sulla seconda città ucraina e costringere Kyiv a spostare truppe dal Donbass: l'offensiva non porta alla conquista di Kharkiv.</p>
+        <p>Il 6 agosto 2024 forze ucraine attraversano il confine internazionale entrando nella regione russa di Kursk — la prima grande operazione militare ucraina su territorio russo internazionalmente riconosciuto dall'inizio dell'invasione. L'Ucraina conquista inizialmente diversi centri abitati; la Russia avvia poi una controffensiva, e il controllo territoriale dell'area cambia più volte nei mesi successivi.</p>
+        <p>Il conflitto entra sempre più nell'era dei droni: entrambe le parti utilizzano droni FPV, da ricognizione, d'attacco, missili a lungo raggio e droni navali. L'Ucraina aumenta gli attacchi contro raffinerie, depositi di carburante, aeroporti militari, infrastrutture energetiche e la flotta russa; la Russia continua una campagna contro rete elettrica, industrie, porti, infrastrutture e città ucraine.</p>
+      </div>
+    </div>
+
+    <div class="era">
+      <div class="era-years">2025</div>
+      <h2 class="era-title">Intensificazione della guerra e nuovi tentativi diplomatici</h2>
+      <div class="era-body">
+        <p>Nel 2025 il conflitto continua senza un accordo politico definitivo. La guerra diventa sempre più caratterizzata da droni a lungo raggio, attacchi alle infrastrutture, bombardamenti missilistici, guerra elettronica, attacchi alle raffinerie e combattimenti nel Donetsk. La Russia mantiene l'iniziativa in diversi settori del fronte; l'Ucraina continua a compensare la relativa inferiorità numerica con droni, attacchi a distanza e sostegno occidentale.</p>
+        <p>Nel corso dell'anno riprendono contatti diplomatici diretti e indiretti tra Russia e Ucraina. I principali ostacoli rimangono: territorio, status dei territori occupati, garanzie di sicurezza, neutralità o rapporto dell'Ucraina con la Nato, sanzioni, condizioni per il cessate il fuoco. Le due parti continuano a mantenere posizioni molto distanti.</p>
+      </div>
+    </div>
+
+    <div class="era">
+      <div class="era-years">Gennaio – febbraio 2026</div>
+      <h2 class="era-title">Nuova fase diplomatica: Abu Dhabi e Ginevra</h2>
+      <div class="era-body">
+        <p>All'inizio del 2026 riprendono negoziati tra Russia, Ucraina e Stati Uniti, con incontri ad Abu Dhabi e successivamente a Ginevra. Il terzo ciclo di colloqui trilaterali si svolge a Ginevra il 17 e 18 febbraio 2026: rappresenta il più importante canale diplomatico multilaterale riaperto dopo anni di guerra, ma non produce un accordo definitivo. Le principali divergenze riguardano ancora territori occupati, garanzie di sicurezza, futuro militare dell'Ucraina, cessate il fuoco e condizioni politiche di un eventuale accordo.</p>
+      </div>
+    </div>
+
+    <div class="era">
+      <div class="era-years">Marzo – giugno 2026</div>
+      <h2 class="era-title">Primavera 2026: aumentano gli attacchi e le vittime civili</h2>
+      <div class="era-body">
+        <p>Durante la primavera del 2026 la guerra aerea si intensifica e l'Ohchr registra un aumento significativo delle vittime civili.</p>
+        <ul><li>Marzo 2026: almeno 216 civili uccisi e 1.242 feriti.</li><li>Aprile 2026: 238 morti e 1.404 feriti — il dato mensile più alto dal luglio 2025.</li><li>Maggio 2026: 274 civili uccisi e 1.763 feriti — il livello mensile più elevato dal 2022, fino a quel momento.</li><li>Giugno 2026: 293 civili uccisi e 1.990 feriti — un totale di 2.283 vittime tra morti e feriti, il livello mensile più alto dall'aprile 2022.</li></ul>
+        <p>Nel primo semestre 2026 l'Onu verifica complessivamente 1.396 civili uccisi e 7.978 feriti: rispetto allo stesso periodo del 2025, le vittime civili risultano aumentate del 37%. Gli attacchi russi contro infrastrutture energetiche e città ucraine continuano; parallelamente l'Ucraina intensifica gli attacchi con droni contro obiettivi militari ed energetici in territorio russo.</p>
+      </div>
+      <div class="era-numbers">
+        <div class="era-numbers-label">I numeri</div>
+        <p>Vedi la sezione "Il costo umano" più sotto per il dettaglio completo dei dati Ohchr mese per mese e il confronto con il 2025.</p>
+        <div class="era-source">Fonte: Ohchr</div>
+      </div>
+    </div>
+
+    <div class="era">
+      <div class="era-years">Luglio 2026</div>
+      <h2 class="era-title">Nuova escalation e il bilancio Csis sulle perdite militari</h2>
+      <div class="era-body">
+        <p>La guerra aerea continua ad aumentare: il 2 luglio Kyiv subisce uno dei più pesanti attacchi russi dell'anno, con centinaia di droni e decine di missili, mentre l'Ucraina continua a colpire obiettivi russi con droni a lungo raggio. Il conflitto assume sempre più le caratteristiche di una guerra industriale basata sulla produzione di massa di droni e missili.</p>
+        <p>Secondo lo studio del Center for Strategic and International Studies (Csis) pubblicato il 1° luglio 2026, tra febbraio 2022 e giugno 2026 la Russia avrebbe subito circa 1,4 milioni di perdite militari complessive (morti, feriti, dispersi), di cui 400.000–450.000 morti; l'Ucraina circa 525.000–625.000 perdite complessive, di cui 125.000–150.000 morti. Il totale delle perdite militari russe e ucraine supera quindi 2 milioni — ma attenzione: 2 milioni non significa 2 milioni di morti. Il termine <em>casualties</em> comprende generalmente morti, feriti e dispersi, e queste cifre sono stime, non conteggi ufficiali verificabili soldato per soldato.</p>
+      </div>
+      <div class="era-numbers">
+        <div class="era-numbers-label">I numeri</div>
+        <p>Vedi la sezione "Il costo umano" più sotto per la tabella completa delle perdite militari stimate dal Csis.</p>
+        <div class="era-source">Fonte: Center for Strategic and International Studies (Csis), <em>"Russian Blood and Treasure: The Ballooning Costs of Putin's War"</em>, 1° luglio 2026</div>
       </div>
     </div>
 
     <div class="era current">
-      <div class="era-years">Dal 24 febbraio 2022</div>
-      <h2 class="era-title">L'invasione su vasta scala</h2>
+      <div class="era-years">14 – 21 agosto 2026</div>
+      <h2 class="era-title">Il Mar Nero, nuovi attacchi e la situazione al 21 agosto</h2>
       <div class="era-body">
-        <p>Il 24 febbraio 2022 la Russia lancia un'invasione su vasta scala dell'Ucraina, ben oltre i confini del Donbass, puntando inizialmente anche sulla capitale Kiev. L'esercito ucraino respinge l'avanzata su Kiev nelle prime settimane, ma il conflitto si trasforma rapidamente in una guerra di logoramento lungo un fronte di centinaia di chilometri, con un costo umano e materiale che nessuna delle due parti diffonde ufficialmente in modo completo — le stime più citate arrivano da governi terzi (Usa, Regno Unito) e da organismi Onu.</p>
-      </div>
-      <div class="era-numbers">
-        <div class="era-numbers-label">I numeri — costo umanitario (a 3 anni dall'invasione, feb. 2025)</div>
-        <p><strong>6,9 milioni di rifugiati</strong> registrati all'estero e <strong>3,7 milioni di sfollati interni</strong> — quasi <strong>11 milioni di persone</strong> costrette a lasciare la propria casa in totale; oltre <strong>42.000 vittime civili</strong> tra morti e feriti, di cui 2.500 bambini; oltre 2 milioni di abitazioni danneggiate o distrutte (~10% del patrimonio immobiliare) e 152 miliardi di dollari di danni alle infrastrutture essenziali.</p>
-        <div class="era-source">Fonte: Onu/Unhcr</div>
-      </div>
-      <div class="era-numbers">
-        <div class="era-numbers-label">I numeri — perdite militari (dato più recente, luglio 2026)</div>
-        <p>Oltre <strong>2 milioni</strong> tra morti e feriti nell'insieme del conflitto in quasi quattro anni e mezzo: la Russia avrebbe perso circa <strong>1,4 milioni</strong> tra morti e feriti (~450.000 morti), l'Ucraina tra <strong>525.000 e 625.000</strong> (125.000-150.000 morti). Nel 2026 le perdite mensili russe oscillerebbero tra 30.000 e 34.000 unità, un ritmo che secondo lo studio supererebbe il tasso di reclutamento russo, stimato in circa 27.000 al mese.</p>
-        <div class="era-source">Fonte: Center for Strategic and International Studies (Csis), su dati Usa/Regno Unito — Mosca e Kiev non diffondono cifre ufficiali complete</div>
+        <p>Il 14 agosto la Turchia propone iniziative diplomatiche per ridurre le ostilità nel Mar Nero. La Russia respinge l'idea di una tregua limitata al traffico marittimo, mentre l'Ucraina sostiene la necessità di proteggere la navigazione commerciale: la situazione nel Mar Nero resta quindi parte integrante del conflitto.</p>
+        <p>Nella notte tra il 17 e il 18 agosto la Russia lancia una nuova grande ondata di droni contro l'Ucraina, mentre l'Ucraina continua le proprie operazioni con droni contro obiettivi in territorio russo. Il fronte terrestre rimane caratterizzato da avanzamenti locali, senza una svolta strategica decisiva. Secondo l'Institute for the Study of War, a metà agosto le forze russe ottengono avanzamenti in alcuni settori, mentre le forze ucraine mantengono capacità offensive locali e continuano gli attacchi a lungo raggio contro il territorio russo.</p>
+        <p>Il 20 agosto 2026 la Russia lancia un grande attacco combinato contro Kyiv e altre zone dell'Ucraina, con missili balistici, missili da crociera e droni: vengono colpite aree residenziali e infrastrutture, con danni anche a una scuola e a una struttura sanitaria pediatrica. Il bilancio comunicato dalle autorità varia nel corso della giornata; le fonti internazionali riportano almeno 15–16 morti e decine di feriti. L'attacco evidenzia nuovamente la difficoltà ucraina nel contrastare i missili balistici a causa della limitata disponibilità di intercettori Patriot.</p>
+        <p>Alla data del 21 agosto 2026, la guerra non è terminata: non esiste un cessate il fuoco generale e permanente. Le forze russe controllano circa il 20% del territorio internazionalmente riconosciuto dell'Ucraina, includendo Crimea e territori occupati nel Donbass e nel sud — la percentuale esatta varia in funzione dei criteri utilizzati e dei cambiamenti del fronte. I negoziati rimangono aperti ma senza un accordo definitivo: il vice ministro degli Esteri russo Sergei Ryabkov ha dichiarato il 21 agosto che Mosca è disponibile a valutare nuove proposte, purché tengano conto delle "realtà sul terreno" — il che non equivale a un accordo di pace né a un cessate il fuoco.</p>
       </div>
     </div>
 
   </div>
 
-  <div class="cumulative-box">
-    <div class="k">Il quadro d'insieme</div>
-    <p>Anche qui, come per Gaza, sommare cifre di fasi e fonti diverse rischia di essere fuorviante — per questo ogni numero resta agganciato alla propria fase e fonte. Ma il confronto tra le due fasi resta comunque netto: gli otto anni di guerra "a bassa intensità" nel Donbass (2014-2022) hanno provocato circa 14.000 morti in totale; <strong>l'invasione su vasta scala dal 2022, da sola, ha già superato il milione di morti tra le due parti nei soli quattro anni e mezzo successivi</strong> — un salto di scala che rende il 2022 lo spartiacque assoluto di questo conflitto, non un episodio tra tanti.</p>
+  <div class="section-block">
+    <div class="block-kicker">Il costo umano</div>
+    <h2 class="block-title">I numeri, tutti insieme</h2>
+
+    <h3 class="sub-title">Vittime civili dal 24 febbraio 2022</h3>
+    <p>Secondo l'Ohchr, al 31 luglio 2026 risultavano verificati <strong>16.874 civili uccisi</strong> e <strong>51.273 civili feriti</strong>, per un totale di <strong>68.147</strong> vittime civili verificate. L'Onu precisa che il numero reale è probabilmente maggiore, soprattutto nelle zone occupate o nelle aree nelle quali gli investigatori non hanno potuto accedere.</p>
+    <p>Nel solo luglio 2026 sono stati verificati <strong>437 civili uccisi</strong> e <strong>2.610 feriti</strong> — il dato mensile più alto di morti civili verificati dall'Onu dal maggio 2022.</p>
+
+    <h3 class="sub-title">Vittime civili 2014–2021</h3>
+    <p>Per il periodo 14 aprile 2014 – 31 dicembre 2021, l'Ohchr stima <strong>14.200–14.400 morti complessivi</strong>, di cui circa 3.404 civili, 4.400 militari ucraini e 6.500 membri delle forze armate o gruppi armati separatisti. Il numero complessivo di persone uccise e ferite viene stimato in circa <strong>51.000–54.000</strong>. Questi dati comprendono anche le vittime dell'MH17.</p>
+
+    <h3 class="sub-title">Perdite militari dal 2022</h3>
+    <p>Le perdite militari sono molto più difficili da determinare: né Russia né Ucraina pubblicano un conteggio completo e indipendentemente verificabile delle proprie perdite. La stima Csis aggiornata al giugno 2026 indica:</p>
+    <table class="loss-table">
+      <tr><th></th><th>Russia</th><th>Ucraina</th></tr>
+      <tr><td>Perdite complessive<br><span style="font-weight:400; color:var(--ink-soft); font-size:12.5px;">(morti + feriti + dispersi)</span></td><td>~1,4 milioni</td><td>525.000–625.000</td></tr>
+      <tr><td style="background:#eee4d0;"><strong>Di cui morti</strong></td><td style="background:#eee4d0;"><strong>400.000–450.000</strong></td><td style="background:#eee4d0;"><strong>125.000–150.000</strong></td></tr>
+      <tr><td>Periodo</td><td colspan="2">Febbraio 2022 – giugno 2026</td></tr>
+    </table>
+    <p>Totale perdite militari stimate: <strong>oltre 2 milioni</strong>. Totale morti militari stimati: <strong>circa 525.000–600.000</strong> secondo gli intervalli Csis. Questi ultimi numeri sono stime e non devono essere presentati come un conteggio ufficiale.</p>
+    <div class="era-source">Fonte per le perdite militari: Center for Strategic and International Studies (Csis), <em>"Russian Blood and Treasure: The Ballooning Costs of Putin's War"</em>, 1° luglio 2026. (L'Ohchr, citato altrove in questa pagina, è la fonte per le vittime civili, non per le perdite militari.)</div>
+  </div>
+
+  <div class="section-block">
+    <div class="block-kicker">Sfollamento</div>
+    <h2 class="block-title">Rifugiati e sfollati</h2>
+    <p>La guerra ha prodotto uno dei più grandi spostamenti di popolazione in Europa dalla Seconda guerra mondiale. Milioni di cittadini ucraini hanno lasciato il Paese; altri milioni sono stati sfollati internamente. Le cifre cambiano continuamente perché alcune persone rientrano, altre ripartono e altre ancora si spostano all'interno dell'Ucraina — per questo rifugiati e sfollati non devono essere sommati semplicemente come se fossero sempre categorie completamente separate.</p>
+  </div>
+
+  <div class="section-block">
+    <div class="block-kicker">Geografia del conflitto</div>
+    <h2 class="block-title">Territori controllati</h2>
+    <p>La situazione territoriale è cambiata profondamente durante la guerra. La Russia controlla o rivendica la Crimea, gran parte di Luhansk, e porzioni di Donetsk, Zaporizhzhia e Kherson, considerandoli parte della Federazione Russa. L'Ucraina considera la Crimea e i territori occupati parte integrante del proprio territorio nazionale. La maggioranza della comunità internazionale non riconosce le annessioni russe.</p>
+  </div>
+
+  <div class="section-block">
+    <div class="block-kicker">Il contesto dell'Alleanza atlantica</div>
+    <h2 class="block-title">Nato e allargamento dell'alleanza</h2>
+    <p>L'espansione della Nato rappresenta uno degli elementi centrali della spiegazione russa della guerra: Mosca la considera una minaccia strategica. Gli Stati Nato sostengono invece che l'adesione dei singoli Paesi sia una scelta sovrana. Dopo l'invasione russa, Finlandia (2023) e Svezia (2024) hanno abbandonato la precedente posizione di non appartenenza alla Nato: la guerra ha quindi prodotto anche l'effetto opposto rispetto all'obiettivo dichiarato da Mosca di impedire l'ulteriore espansione dell'alleanza.</p>
+  </div>
+
+  <div class="section-block">
+    <div class="block-kicker">Diritto internazionale</div>
+    <h2 class="block-title">Crimini di guerra e violazioni</h2>
+    <p>Nel corso del conflitto sono state documentate violazioni del diritto internazionale umanitario da entrambe le parti. Le Nazioni Unite e altre organizzazioni hanno documentato, tra gli altri: uccisioni di civili, torture, maltrattamenti, detenzioni arbitrarie, violenze sessuali, trasferimenti forzati, attacchi contro infrastrutture civili. La quantità e la natura delle violazioni documentate differiscono nei vari periodi e nelle varie aree.</p>
+    <p>La presenza di violazioni da parte ucraina non annulla quelle attribuite alla Russia. La presenza di violazioni russe non significa che ogni azione compiuta dalle forze russe costituisca automaticamente un crimine di guerra. Ogni episodio deve essere valutato sulla base delle prove disponibili.</p>
+  </div>
+
+  <div class="section-block">
+    <div class="block-kicker">Sintesi</div>
+    <h2 class="block-title">Il quadro al 21 agosto 2026</h2>
+    <p>Dopo oltre dodici anni dall'inizio del conflitto armato nel 2014 e oltre quattro anni dall'invasione su vasta scala del 2022: la Crimea rimane sotto controllo russo; la Russia controlla una parte significativa del Donbass e del sud-est dell'Ucraina; l'Ucraina continua a controllare la maggior parte del proprio territorio; il fronte rimane attivo; la Russia mantiene una significativa capacità offensiva; l'Ucraina mantiene capacità difensive e di attacco a lunga distanza; entrambe le parti impiegano massicciamente droni; gli attacchi contro città e infrastrutture continuano; i negoziati proseguono senza un accordo definitivo; non esiste un cessate il fuoco generale; il problema territoriale rimane il principale ostacolo politico.</p>
+    <p>Il 21 agosto 2026 Mosca afferma di essere disposta a considerare nuove proposte diplomatiche, ma insiste sul fatto che qualsiasi accordo debba tenere conto della situazione territoriale esistente.</p>
   </div>
 
   <div class="two-views">
     <div class="view left">
-      <div class="view-tag">Prospettiva ucraina / occidentale</div>
-      <p>L'invasione del 2022 è un atto di aggressione non provocato contro uno Stato sovrano, in violazione del diritto internazionale, che arriva dopo otto anni in cui la Russia aveva già annesso la Crimea e sostenuto militarmente i separatisti nel Donbass. Kiev e i suoi alleati occidentali la definiscono una guerra di conquista territoriale mascherata da "operazione speciale", e ne chiedono la fine con il ritiro delle truppe russe dai territori occupati.</p>
+      <div class="view-tag">Prospettiva russa</div>
+      <p>Mosca sostiene che le proprie azioni siano motivate principalmente da sicurezza nazionale, espansione della Nato, protezione delle popolazioni russofone, il conflitto nel Donbass, opposizione all'integrazione militare dell'Ucraina con l'Occidente, e la necessità di "demilitarizzare" e "denazificare" l'Ucraina. La Russia considera inoltre Crimea e le quattro regioni annesse nel 2022 parte del proprio territorio.</p>
+      <p>La Russia utilizza inoltre la storia e l'ideologia originaria del movimento Azov come uno degli elementi della propria narrativa sulla "denazificazione": è documentato che Azov ebbe effettivamente origini nell'estrema destra, ma non è supportato dai dati disponibili affermare che ciò equivalga a definire nazista l'intero esercito o lo Stato ucraino. Queste sono le posizioni dichiarate dal governo russo, non fatti automaticamente accertati.</p>
     </div>
     <div class="view right">
-      <div class="view-tag">Prospettiva russa</div>
-      <p>Mosca giustifica ufficialmente l'intervento come una risposta necessaria all'espansione della Nato verso i propri confini e alla tutela delle popolazioni russofone del Donbass, che il Cremlino sostiene fossero vittime di discriminazioni da parte di Kiev dal 2014. Il governo russo respinge la definizione di "invasione", parlando di "operazione militare speciale", e considera l'annessione di Crimea e territori del Donbass una scelta legittimata da referendum, non riconosciuti a livello internazionale.</p>
+      <div class="view-tag">Prospettiva ucraina e occidentale</div>
+      <p>Kyiv sostiene che la Russia abbia violato la sovranità ucraina; che la Crimea sia stata occupata e annessa illegalmente; che il sostegno russo ai separatisti abbia contribuito all'inizio della guerra nel Donbass; che l'invasione del 2022 costituisca un'aggressione; che i territori occupati debbano essere restituiti all'Ucraina; e che l'Ucraina debba ricevere garanzie di sicurezza.</p>
+      <p>Gli Stati Uniti, l'Unione europea e la maggioranza degli Stati membri dell'Onu hanno sostenuto l'integrità territoriale dell'Ucraina, e considerano le motivazioni russe relative alla "denazificazione" non sufficienti a giustificare l'invasione.</p>
     </div>
   </div>
 
+  <div class="cumulative-box">
+    <div class="k">Conclusione</div>
+    <p>La guerra russo-ucraina non può essere descritta correttamente né come un conflitto iniziato improvvisamente il 24 febbraio 2022, né come un conflitto nel quale una sola parte abbia commesso tutte le violazioni precedenti all'invasione.</p>
+    <p>La sequenza documentata è: 2014 &rarr; crisi politica ucraina &rarr; occupazione e annessione russa della Crimea &rarr; guerra nel Donbass &rarr; Minsk &rarr; otto anni di conflitto a bassa intensità &rarr; concentrazione delle forze russe nel 2021 &rarr; riconoscimento russo di Donetsk e Luhansk &rarr; invasione su vasta scala del 24 febbraio 2022 &rarr; fallimento dell'offensiva russa verso Kyiv &rarr; conquista di Mariupol &rarr; controffensive ucraine del 2022 &rarr; guerra di logoramento del 2023–2025 &rarr; nuovi tentativi diplomatici nel 2026 &rarr; guerra ancora in corso al 21 agosto 2026.</p>
+    <p>I dati disponibili mostrano inoltre una differenza fondamentale tra morti e perdite complessive. Per il periodo 2014–2021 l'Ohchr stima circa <strong>14.200–14.400 morti</strong>. Dal 24 febbraio 2022 l'Onu ha verificato <strong>16.874 civili morti</strong> e <strong>51.273 feriti</strong> fino al 31 luglio 2026, avvertendo che il numero reale è probabilmente superiore. Per le perdite militari, il Csis stima oltre <strong>2 milioni</strong> di casualties complessive russe e ucraine fino a giugno 2026 — una cifra che comprende morti, feriti e dispersi, e non equivale a 2 milioni di morti.</p>
+    <p>Al 21 agosto 2026, quindi, il conflitto rimane aperto: non esiste ancora un accordo di pace definitivo né un cessate il fuoco generale, mentre continuano combattimenti, attacchi missilistici e con droni, e negoziati diplomatici.</p>
+  </div>
+
   <div class="sources-box">
-    <h3>Fonti citate in questa pagina</h3>
+    <h3>Fonti principali</h3>
     <ul>
-      <li>Onu — bilancio vittime e sfollati Donbass 2014-2022</li>
-      <li>Onu/Unhcr — costo umanitario dell'invasione su vasta scala (dato a 3 anni, febbraio 2025)</li>
-      <li>Center for Strategic and International Studies (Csis) — perdite militari complessive (dato luglio 2026), basato su fonti Usa e Regno Unito</li>
+      <li>Ohchr / Missione Onu per il monitoraggio dei diritti umani in Ucraina — vittime civili, violazioni dei diritti umani e dati sul conflitto dal 2014</li>
+      <li>Csis — Center for Strategic and International Studies, <em>"Russian Blood and Treasure: The Ballooning Costs of Putin's War"</em> — stime sulle perdite militari, 1° luglio 2026</li>
+      <li>Nazioni Unite / Assemblea generale — risoluzioni su Crimea e annessioni del 2022</li>
+      <li>Corte europea dei diritti dell'uomo — valutazioni sul controllo russo della Crimea</li>
+      <li>Amnesty International — documentazione sulle violazioni commesse durante il conflitto</li>
+      <li>Institute for the Study of War — aggiornamenti sulla situazione militare e sul fronte nel 2026</li>
+      <li>Reuters, AP, The Guardian — cronaca degli sviluppi militari e diplomatici più recenti</li>
+      <li>House of Commons Library — cronologia generale del conflitto 2014–2026</li>
     </ul>
   </div>
 
 </div>
+
 
 <footer>
   <a href="index.html" class="footer-back">&larr; Tutti i dossier "Guerre"</a>
   <a href="../index.html" class="footer-back">&larr; Torna a Il Contribuente</a>
   <div class="footer-legal">
     <p>Pubblicazione indipendente e personale, priva di finalità commerciali. Non sono presenti pubblicità, abbonamenti, sponsorizzazioni o finanziamenti di alcun tipo, pubblici o privati.</p>
-    <p>I contenuti pubblicati costituiscono sintesi originali e rielaborazioni redazionali di notizie di pubblico dominio, diffuse da fonti terze regolarmente citate accanto a ciascun contenuto. Non viene riprodotto integralmente alcun testo, titolo, fotografia o materiale protetto da diritto d'autore appartenente alle fonti citate. Si invita alla consultazione delle fonti originali.</p>
-    <p>Le sintesi riportano posizioni e opinioni riconducibili esclusivamente alle fonti citate, non a chi cura questa pubblicazione, il cui intento è offrire un quadro informativo comparato e non esprimere posizioni editoriali proprie.</p>
+    <p>I contenuti pubblicati costituiscono sintesi originali e rielaborazioni redazionali di informazioni di pubblico dominio, diffuse da fonti terze regolarmente citate. Le sintesi distinguono, ove possibile, tra fatti documentati, stime e posizioni delle parti.</p>
+    <p>Le posizioni russe, ucraine e occidentali riportate nella pagina appartengono alle rispettive fonti e non costituiscono necessariamente la posizione editoriale di chi cura la pubblicazione.</p>
     <p>Eventuali richieste di rettifica o rimozione di contenuti possono essere inoltrate a <a href="mailto:ilcontribuente@gmail.com" style="color:var(--ink-soft);">ilcontribuente@gmail.com</a>.</p>
   </div>
 </footer>
